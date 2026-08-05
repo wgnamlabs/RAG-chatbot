@@ -27,25 +27,25 @@ class EmbedderConfig:
 # ---------------------------------------------------------------------------
 MODELS_TO_COMPARE = [
     EmbedderConfig(
-        model_name="BAAI/bge-m3",
-        batch_size=32,
-        max_seq_length=1024,  # <- đây giờ là mức sàn, quyết định max_chunk_tokens ở trên
-        device="cuda",
-        note="Baseline đa ngôn ngữ, không chuyên Việt",
-    ),
-    EmbedderConfig(
-        model_name="AITeamVN/Vietnamese_Embedding",
+        model_name="AITeamVN/Vietnamese_Embedding_v2",
         batch_size=32,
         max_seq_length=2048,
         device="cuda",
-        note="Model chuyên Việt, kết quả tốt nhất trong benchmark trước",
+        note="Bản nâng cấp trực tiếp của model bạn từng test — so sánh v1 vs v2",
     ),
     EmbedderConfig(
-        model_name="dangvantuan/vietnamese-document-embedding",
-        batch_size=16,
-        max_seq_length=8192,
+        model_name="Qwen/Qwen3-Embedding-4B",
+        batch_size=4,           # giảm mạnh so với 32 vì model 4B, T4 chỉ 16GB VRAM
+        max_seq_length=2048,    # đủ dùng, không cần tận dụng hết 32K (tốn VRAM vô ích)
         device="cuda",
-        trust_remote_code=True,
-        note="Model mới, context dài, cùng họ với model dùng để chunk",
+        trust_remote_code=False,  # Qwen3-Embedding không cần custom code
+        note="Model lớn, đa ngôn ngữ, thay thế dangvantuan do lỗi CUDA RoPE assert",
+    ),
+    EmbedderConfig(
+        model_name="nvidia/Nemotron-3-Embed-8B-BF16",
+        batch_size=2,          # cẩn thận VRAM
+        max_seq_length=2048,   # giới hạn để tránh OOM trên T4
+        device="cuda",
+        note="SOTA đa ngôn ngữ 2026, đại diện 'model mạnh nhất khả thi trên T4'",
     ),
 ]

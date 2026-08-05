@@ -4,8 +4,8 @@ from typing import Callable, List, Literal
 
 @dataclass
 class SemanticChunkerConfig:
-    embedding_model_name: str = "dangvantuan/vietnamese-document-embedding"
-    trust_remote_code: bool = True
+    embedding_model_name: str = "AITeamVN/Vietnamese_Embedding_v2"
+    trust_remote_code: bool = False
 
     breakpoint_threshold_type: Literal[
         "percentile", "standard_deviation", "interquartile", "gradient"
