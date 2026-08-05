@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-phu-san-chatbot"
+version = "0.1.0"
+description = "RAG chatbot tư vấn bệnh nhân tại bệnh viện phụ sản, sử dụng dữ liệu từ giáo trình và phác đồ điều trị."
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,218 @@
+# ============================================================
+# Tất cả lệnh có thể chạy trong dự án RAG Phụ Sản
+# ============================================================
+# Chạy từ thư mục gốc: d:\rag-phu-san-chatbot\
+# Kích hoạt venv trước: .venv\Scripts\activate
+# ============================================================
+
+
+# ── CÀI ĐẶT ─────────────────────────────────────────────────
+
+# Tạo virtual environment
+python -m venv .venv
+
+# Kích hoạt venv (Windows)
+.venv\Scripts\activate
+
+# Cài thư viện (lần đầu) — PowerShell: chạy từng lệnh riêng (không dùng &&)
+pip install -r requirements.txt
+pip install -e .
+
+# [Windows] Nếu underthesea lỗi, thử cài qua conda hoặc dùng pyvi:
+pip install underthesea
+# Nếu vẫn lỗi: pip install pyvi  (fallback tokenizer)
+
+# Kiểm tra phiên bản đã cài
+pip show docling sentence-transformers qdrant-client rank-bm25 underthesea ragas streamlit
+
+
+# ── TẢI MODEL ────────────────────────────────────────────────
+
+# 1. Embedding models (tự động tải khi chạy lần đầu qua HuggingFace)
+#    - AITeamVN/Vietnamese_Embedding   (model mặc định, dùng xuyên suốt)
+#    - BAAI/bge-m3                     (baseline, đã dùng trong run_embedding_eval)
+#    - intfloat/multilingual-e5-large  (đã dùng trong run_embedding_eval)
+# Cài HuggingFace CLI để tải thủ công nếu cần:
+pip install huggingface-hub
+huggingface-cli download AITeamVN/Vietnamese_Embedding
+huggingface-cli download BAAI/bge-m3
+huggingface-cli download intfloat/multilingual-e5-large
+
+# 2. Reranker model (tự động tải khi chạy lần đầu)
+#    - BAAI/bge-reranker-v2-m3 (~1.1GB, multilingual cross-encoder)
+huggingface-cli download BAAI/bge-reranker-v2-m3
+
+# 3. Ollama models — Query Rewriting + Generation
+#    Cài Ollama: https://ollama.ai/download
+#    Kiểm tra Ollama đang chạy:
+ollama list
+ollama serve   # Nếu chưa chạy, mở terminal khác và giữ nguyên
+
+#    Tải model (cần ~5GB disk mỗi model):
+ollama pull qwen2.5:7b          # Query Rewriter + Generation (cùng 1 model)
+# Nếu RAM hạn chế (< 8GB), thử:
+# ollama pull qwen2.5:3b
+
+
+# ── STAGE 1A: LOADER (PDF → Markdown) ────────────────────────
+
+# Chạy loader cho tất cả file PDF trong data/raw/ → lưu vào data/interim/
+python src/indexing/loader.py
+
+# Chạy loader cho 1 file cụ thể
+python src/indexing/loader.py "data/raw/ten_file.pdf"
+
+# Ép OCR toàn bộ trang (dùng khi file scan không có text layer)
+python src/indexing/loader.py "data/raw/ten_file.pdf" --force_ocr
+
+
+# ── STAGE 1B: CLEANER (Markdown → Markdown sạch) ─────────────
+
+# Chạy cleaner cho tất cả file trong data/interim/ → lưu vào data/cleaned/
+python src/indexing/cleaner.py
+
+# Chạy loader cho 1 file cụ thể
+python src/indexing/cleaner.py "data/interim/ten_file.md"
+
+
+# ── EVALUATION: CHUNKING ─────────────────────────────────────
+
+# Chạy 2 chunker (Hierarchical + Semantic) trên data/cleaned/
+# → lưu cache JSON vào evaluation/results/chunks_cache/
+python evaluation/run_chunking_eval.py
+
+
+# ── EVALUATION: EMBEDDING MODEL ──────────────────────────────
+
+# Benchmark 3 embedding model × 2 chunker (dùng GPU nếu có)
+# → lưu kết quả vào evaluation/results/comparison_matrix.csv
+python evaluation/run_embedding_eval.py
+
+
+# ── BƯỚC 1: KHỞI ĐỘNG QDRANT (Docker) ───────────────────────
+# Chạy Qdrant server bằng Docker — giữ terminal này mở trong suốt quá trình làm việc
+# Dữ liệu lưu qua volume mount → data/vector_db/qdrant/ (persist qua các lần restart)
+#
+# Cổng:
+#   6333 → REST API
+#   6334 → Web Dashboard (xem collection, vector, filter trực tiếp)
+
+docker run -p 6333:6333 -p 6334:6334 `
+    -v D:/rag-phu-san-chatbot/data/vector_db/qdrant:/qdrant/storage `
+    qdrant/qdrant
+
+# Kiểm tra Qdrant đã chạy chưa:
+curl http://localhost:6333/collections
+
+# Xem Dashboard tại: http://localhost:6334/dashboard
+
+
+# ── BƯỚC 1B: BUILD INDEX (chạy sau khi Qdrant Docker đang chạy) ──
+# Index toàn bộ corpus → Qdrant collection + BM25 pickle
+# → BM25: data/vector_db/bm25_index.pkl
+
+# Dùng cài đặt mặc định (semantic chunker + Vietnamese_Embedding + GPU):
+python evaluation/build_vector_store.py
+
+# Dùng CPU (nếu không có GPU):
+python evaluation/build_vector_store.py --device cpu
+
+# Dùng hierarchical chunker:
+python evaluation/build_vector_store.py --chunker hierarchical
+
+# Rebuild lại từ đầu (xoá collection cũ):
+python evaluation/build_vector_store.py --recreate
+
+
+# ── BƯỚC 2: BM25 EVALUATION ──────────────────────────────────
+# Chạy BM25-only retrieval, append vào comparison_matrix.csv
+
+python evaluation/run_bm25_eval.py
+# → Kết quả append vào evaluation/results/comparison_matrix.csv
+#   (chunker=bm25, embedding_model=-)
+
+
+# ── BƯỚC 3: HYBRID RETRIEVAL EVALUATION ──────────────────────
+# So sánh: Dense-only vs BM25-only vs Hybrid (RRF k=60)
+# → evaluation/results/retrieval_comparison.csv
+
+python evaluation/run_hybrid_eval.py
+python evaluation/run_hybrid_eval.py --device cpu  # Nếu không có GPU
+
+
+# ── BƯỚC 4: RERANKER EVALUATION ──────────────────────────────
+# So sánh: Hybrid vs Hybrid+Rerank@5 vs Hybrid+Rerank@3
+# → append vào evaluation/results/retrieval_comparison.csv
+
+python evaluation/run_rerank_eval.py
+python evaluation/run_rerank_eval.py --device cpu
+python evaluation/run_rerank_eval.py --candidate_k 30  # Lấy 30 candidates trước rerank
+
+
+# ── BƯỚC 5: ERROR ANALYSIS ───────────────────────────────────
+# Phân tích câu hỏi bị miss sau Hybrid+Rerank
+# → evaluation/results/error_analysis_report.md
+
+python evaluation/error_analysis.py
+python evaluation/error_analysis.py --device cpu --candidate_k 20 --final_k 10
+
+
+# ── BƯỚC 9: RAGAS END-TO-END EVALUATION ──────────────────────
+# QUAN TRỌNG: Cần Ollama đang chạy + qwen2.5:7b đã pull
+# Tính: faithfulness, answer_relevancy, context_precision
+# → evaluation/results/ragas_scores.csv
+
+# Pipeline đầy đủ (rewrite + rerank):
+python evaluation/run_ragas_eval.py
+
+# Pipeline đơn giản (không rewrite, không rerank):
+python evaluation/run_ragas_eval.py --no_rewrite --no_rerank
+
+# Test nhanh chỉ 5 câu hỏi:
+python evaluation/run_ragas_eval.py --n_questions 5
+
+# Chạy CPU:
+python evaluation/run_ragas_eval.py --device cpu
+
+
+# ── BƯỚC 10: STREAMLIT UI ────────────────────────────────────
+# QUAN TRỌNG: Cần Ollama đang chạy + build_vector_store.py đã chạy xong
+
+streamlit run app.py
+
+# Mở browser tại: http://localhost:8501
+
+
+# ── KIỂM TRA NHANH PIPELINE (CLI) ────────────────────────────
+# Test pipeline từ Python interactive:
+
+python -c "
+import sys
+from pathlib import Path
+sys.path.insert(0, 'src')
+from generation.rag_pipeline import RAGPipeline
+pipeline = RAGPipeline.from_base_path(Path('.'), enable_guardrails=False)
+resp = pipeline.run('đái tháo đường thai kỳ được chẩn đoán như thế nào?')
+print('Answer:', resp.answer[:300])
+print('Sources:', resp.sources)
+"
+
+
+# ── THỨ TỰ CHẠY ĐẦY ĐỦ (từ đầu đến cuối) ────────────────────
+
+# 1.  pip install -r requirements.txt
+# 2.  pip install -e .
+# 3.  ollama pull qwen2.5:7b
+# 4.  huggingface-cli download AITeamVN/Vietnamese_Embedding
+# 5.  huggingface-cli download BAAI/bge-reranker-v2-m3
+# 6.  python src/indexing/loader.py
+# 7.  python src/indexing/cleaner.py
+# 8.  python evaluation/run_chunking_eval.py
+# 9.  python evaluation/run_embedding_eval.py       # (tuỳ chọn, đã chạy trước)
+# 10. python evaluation/build_vector_store.py       # BẮT BUỘC trước bước tiếp theo
+# 11. python evaluation/run_bm25_eval.py
+# 12. python evaluation/run_hybrid_eval.py
+# 13. python evaluation/run_rerank_eval.py
+# 14. python evaluation/error_analysis.py
+# 15. python evaluation/run_ragas_eval.py           # Cần Ollama chạy
+# 16. streamlit run app.py                          # Cần Ollama chạy
