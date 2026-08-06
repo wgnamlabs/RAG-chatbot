@@ -10,6 +10,15 @@ class EmbedderConfig:
     trust_remote_code: bool = False
     note: str = ""
 
+    # ------------------------------------------------------------------
+    # Auto-batch: nếu True, encoder sẽ TỰ ĐỘNG lùi batch_size khi gặp
+    # CUDA OutOfMemoryError, bắt đầu từ batch_size ở trên rồi giảm dần
+    # cho tới min_batch_size. Bật cho các model nặng (4B/8B) để tận dụng
+    # tối đa VRAM còn dư mà không lo crash giữa chừng trên Colab.
+    # ------------------------------------------------------------------
+    auto_batch: bool = False
+    min_batch_size: int = 1
+
 
 # ---------------------------------------------------------------------------
 # Danh sách 3 model so sánh (cùng hạng cân ~560M tham số):
@@ -35,17 +44,28 @@ MODELS_TO_COMPARE = [
     ),
     EmbedderConfig(
         model_name="Qwen/Qwen3-Embedding-4B",
-        batch_size=4,           # giảm mạnh so với 32 vì model 4B, T4 chỉ 16GB VRAM
-        max_seq_length=2048,    # đủ dùng, không cần tận dụng hết 32K (tốn VRAM vô ích)
+        # Tăng từ 4 lên 16: log thực tế cho thấy VRAM còn dư ~5GB ở batch=4
+        # (9.7/15.0GB đã dùng). Bật auto_batch để tự lùi 16 -> 8 -> 4 -> 2
+        # nếu gặp OOM (do chunk dài không đều trong corpus), tránh phải
+        # đoán thủ công và tránh crash giữa chừng.
+        batch_size=16,
+        max_seq_length=2048,
         device="cuda",
         trust_remote_code=False,  # Qwen3-Embedding không cần custom code
         note="Model lớn, đa ngôn ngữ, thay thế dangvantuan do lỗi CUDA RoPE assert",
+        auto_batch=True,
+        min_batch_size=2,
     ),
     EmbedderConfig(
         model_name="nvidia/Nemotron-3-Embed-8B-BF16",
-        batch_size=2,          # cẩn thận VRAM
+        # Model 8B nặng gần gấp đôi Qwen3-4B -> tăng thận trọng hơn, từ 2 lên 6.
+        # Bắt buộc bật auto_batch vì model này sát giới hạn VRAM T4 (16GB),
+        # rủi ro OOM cao hơn hẳn 2 model còn lại.
+        batch_size=6,
         max_seq_length=2048,   # giới hạn để tránh OOM trên T4
         device="cuda",
         note="SOTA đa ngôn ngữ 2026, đại diện 'model mạnh nhất khả thi trên T4'",
+        auto_batch=True,
+        min_batch_size=1,
     ),
 ]
