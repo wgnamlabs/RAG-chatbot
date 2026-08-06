@@ -57,15 +57,14 @@ MODELS_TO_COMPARE = [
         min_batch_size=2,
     ),
     EmbedderConfig(
-        model_name="nvidia/Nemotron-3-Embed-8B-BF16",
-        # Model 8B nặng gần gấp đôi Qwen3-4B -> tăng thận trọng hơn, từ 2 lên 6.
-        # Bắt buộc bật auto_batch vì model này sát giới hạn VRAM T4 (16GB),
-        # rủi ro OOM cao hơn hẳn 2 model còn lại.
-        batch_size=6,
-        max_seq_length=2048,   # giới hạn để tránh OOM trên T4
+        model_name="Alibaba-NLP/gte-Qwen2-1.5B-instruct",
+        batch_size=16,           # nhẹ hơn Qwen3-4B nhiều, có thể để cao ngay từ đầu
+        max_seq_length=2048,     # model hỗ trợ rất dài nhưng không cần dùng hết
         device="cuda",
-        note="SOTA đa ngôn ngữ 2026, đại diện 'model mạnh nhất khả thi trên T4'",
-        auto_batch=True,
-        min_batch_size=1,
+        trust_remote_code=True,  # bắt buộc — model dùng custom modeling code
+        note="Thay thế Nemotron-8B (không fit T4). Mid-size 1.5B, an toàn VRAM, "
+             "đại diện mốc quy mô giữa AITeamVN (560M) và Qwen3-4B.",
+        auto_batch=True,         # vẫn giữ phòng hờ dù VRAM dư nhiều
+        min_batch_size=2,
     ),
 ]

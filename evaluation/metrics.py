@@ -1,9 +1,34 @@
+import unicodedata
 from typing import List, Dict, Any
 
 
 def get_doc_id(doc_metadata: Dict[str, Any]) -> str:
-    """Trích ID tài liệu từ metadata chunk — dùng trường 'source'."""
-    return str(doc_metadata.get("source", doc_metadata.get("file_name", "")))
+    """Trích ID tài liệu từ metadata chunk — dùng trường 'source'.
+
+    QUAN TRỌNG: chuẩn hoá về Unicode NFC trước khi trả về.
+
+    Nguyên nhân: một số filename tiếng Việt (ví dụ file .md của tài liệu
+    "Đái tháo đường thai kỳ") được lưu ở dạng NFD (tổ hợp: ký tự gốc +
+    dấu rời, ví dụ "a" + "̉" + "n") do quá trình convert/đổi tên trên
+    Windows, trong khi ground_truth_sources trong eval_questions.json lại
+    ở dạng NFC (đã ghép sẵn, ví dụ "ả"). Hai chuỗi NHÌN GIỐNG HỆT NHAU khi
+    hiển thị nhưng so sánh bằng == luôn trả về False, khiến MỌI câu hỏi
+    thuộc tài liệu bị lỗi này bị tính sai thành recall=precision=MRR=0.0,
+    kể cả khi retrieval trả về đúng 100% chunk cần tìm.
+
+    Chuẩn hoá NFC ở đây (nơi duy nhất source được trích ra để so sánh)
+    đảm bảo bản vá áp dụng nhất quán cho mọi hàm dùng get_doc_id, không
+    phụ thuộc vào việc caller (run_embedding_eval.py hay script khác) có
+    tự nhớ normalize hay không.
+    """
+    raw = str(doc_metadata.get("source", doc_metadata.get("file_name", "")))
+    return unicodedata.normalize("NFC", raw)
+
+
+def _normalize_sources(sources: List[str]) -> List[str]:
+    """Chuẩn hoá NFC cho danh sách ground_truth_sources, cùng lý do như
+    get_doc_id ở trên — đảm bảo 2 phía so sánh luôn cùng 1 dạng Unicode."""
+    return [unicodedata.normalize("NFC", s) for s in sources]
 
 
 def recall_at_k(
@@ -19,6 +44,7 @@ def recall_at_k(
     """
     if not ground_truth_sources:
         return 0.0
+    ground_truth_sources = _normalize_sources(ground_truth_sources)
     retrieved_k = retrieved_metadata[:k]
     retrieved_sources = {get_doc_id(m) for m in retrieved_k}
     relevant_retrieved = retrieved_sources.intersection(set(ground_truth_sources))
@@ -39,7 +65,7 @@ def precision_at_k(
     retrieved_k = retrieved_metadata[:k]
     if not retrieved_k:
         return 0.0
-    gt_set = set(ground_truth_sources)
+    gt_set = set(_normalize_sources(ground_truth_sources))
     hits = sum(1 for m in retrieved_k if get_doc_id(m) in gt_set)
     return hits / len(retrieved_k)
 
@@ -49,7 +75,7 @@ def mean_reciprocal_rank(
     ground_truth_sources: List[str],
 ) -> float:
     """Reciprocal rank của chunk liên quan đầu tiên trong danh sách trả về."""
-    gt_set = set(ground_truth_sources)
+    gt_set = set(_normalize_sources(ground_truth_sources))
     for i, meta in enumerate(retrieved_metadata):
         if get_doc_id(meta) in gt_set:
             return 1.0 / (i + 1)
