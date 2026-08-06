@@ -57,14 +57,11 @@ MODELS_TO_COMPARE = [
         min_batch_size=2,
     ),
     EmbedderConfig(
-        model_name="Alibaba-NLP/gte-Qwen2-1.5B-instruct",
-        batch_size=16,           # nhẹ hơn Qwen3-4B nhiều, có thể để cao ngay từ đầu
-        max_seq_length=2048,     # model hỗ trợ rất dài nhưng không cần dùng hết
+        model_name="BAAI/bge-m3",
+        batch_size=32,
+        max_seq_length=2048,
         device="cuda",
-        trust_remote_code=True,  # bắt buộc — model dùng custom modeling code
-        note="Thay thế Nemotron-8B (không fit T4). Mid-size 1.5B, an toàn VRAM, "
-             "đại diện mốc quy mô giữa AITeamVN (560M) và Qwen3-4B.",
-        auto_batch=True,         # vẫn giữ phòng hờ dù VRAM dư nhiều
-        min_batch_size=2,
+        trust_remote_code=False,
+        note="Baseline đa ngôn ngữ, không chuyên Việt (560M)",
     ),
 ]
