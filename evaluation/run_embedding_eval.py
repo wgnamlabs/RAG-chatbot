@@ -72,7 +72,7 @@ def run_evaluation(chunks_dir: Path, questions_path: Path, output_csv: Path) -> 
             # -------------------------------------------------------
             # Đánh giá câu hỏi IN-DOMAIN (có ground truth)
             # -------------------------------------------------------
-            k_values = [3, 5, 10]
+            k_values = [3, 5, 10, 15, 20, 30]
             metrics_sum = {k: {"recall": 0.0, "precision": 0.0} for k in k_values}
             mrr_sum = 0.0
 
