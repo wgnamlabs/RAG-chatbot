@@ -2,6 +2,7 @@ import json
 import csv
 import numpy as np
 from pathlib import Path
+from collections import defaultdict
 import sys
 
 # Reconfigure stdout for Windows console to handle Vietnamese characters
@@ -38,8 +39,18 @@ def run_evaluation(chunks_dir: Path, questions_path: Path, output_csv: Path) -> 
     in_domain_idx  = [i for i, gt in enumerate(ground_truths) if gt]
     out_domain_idx = [i for i, gt in enumerate(ground_truths) if not gt]
 
+    # NEW: gom câu hỏi in-domain theo source_doc_tag để tách báo cáo riêng
+    # từng tài liệu, tránh việc tài liệu lớn (nhiều chunk) "che" điểm yếu
+    # ở tài liệu nhỏ khi chỉ nhìn số liệu tổng gộp.
+    idx_by_doc_tag = defaultdict(list)
+    for i in in_domain_idx:
+        tag = qa_data[i].get("source_doc_tag", "unknown")
+        idx_by_doc_tag[tag].append(i)
+
     print(f"Tổng câu hỏi: {len(questions)} "
           f"(in-domain: {len(in_domain_idx)}, out-of-domain: {len(out_domain_idx)})")
+    print(f"Phân bố câu hỏi in-domain theo tài liệu: "
+          + ", ".join(f"{tag}={len(idxs)}" for tag, idxs in idx_by_doc_tag.items()))
 
     results_rows = []
 
@@ -69,10 +80,11 @@ def run_evaluation(chunks_dir: Path, questions_path: Path, output_csv: Path) -> 
             # Ma trận similarity: (num_questions, num_chunks)
             sim_matrix = cosine_similarity(question_embeddings, chunk_embeddings)
 
-            # -------------------------------------------------------
-            # Đánh giá câu hỏi IN-DOMAIN (có ground truth)
-            # -------------------------------------------------------
             k_values = [3, 5, 10, 15, 20, 30]
+
+            # -------------------------------------------------------
+            # (A) Đánh giá TỔNG GỘP tất cả câu hỏi in-domain (như cũ)
+            # -------------------------------------------------------
             metrics_sum = {k: {"recall": 0.0, "precision": 0.0} for k in k_values}
             mrr_sum = 0.0
 
@@ -102,13 +114,43 @@ def run_evaluation(chunks_dir: Path, questions_path: Path, output_csv: Path) -> 
                     "mrr":             f"{avg_mrr:.4f}",
                     "top1_sim_ood":    "",
                 })
-                print(f"[in-domain]  k={k}: Recall={avg_recall:.4f}, "
+                print(f"[in-domain TỔNG]  k={k}: Recall={avg_recall:.4f}, "
                       f"Precision={avg_precision:.4f}, MRR={avg_mrr:.4f}")
 
             # -------------------------------------------------------
+            # (B) NEW: Đánh giá TÁCH RIÊNG theo từng tài liệu
+            # Đây là con số quan trọng hơn để đánh giá chất lượng thật,
+            # vì tài liệu lớn (nhiều chunk) dễ đạt điểm cao ngay cả khi
+            # xếp hạng gần như ngẫu nhiên (xem baseline_random_eval.py).
+            # -------------------------------------------------------
+            for tag, idx_list in idx_by_doc_tag.items():
+                n_tag = len(idx_list)
+                for k in k_values:
+                    recall_sum, precision_sum, mrr_tag_sum = 0.0, 0.0, 0.0
+                    for q_idx in idx_list:
+                        scores = sim_matrix[q_idx]
+                        top_indices = np.argsort(scores)[::-1]
+                        retrieved_metadata = [chunk_metadata[i] for i in top_indices]
+                        gt = ground_truths[q_idx]
+                        recall_sum    += recall_at_k(retrieved_metadata, gt, k)
+                        precision_sum += precision_at_k(retrieved_metadata, gt, k)
+                        mrr_tag_sum   += mean_reciprocal_rank(retrieved_metadata, gt)
+
+                    results_rows.append({
+                        "chunker":         chunker_name,
+                        "embedding_model": config.model_name,
+                        "split":           f"in_domain__{tag}",
+                        "k":               k,
+                        "recall@k":        f"{recall_sum/n_tag:.4f}",
+                        "precision@k":     f"{precision_sum/n_tag:.4f}",
+                        "mrr":             f"{mrr_tag_sum/n_tag:.4f}",
+                        "top1_sim_ood":    "",
+                    })
+                print(f"  [{tag}] (n={n_tag}) k={k_values[-1]}: "
+                      f"Recall={recall_sum/n_tag:.4f}, MRR={mrr_tag_sum/n_tag:.4f}")
+
+            # -------------------------------------------------------
             # Đánh giá câu hỏi OUT-OF-DOMAIN (không có ground truth)
-            # Dùng top-1 cosine similarity: model nào trả về điểm thấp
-            # hơn → phân biệt tốt hơn, phù hợp để đặt ngưỡng rejection.
             # -------------------------------------------------------
             if out_domain_idx:
                 top1_sims = []
