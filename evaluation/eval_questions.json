@@ -1,152 +1,720 @@
 [
   {
     "question": "Đái tháo đường thai kỳ được định nghĩa như thế nào?",
-    "ground_truth_sources": ["Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"],
-    "ground_truth": "Theo Hội Nội tiết Mỹ (Endocrine Society), đái tháo đường thai kỳ (ĐTĐTK) là tình trạng liên quan đến tăng glucose huyết tương của mẹ, được phát hiện lần đầu trong thai kỳ, ở mức độ thấp hơn ngưỡng chẩn đoán đái tháo đường mang thai (đái tháo đường rõ - Overt Diabetes theo tiêu chuẩn WHO 2006), và làm tăng nguy cơ các kết cục sản khoa bất lợi cho cả thai phụ và thai nhi."
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Theo Hội Nội tiết Mỹ (Endocrine Society), đái tháo đường thai kỳ (ĐTĐTK) là tình trạng liên quan đến tăng glucose huyết tương của mẹ, được phát hiện lần đầu trong thai kỳ, ở mức độ thấp hơn ngưỡng chẩn đoán đái tháo đường mang thai (đái tháo đường rõ - Overt Diabetes theo tiêu chuẩn WHO 2006), và làm tăng nguy cơ các kết cục sản khoa bất lợi cho cả thai phụ và thai nhi.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
   },
   {
     "question": "Những yếu tố nguy cơ nào dẫn đến đái tháo đường thai kỳ?",
-    "ground_truth_sources": ["Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"],
-    "ground_truth": "Các yếu tố nguy cơ chính gồm: béo phì trước khi mang thai; tiền sử gia đình (thế hệ thứ nhất) có người bị đái tháo đường; tiền sử sinh con to ≥ 4000g; tiền sử bất thường dung nạp glucose; glucose niệu dương tính; tuổi mang thai lớn hơn 35 (tuổi dưới 25 là ít nguy cơ); tiền sử sản khoa bất thường (thai chết lưu không rõ nguyên nhân, con dị tật bẩm sinh, tiền sản giật, sinh non); chủng tộc châu Á; hội chứng buồng trứng đa nang; ngoài ra còn có yếu tố sinh nhiều con và tăng cân quá mức trong thai kỳ."
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Các yếu tố nguy cơ chính gồm: béo phì trước khi mang thai; tiền sử gia đình (thế hệ thứ nhất) có người bị đái tháo đường; tiền sử sinh con to ≥ 4000g; tiền sử bất thường dung nạp glucose; glucose niệu dương tính; tuổi mang thai lớn hơn 35 (tuổi dưới 25 là ít nguy cơ); tiền sử sản khoa bất thường (thai chết lưu không rõ nguyên nhân, con dị tật bẩm sinh, tiền sản giật, sinh non); chủng tộc châu Á; hội chứng buồng trứng đa nang; ngoài ra còn có yếu tố sinh nhiều con và tăng cân quá mức trong thai kỳ.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
   },
   {
     "question": "Đái tháo đường thai kỳ gây hậu quả gì cho thai nhi và trẻ sơ sinh?",
-    "ground_truth_sources": ["Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"],
-    "ground_truth": "ĐTĐTK có thể gây: thai không phát triển hoặc sảy thai tự nhiên, dị tật bẩm sinh (nếu glucose không kiểm soát tốt tỉ lệ dị tật 8-13%, gấp 2-4 lần bình thường) trong 3 tháng đầu; tăng trưởng quá mức và thai to; hạ glucose huyết tương và rối loạn chuyển hóa ở trẻ sơ sinh (15-25%); hội chứng suy hô hấp; tử vong ngay sau sinh (20-30%); tăng hồng cầu; vàng da sơ sinh (khoảng 25%); về lâu dài trẻ có nguy cơ béo phì, sớm mắc đái tháo đường týp 2 và rối loạn tâm thần-vận động, nguy cơ đái tháo đường/tiền đái tháo đường tăng gấp 8 lần khi 19-27 tuổi."
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "ĐTĐTK có thể gây: thai không phát triển hoặc sảy thai tự nhiên, dị tật bẩm sinh (nếu glucose không kiểm soát tốt tỉ lệ dị tật 8-13%, gấp 2-4 lần bình thường) trong 3 tháng đầu; tăng trưởng quá mức và thai to; hạ glucose huyết tương và rối loạn chuyển hóa ở trẻ sơ sinh (15-25%); hội chứng suy hô hấp; tử vong ngay sau sinh (20-30%); tăng hồng cầu; vàng da sơ sinh (khoảng 25%); về lâu dài trẻ có nguy cơ béo phì, sớm mắc đái tháo đường týp 2 và rối loạn tâm thần-vận động, nguy cơ đái tháo đường/tiền đái tháo đường tăng gấp 8 lần khi 19-27 tuổi.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
   },
   {
     "question": "Các bước tiến hành nghiệm pháp dung nạp 75 gam glucose (1 bước, máu tĩnh mạch) được thực hiện như thế nào?",
-    "ground_truth_sources": ["Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"],
-    "ground_truth": "Ba ngày trước khi làm nghiệm pháp không ăn quá nhiều glucid cũng không ăn kiêng; nhịn đói 8-12 giờ trước khi làm nghiệm pháp; lấy 2ml máu tĩnh mạch để định lượng glucose huyết tương lúc đói trước khi làm nghiệm pháp; cho thai phụ uống ly nước đường 75g trong vòng 5 phút; lấy 2ml máu tĩnh mạch định lượng glucose ở 2 thời điểm 1 giờ và 2 giờ sau khi uống; trong suốt thời gian làm nghiệm pháp thai phụ không được ăn uống thêm gì, ngồi nghỉ hoặc đi lại nhẹ nhàng trong khuôn viên bệnh viện."
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Ba ngày trước khi làm nghiệm pháp không ăn quá nhiều glucid cũng không ăn kiêng; nhịn đói 8-12 giờ trước khi làm nghiệm pháp; lấy 2ml máu tĩnh mạch để định lượng glucose huyết tương lúc đói trước khi làm nghiệm pháp; cho thai phụ uống ly nước đường 75g trong vòng 5 phút; lấy 2ml máu tĩnh mạch định lượng glucose ở 2 thời điểm 1 giờ và 2 giờ sau khi uống; trong suốt thời gian làm nghiệm pháp thai phụ không được ăn uống thêm gì, ngồi nghỉ hoặc đi lại nhẹ nhàng trong khuôn viên bệnh viện.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
   },
   {
     "question": "Tiêu chuẩn chẩn đoán đái tháo đường thai kỳ dựa trên các ngưỡng glucose huyết tương lúc đói, sau 1 giờ và sau 2 giờ là bao nhiêu?",
-    "ground_truth_sources": ["Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"],
-    "ground_truth": "Ngưỡng chẩn đoán: glucose lúc đói ≥ 92 mg/dl (≥ 5,1 mmol/l); sau 1 giờ ≥ 180 mg/dl (≥ 10,0 mmol/l); sau 2 giờ ≥ 153 mg/dl (≥ 8,5 mmol/l). Chỉ cần có từ 1 giá trị lớn hơn hoặc bằng các ngưỡng trên là đủ để chẩn đoán đái tháo đường thai kỳ."
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Ngưỡng chẩn đoán: glucose lúc đói ≥ 92 mg/dl (≥ 5,1 mmol/l); sau 1 giờ ≥ 180 mg/dl (≥ 10,0 mmol/l); sau 2 giờ ≥ 153 mg/dl (≥ 8,5 mmol/l). Chỉ cần có từ 1 giá trị lớn hơn hoặc bằng các ngưỡng trên là đủ để chẩn đoán đái tháo đường thai kỳ.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
   },
   {
     "question": "Nguyên tắc điều trị bằng Insulin cho thai phụ đái tháo đường thai kỳ có biến chứng cấp là gì?",
-    "ground_truth_sources": ["Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"],
-    "ground_truth": "Sử dụng liều Insulin theo đề nghị của chuyên khoa Nội tiết và hội chẩn lại khi cần; xét nghiệm glucose huyết tương lúc đói, sau ăn 1 giờ, sau ăn 2 giờ (số lần xét nghiệm do bác sĩ Nội tiết quyết định), lặp lại mỗi ngày; điều chỉnh liều Insulin để đạt và duy trì glucose huyết tương mục tiêu; hướng dẫn thai phụ đếm và theo dõi cử động thai; đánh giá tình trạng thai bằng Non stress test (NST) mỗi ngày; dinh dưỡng và vận động theo chế độ ĐTĐTK do bệnh viện cung cấp; chấm dứt thai kỳ ở tuổi thai 36 tuần (sau khi tiêm corticoid trưởng thành phổi) hoặc khi có chỉ định sản khoa; lưu ý corticoid có thể làm tăng glucose huyết tương nên cần chỉnh liều Insulin phù hợp."
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Sử dụng liều Insulin theo đề nghị của chuyên khoa Nội tiết và hội chẩn lại khi cần; xét nghiệm glucose huyết tương lúc đói, sau ăn 1 giờ, sau ăn 2 giờ (số lần xét nghiệm do bác sĩ Nội tiết quyết định), lặp lại mỗi ngày; điều chỉnh liều Insulin để đạt và duy trì glucose huyết tương mục tiêu; hướng dẫn thai phụ đếm và theo dõi cử động thai; đánh giá tình trạng thai bằng Non stress test (NST) mỗi ngày; dinh dưỡng và vận động theo chế độ ĐTĐTK do bệnh viện cung cấp; chấm dứt thai kỳ ở tuổi thai 36 tuần (sau khi tiêm corticoid trưởng thành phổi) hoặc khi có chỉ định sản khoa; lưu ý corticoid có thể làm tăng glucose huyết tương nên cần chỉnh liều Insulin phù hợp.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
   },
   {
     "question": "Khuyến cáo về hoạt động thể chất cho thai phụ bị đái tháo đường thai kỳ như thế nào?",
-    "ground_truth_sources": ["Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"],
-    "ground_truth": "Khuyến cáo hoạt động thể chất ít nhất 30 phút/ngày; đi bộ hoặc tập tay lúc ngồi trong 10 phút sau ăn; nếu trước khi mang thai thai phụ đã tích cực tập luyện thì cần duy trì tập luyện trong thai kỳ. Cần theo dõi hoạt động của thai nhi và lượng đường trong máu trước và sau khi tập thể dục."
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Khuyến cáo hoạt động thể chất ít nhất 30 phút/ngày; đi bộ hoặc tập tay lúc ngồi trong 10 phút sau ăn; nếu trước khi mang thai thai phụ đã tích cực tập luyện thì cần duy trì tập luyện trong thai kỳ. Cần theo dõi hoạt động của thai nhi và lượng đường trong máu trước và sau khi tập thể dục.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
   },
   {
     "question": "Nguyên tắc chế độ dinh dưỡng, tỷ lệ các chất sinh năng lượng cho thai phụ bị đái tháo đường được khuyến cáo ra sao?",
-    "ground_truth_sources": ["Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"],
-    "ground_truth": "Năng lượng khuyến cáo: 35-40 kcal/kg/ngày nếu thai phụ thiếu năng lượng trường diễn, 30-35 kcal/kg/ngày nếu dinh dưỡng bình thường, 20-30 kcal/kg/ngày nếu thừa cân/béo phì. Tỷ lệ các chất sinh năng lượng: Protein nên phối hợp động vật và thực vật với tỷ lệ protein động vật từ 35% trở lên; Lipid chiếm khoảng 20-30% tổng năng lượng, tỷ lệ lipid động vật/lipid tổng số không vượt quá 60%; Glucid chiếm 55-60% năng lượng khẩu phần, tối thiểu 175g glucid/ngày, chia đều trong 3 bữa chính và 2-3 bữa phụ. Ngoài ra chất xơ khuyến nghị 28g/ngày, ăn ít nhất 400g rau củ quả/ngày."
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Năng lượng khuyến cáo: 35-40 kcal/kg/ngày nếu thai phụ thiếu năng lượng trường diễn, 30-35 kcal/kg/ngày nếu dinh dưỡng bình thường, 20-30 kcal/kg/ngày nếu thừa cân/béo phì. Tỷ lệ các chất sinh năng lượng: Protein nên phối hợp động vật và thực vật với tỷ lệ protein động vật từ 35% trở lên; Lipid chiếm khoảng 20-30% tổng năng lượng, tỷ lệ lipid động vật/lipid tổng số không vượt quá 60%; Glucid chiếm 55-60% năng lượng khẩu phần, tối thiểu 175g glucid/ngày, chia đều trong 3 bữa chính và 2-3 bữa phụ. Ngoài ra chất xơ khuyến nghị 28g/ngày, ăn ít nhất 400g rau củ quả/ngày.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
   },
   {
     "question": "Các bước của quy trình tư vấn sức khỏe sinh sản theo mô hình 6 chữ G là gì?",
-    "ground_truth_sources": ["Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"],
-    "ground_truth": "Mô hình 6 chữ G gồm: (1) Gặp gỡ - chào hỏi thân thiện, tự giới thiệu, tạo sự thoải mái tin cậy; (2) Gợi hỏi - gợi hỏi nhu cầu, mong muốn, thông tin liên quan bằng câu hỏi mở; (3) Giới thiệu - cung cấp thông tin chính xác, đầy đủ cả mặt thuận lợi và không thuận lợi, không áp đặt; (4) Giúp đỡ - giúp khách hàng hiểu vấn đề của họ để tự quyết định và biết phải làm gì; (5) Giải thích - giải thích những thắc mắc, cung cấp tài liệu liên quan; (6) Gặp lại - hẹn khách hàng quay lại theo dõi kết quả hoặc giới thiệu tuyến trên nếu cần."
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Mô hình 6 chữ G gồm: (1) Gặp gỡ - chào hỏi thân thiện, tự giới thiệu, tạo sự thoải mái tin cậy; (2) Gợi hỏi - gợi hỏi nhu cầu, mong muốn, thông tin liên quan bằng câu hỏi mở; (3) Giới thiệu - cung cấp thông tin chính xác, đầy đủ cả mặt thuận lợi và không thuận lợi, không áp đặt; (4) Giúp đỡ - giúp khách hàng hiểu vấn đề của họ để tự quyết định và biết phải làm gì; (5) Giải thích - giải thích những thắc mắc, cung cấp tài liệu liên quan; (6) Gặp lại - hẹn khách hàng quay lại theo dõi kết quả hoặc giới thiệu tuyến trên nếu cần.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
   },
   {
     "question": "Hướng dẫn kỹ thuật cấy thuốc tránh thai dưới da được thực hiện theo các bước nào?",
-    "ground_truth_sources": ["Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"],
-    "ground_truth": "Kỹ thuật cấy gồm các bước: đảm bảo vô khuẩn, sát khuẩn da vùng định cấy (thường ở khoảng giữa mặt trong cánh tay không thuận); trải vải có lỗ vùng định cấy; gây tê vùng định cấy bằng lidocain 1% dọc đường cấy; cấy que thuốc nông dưới da (1 que với Implanon, 2 que với Femplant); kiểm tra nang thuốc đã được cấy; băng ép bằng gạc vô khuẩn."
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Kỹ thuật cấy gồm các bước: đảm bảo vô khuẩn, sát khuẩn da vùng định cấy (thường ở khoảng giữa mặt trong cánh tay không thuận); trải vải có lỗ vùng định cấy; gây tê vùng định cấy bằng lidocain 1% dọc đường cấy; cấy que thuốc nông dưới da (1 que với Implanon, 2 que với Femplant); kiểm tra nang thuốc đã được cấy; băng ép bằng gạc vô khuẩn.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
   },
   {
     "question": "Điều kiện để một cơ sở y tế được phép tiến hành phá thai bằng thuốc nội khoa là gì?",
-    "ground_truth_sources": ["Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"],
-    "ground_truth": "Khách hàng có thể tới được cơ sở y tế thuận tiện và dễ dàng. Về cơ sở vật chất, trang thiết bị và thuốc: nơi cung cấp dịch vụ phải có nhà vệ sinh gần phòng theo dõi; có phòng thủ thuật và phương tiện đủ tiêu chuẩn theo quy định để can thiệp khi cần; có phương tiện cấp cứu, xử lý dụng cụ và chất thải; có đủ thuốc mifepriston, misoprostol, thuốc giảm đau, thuốc cấp cứu chống choáng. Khi áp dụng phương pháp phá thai bằng thuốc, cơ sở cần có sẵn dịch vụ phá thai bằng phương pháp hút chân không để xử trí các trường hợp thất bại."
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Khách hàng có thể tới được cơ sở y tế thuận tiện và dễ dàng. Về cơ sở vật chất, trang thiết bị và thuốc: nơi cung cấp dịch vụ phải có nhà vệ sinh gần phòng theo dõi; có phòng thủ thuật và phương tiện đủ tiêu chuẩn theo quy định để can thiệp khi cần; có phương tiện cấp cứu, xử lý dụng cụ và chất thải; có đủ thuốc mifepriston, misoprostol, thuốc giảm đau, thuốc cấp cứu chống choáng. Khi áp dụng phương pháp phá thai bằng thuốc, cơ sở cần có sẵn dịch vụ phá thai bằng phương pháp hút chân không để xử trí các trường hợp thất bại.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
   },
   {
     "question": "Quy trình theo dõi và xử trí tai biến sau khi đặt dụng cụ tử cung (vòng tránh thai) như thế nào?",
-    "ground_truth_sources": ["Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"],
-    "ground_truth": "Tùy vấn đề gặp phải mà xử trí: nếu ra máu nhiều hoặc kéo dài (>8 ngày), có thể dùng thuốc kháng viêm không steroid hoặc acid tranexamic, nếu đe dọa sức khỏe thì tháo DCTC; ra máu âm đạo bất thường cần khảo sát nguyên nhân để điều trị hoặc chuyển tuyến; đau hạ vị cần khám loại trừ thai ngoài tử cung, nếu có dấu hiệu viêm vùng chậu thì điều trị hoặc chuyển tuyến, nếu khách hàng muốn tháo thì dùng kháng sinh và tháo DCTC; nếu mắc NKLTQĐTD hoặc viêm mủ cổ tử cung phải tháo DCTC và điều trị; nếu có thai cần loại trừ thai ngoài tử cung, tư vấn tháo DCTC nếu còn thấy dây hoặc theo dõi chặt nếu không tháo được; nếu bạn tình phàn nàn về dây DCTC thì cắt ngắn dây hoặc tháo. Luôn hẹn khám lại sau 3-6 tuần và khám lại ngay nếu có bất thường."
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Tùy vấn đề gặp phải mà xử trí: nếu ra máu nhiều hoặc kéo dài (>8 ngày), có thể dùng thuốc kháng viêm không steroid hoặc acid tranexamic, nếu đe dọa sức khỏe thì tháo DCTC; ra máu âm đạo bất thường cần khảo sát nguyên nhân để điều trị hoặc chuyển tuyến; đau hạ vị cần khám loại trừ thai ngoài tử cung, nếu có dấu hiệu viêm vùng chậu thì điều trị hoặc chuyển tuyến, nếu khách hàng muốn tháo thì dùng kháng sinh và tháo DCTC; nếu mắc NKLTQĐTD hoặc viêm mủ cổ tử cung phải tháo DCTC và điều trị; nếu có thai cần loại trừ thai ngoài tử cung, tư vấn tháo DCTC nếu còn thấy dây hoặc theo dõi chặt nếu không tháo được; nếu bạn tình phàn nàn về dây DCTC thì cắt ngắn dây hoặc tháo. Luôn hẹn khám lại sau 3-6 tuần và khám lại ngay nếu có bất thường.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
   },
   {
     "question": "Nguyên tắc sử dụng kháng sinh dự phòng trong sản khoa được quy định như thế nào?",
-    "ground_truth_sources": ["Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"],
-    "ground_truth": "Kháng sinh dự phòng được dùng khi thực hiện các phẫu thuật/thủ thuật sản khoa được coi là ít nguy cơ nhiễm khuẩn (như phẫu thuật lấy thai, bóc rau bằng tay) nhằm mục đích phòng ngừa nhiễm khuẩn lúc làm thủ thuật, khác với trường hợp đã có nhiễm khuẩn thì dùng kháng sinh điều trị thông thường. Cách dùng: cho kháng sinh dự phòng đường tĩnh mạch 30 phút trước khi bắt đầu phẫu thuật/thủ thuật để thuốc kịp ngấm vào mô. Riêng với phẫu thuật lấy thai, một liều kháng sinh dự phòng cần được cho ngay sau khi cặp dây rốn; nếu phẫu thuật kéo dài trên 6 giờ hoặc mất máu nhiều (trên 1000ml) thì cho thêm liều thứ hai để duy trì nồng độ kháng sinh trong máu."
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Kháng sinh dự phòng được dùng khi thực hiện các phẫu thuật/thủ thuật sản khoa được coi là ít nguy cơ nhiễm khuẩn (như phẫu thuật lấy thai, bóc rau bằng tay) nhằm mục đích phòng ngừa nhiễm khuẩn lúc làm thủ thuật, khác với trường hợp đã có nhiễm khuẩn thì dùng kháng sinh điều trị thông thường. Cách dùng: cho kháng sinh dự phòng đường tĩnh mạch 30 phút trước khi bắt đầu phẫu thuật/thủ thuật để thuốc kịp ngấm vào mô. Riêng với phẫu thuật lấy thai, một liều kháng sinh dự phòng cần được cho ngay sau khi cặp dây rốn; nếu phẫu thuật kéo dài trên 6 giờ hoặc mất máu nhiều (trên 1000ml) thì cho thêm liều thứ hai để duy trì nồng độ kháng sinh trong máu.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
   },
   {
     "question": "Chỉ định và nguyên tắc cơ bản của truyền máu trong sản phụ khoa là gì?",
-    "ground_truth_sources": ["Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"],
-    "ground_truth": "Chỉ định truyền máu: mất máu nhiều trong sản phụ khoa ảnh hưởng đến huyết động; thiếu máu nặng, đặc biệt khi có thai trong 3 tháng cuối (nên truyền hồng cầu lắng nếu có). Nguyên tắc cơ bản: chỉ truyền máu và sản phẩm máu khi người bệnh mất máu nhiều để nhanh chóng bồi phụ lượng máu đã mất; truyền máu cùng nhóm theo đúng hướng dẫn chung của quốc gia; chỉ truyền những thành phần máu người bệnh cần (hồng cầu, bạch cầu, tiểu cầu...) nếu có; nếu không có ngân hàng máu thì phải sàng lọc tất cả nguồn máu cho với HIV-1, HIV-2, viêm gan B, viêm gan C, giang mai, sốt rét."
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Chỉ định truyền máu: mất máu nhiều trong sản phụ khoa ảnh hưởng đến huyết động; thiếu máu nặng, đặc biệt khi có thai trong 3 tháng cuối (nên truyền hồng cầu lắng nếu có). Nguyên tắc cơ bản: chỉ truyền máu và sản phẩm máu khi người bệnh mất máu nhiều để nhanh chóng bồi phụ lượng máu đã mất; truyền máu cùng nhóm theo đúng hướng dẫn chung của quốc gia; chỉ truyền những thành phần máu người bệnh cần (hồng cầu, bạch cầu, tiểu cầu...) nếu có; nếu không có ngân hàng máu thì phải sàng lọc tất cả nguồn máu cho với HIV-1, HIV-2, viêm gan B, viêm gan C, giang mai, sốt rét.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
   },
   {
     "question": "Các nguyên tắc vô khuẩn cần tuân thủ trong dịch vụ chăm sóc sức khỏe sinh sản là gì?",
-    "ground_truth_sources": ["Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"],
-    "ground_truth": "Cán bộ y tế phải rửa tay đúng quy trình trước khi làm thủ thuật, cắt ngắn móng tay, tháo nhẫn/vòng tay, đội mũ kín tóc, đeo khẩu trang che kín mũi, mặc áo choàng, thay áo/găng/khẩu trang sau mỗi ca; khi mang găng vô khuẩn phải theo nguyên tắc 'tay chạm tay, găng chạm găng'. Về khách hàng: tắm rửa, thay quần áo sạch, đi tiểu trước thủ thuật, vùng phẫu thuật phải được sát khuẩn bằng iod hữu cơ 10%. Về dụng cụ: phải trải qua quy trình vô khuẩn gồm khử nhiễm (ngâm dung dịch clorin 0,5% hoặc glutaraldehyd 2% trong 10 phút), làm sạch, khử khuẩn mức độ cao (luộc 20 phút hoặc ngâm hóa chất 20 phút) hoặc tiệt khuẩn (hấp ướt áp lực cao 121°C/30 phút, sấy khô, hoặc ngâm hóa chất 10 giờ), sau đó bảo quản đúng cách, không để lẫn dụng cụ đã và chưa tiệt khuẩn."
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Cán bộ y tế phải rửa tay đúng quy trình trước khi làm thủ thuật, cắt ngắn móng tay, tháo nhẫn/vòng tay, đội mũ kín tóc, đeo khẩu trang che kín mũi, mặc áo choàng, thay áo/găng/khẩu trang sau mỗi ca; khi mang găng vô khuẩn phải theo nguyên tắc 'tay chạm tay, găng chạm găng'. Về khách hàng: tắm rửa, thay quần áo sạch, đi tiểu trước thủ thuật, vùng phẫu thuật phải được sát khuẩn bằng iod hữu cơ 10%. Về dụng cụ: phải trải qua quy trình vô khuẩn gồm khử nhiễm (ngâm dung dịch clorin 0,5% hoặc glutaraldehyd 2% trong 10 phút), làm sạch, khử khuẩn mức độ cao (luộc 20 phút hoặc ngâm hóa chất 20 phút) hoặc tiệt khuẩn (hấp ướt áp lực cao 121°C/30 phút, sấy khô, hoặc ngâm hóa chất 10 giờ), sau đó bảo quản đúng cách, không để lẫn dụng cụ đã và chưa tiệt khuẩn.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
   },
   {
     "question": "Mối quan hệ tương hỗ giữa y tế công lập, y tế tư nhân và cộng đồng trong chăm sóc sức khỏe sinh sản được mô tả như thế nào?",
-    "ground_truth_sources": ["Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"],
-    "ground_truth": "Y tế công lập (y tế thôn bản, cô đỡ thôn bản, tuyến xã, tuyến huyện trở lên) có trách nhiệm tuyên truyền giáo dục sức khỏe, chăm sóc sức khỏe ban đầu, phối hợp chặt chẽ với cộng đồng và hỗ trợ chuyển tuyến hai chiều có phản hồi. Y tế tư nhân cung cấp dịch vụ cho cộng đồng theo quy định về chuyên môn, cần trung thực trong chẩn đoán điều trị, không vụ lợi, tư vấn chuyển đến cơ sở phù hợp khi vượt quá khả năng. Y tế công lập và y tế tư nhân đều cung cấp dịch vụ chăm sóc SKSS theo quy định của Bộ Y tế, có mối quan hệ bình đẳng, gắn bó chặt chẽ, giúp đỡ hỗ trợ lẫn nhau để cung cấp dịch vụ chất lượng cao; việc đào tạo lại, cập nhật kiến thức cần thực hiện cho cả hai khối."
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Y tế công lập (y tế thôn bản, cô đỡ thôn bản, tuyến xã, tuyến huyện trở lên) có trách nhiệm tuyên truyền giáo dục sức khỏe, chăm sóc sức khỏe ban đầu, phối hợp chặt chẽ với cộng đồng và hỗ trợ chuyển tuyến hai chiều có phản hồi. Y tế tư nhân cung cấp dịch vụ cho cộng đồng theo quy định về chuyên môn, cần trung thực trong chẩn đoán điều trị, không vụ lợi, tư vấn chuyển đến cơ sở phù hợp khi vượt quá khả năng. Y tế công lập và y tế tư nhân đều cung cấp dịch vụ chăm sóc SKSS theo quy định của Bộ Y tế, có mối quan hệ bình đẳng, gắn bó chặt chẽ, giúp đỡ hỗ trợ lẫn nhau để cung cấp dịch vụ chất lượng cao; việc đào tạo lại, cập nhật kiến thức cần thực hiện cho cả hai khối.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
   },
   {
     "question": "Nội dung phần bệnh sử cần khai thác trong bệnh án tiền sản đang chuyển dạ gồm những gì?",
-    "ground_truth_sources": ["Thuc-hanh-LS-SPK.md"],
-    "ground_truth": "Bệnh sử bệnh án tiền sản đang chuyển dạ gồm hai phần: (1) Lịch sử thai lần này: kỳ kinh cuối, tình trạng nghén, quá trình phát triển thai có ảnh hưởng sức khỏe không (ăn kém, gầy, mệt mỏi, phù, đau bụng, nhức đầu, chóng mặt...), đã khám thai ở đâu, bao nhiêu lần, kết quả, có uống viên sắt/tiêm phòng uốn ván chưa, tuyến trước đã xử trí gì; (2) Lịch sử chuyển dạ: đau bụng khi nào, tính chất, tần số, thời gian mỗi cơn đau; có ra nước ối không (thời điểm, số lượng, màu sắc, mùi); có ra huyết không (số lượng, màu sắc); đã xử trí/can thiệp gì và kết quả, mô tả các triệu chứng theo đúng thứ tự xuất hiện."
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Bệnh sử bệnh án tiền sản đang chuyển dạ gồm hai phần: (1) Lịch sử thai lần này: kỳ kinh cuối, tình trạng nghén, quá trình phát triển thai có ảnh hưởng sức khỏe không (ăn kém, gầy, mệt mỏi, phù, đau bụng, nhức đầu, chóng mặt...), đã khám thai ở đâu, bao nhiêu lần, kết quả, có uống viên sắt/tiêm phòng uốn ván chưa, tuyến trước đã xử trí gì; (2) Lịch sử chuyển dạ: đau bụng khi nào, tính chất, tần số, thời gian mỗi cơn đau; có ra nước ối không (thời điểm, số lượng, màu sắc, mùi); có ra huyết không (số lượng, màu sắc); đã xử trí/can thiệp gì và kết quả, mô tả các triệu chứng theo đúng thứ tự xuất hiện.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
   },
   {
     "question": "Cách khám thực thể (nhìn, sờ nắn, đo, nghe, thăm âm đạo) trong bệnh án sản khoa được thực hiện ra sao?",
-    "ground_truth_sources": ["Thuc-hanh-LS-SPK.md"],
-    "ground_truth": "Nhìn: hai vú, thành bụng (nhão/chắc, vết rạn, sẹo mổ cũ), hình dáng và trục tử cung, tình trạng âm hộ-đáy chậu. Sờ nắn: cực dưới (ngôi chỏm/ngôi vai), cực trên (mông thai), hai bên tử cung (xác định lưng, chân tay thai nhi), độ lọt của ngôi và cơn co tử cung nếu đã chuyển dạ. Đo: chiều cao tử cung, vòng bụng, cơn co tử cung. Nghe: vị trí và số lượng ổ tim thai, tần số tim thai/phút, tính chất (đều, rõ, chậm, yếu), phân biệt với tiếng thổi động mạch tử cung/động mạch chủ bụng. Thăm âm đạo: nếu chưa chuyển dạ đánh giá tình trạng âm hộ-âm đạo-cổ tử cung; nếu đã chuyển dạ đánh giá đáy chậu, âm hộ, âm đạo, độ xóa mở cổ tử cung."
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Nhìn: hai vú, thành bụng (nhão/chắc, vết rạn, sẹo mổ cũ), hình dáng và trục tử cung, tình trạng âm hộ-đáy chậu. Sờ nắn: cực dưới (ngôi chỏm/ngôi vai), cực trên (mông thai), hai bên tử cung (xác định lưng, chân tay thai nhi), độ lọt của ngôi và cơn co tử cung nếu đã chuyển dạ. Đo: chiều cao tử cung, vòng bụng, cơn co tử cung. Nghe: vị trí và số lượng ổ tim thai, tần số tim thai/phút, tính chất (đều, rõ, chậm, yếu), phân biệt với tiếng thổi động mạch tử cung/động mạch chủ bụng. Thăm âm đạo: nếu chưa chuyển dạ đánh giá tình trạng âm hộ-âm đạo-cổ tử cung; nếu đã chuyển dạ đánh giá đáy chậu, âm hộ, âm đạo, độ xóa mở cổ tử cung.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
   },
   {
     "question": "Chẩn đoán và xử trí tiền sản giật, sản giật trong thực hành lâm sàng sản phụ khoa như thế nào?",
-    "ground_truth_sources": ["Thuc-hanh-LS-SPK.md"],
-    "ground_truth": "Chẩn đoán tiền sản giật dựa vào các dấu hiệu: huyết áp cao (ví dụ 150/100mmHg), phù (đặc biệt phù không liên quan chế độ nghỉ ngơi), protein niệu (xét nghiệm nước tiểu kết tủa khi đun sôi), có thể kèm đau đầu và các dấu hiệu thần kinh. Xử trí tiền sản giật thể trung bình: theo dõi và điều trị tại bệnh viện, điều trị nội khoa gồm an thần, lợi tiểu, hạ áp, chống phù não, kháng sinh; tiếp tục theo dõi đánh giá đáp ứng điều trị và sự phát triển của thai; đình chỉ thai nghén hoặc tiếp tục theo dõi đến đủ tháng tùy đáp ứng điều trị nội khoa."
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Chẩn đoán tiền sản giật dựa vào các dấu hiệu: huyết áp cao (ví dụ 150/100mmHg), phù (đặc biệt phù không liên quan chế độ nghỉ ngơi), protein niệu (xét nghiệm nước tiểu kết tủa khi đun sôi), có thể kèm đau đầu và các dấu hiệu thần kinh. Xử trí tiền sản giật thể trung bình: theo dõi và điều trị tại bệnh viện, điều trị nội khoa gồm an thần, lợi tiểu, hạ áp, chống phù não, kháng sinh; tiếp tục theo dõi đánh giá đáp ứng điều trị và sự phát triển của thai; đình chỉ thai nghén hoặc tiếp tục theo dõi đến đủ tháng tùy đáp ứng điều trị nội khoa.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
   },
   {
     "question": "Chỉ định mổ lấy thai được áp dụng trong những trường hợp nào?",
-    "ground_truth_sources": ["Thuc-hanh-LS-SPK.md"],
-    "ground_truth": "Qua các tình huống lâm sàng trong tài liệu, mổ lấy thai được chỉ định trong các trường hợp: tim thai suy mà hồi sức không có kết quả; ối vỡ sớm kèm suy thai; có sẹo mổ lấy thai cũ dưới 24 tháng; ngôi bất thường (ngôi mông) kết hợp yếu tố đẻ khó như ối vỡ sớm khi cổ tử cung mới mở ít; rau tiền đạo chảy máu nhiều; rau bong non (tử cung tăng trương lực, tim thai suy); nghiệm pháp lọt ngôi chỏm hoặc truyền oxytocin thất bại (cơn co tử cung rối loạn không đáp ứng điều chỉnh, cổ tử cung không tiến triển); bất cân xứng giữa thai và khung chậu."
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Qua các tình huống lâm sàng trong tài liệu, mổ lấy thai được chỉ định trong các trường hợp: tim thai suy mà hồi sức không có kết quả; ối vỡ sớm kèm suy thai; có sẹo mổ lấy thai cũ dưới 24 tháng; ngôi bất thường (ngôi mông) kết hợp yếu tố đẻ khó như ối vỡ sớm khi cổ tử cung mới mở ít; rau tiền đạo chảy máu nhiều; rau bong non (tử cung tăng trương lực, tim thai suy); nghiệm pháp lọt ngôi chỏm hoặc truyền oxytocin thất bại (cơn co tử cung rối loạn không đáp ứng điều chỉnh, cổ tử cung không tiến triển); bất cân xứng giữa thai và khung chậu.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
   },
   {
     "question": "Cách xử trí ban đầu khi sản phụ bị chảy máu (băng huyết) sau đẻ là gì?",
-    "ground_truth_sources": ["Thuc-hanh-LS-SPK.md"],
-    "ground_truth": "Gọi hỗ trợ của nhân viên y tế; đo các chỉ số sinh tồn (mạch, huyết áp, nhịp thở) đánh giá dấu hiệu sốc mất máu (mạch nhanh >110 lần/phút, huyết áp tối đa <90mmHg, vã mồ hôi, thở nhanh); động viên giải thích cho sản phụ. Xử trí: xoa đáy tử cung qua thành bụng kích thích co bóp đẩy máu cục ra ngoài, truyền Ringer lactat pha oxytocin với tốc độ nhanh (khoảng 1 lít trong 15-20 phút), thở oxy 6-8 lít/phút, đặt sonde bàng quang theo dõi nước tiểu, ủ ấm, kê cao chân, xét nghiệm Hb và phản ứng chéo chuẩn bị truyền máu, xét nghiệm đông máu. Nếu tử cung đã co hồi tốt mà vẫn chảy máu, cần khám cổ tử cung/âm đạo tìm tổn thương và kiểm tra bánh rau xem có sót rau để xử trí nguyên nhân cụ thể (khâu vết rách, kiểm soát tử cung lấy rau sót...)."
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Gọi hỗ trợ của nhân viên y tế; đo các chỉ số sinh tồn (mạch, huyết áp, nhịp thở) đánh giá dấu hiệu sốc mất máu (mạch nhanh >110 lần/phút, huyết áp tối đa <90mmHg, vã mồ hôi, thở nhanh); động viên giải thích cho sản phụ. Xử trí: xoa đáy tử cung qua thành bụng kích thích co bóp đẩy máu cục ra ngoài, truyền Ringer lactat pha oxytocin với tốc độ nhanh (khoảng 1 lít trong 15-20 phút), thở oxy 6-8 lít/phút, đặt sonde bàng quang theo dõi nước tiểu, ủ ấm, kê cao chân, xét nghiệm Hb và phản ứng chéo chuẩn bị truyền máu, xét nghiệm đông máu. Nếu tử cung đã co hồi tốt mà vẫn chảy máu, cần khám cổ tử cung/âm đạo tìm tổn thương và kiểm tra bánh rau xem có sót rau để xử trí nguyên nhân cụ thể (khâu vết rách, kiểm soát tử cung lấy rau sót...).",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
   },
   {
     "question": "Rau tiền đạo và rau bong non khác nhau như thế nào về triệu chứng và xử trí?",
-    "ground_truth_sources": ["Thuc-hanh-LS-SPK.md"],
-    "ground_truth": "Rau tiền đạo: ra huyết âm đạo đỏ tươi, thường không kèm đau bụng, tử cung mềm, tim thai thường bình thường, ngôi thai thường cao/bất thường; xử trí tùy mức độ chảy máu, có thể nghỉ ngơi tại giường nằm nghiêng trái, dùng thuốc giảm co bóp tử cung và theo dõi nếu chảy máu ít, hoặc mổ lấy thai nếu chảy máu nhiều. Rau bong non: đau bụng liên tục không thành cơn, tử cung cứng/tăng trương lực, chiều cao tử cung tăng nhanh, tim thai suy hoặc mất tim thai, có thể ra ít huyết đen hoặc nước ối màu nâu đỏ, thường xảy ra trên nền tiền sản giật; xử trí là chỉ định mổ cấp cứu lấy thai kèm hồi sức tim thai, chuẩn bị ê-kíp hồi sức sơ sinh."
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Rau tiền đạo: ra huyết âm đạo đỏ tươi, thường không kèm đau bụng, tử cung mềm, tim thai thường bình thường, ngôi thai thường cao/bất thường; xử trí tùy mức độ chảy máu, có thể nghỉ ngơi tại giường nằm nghiêng trái, dùng thuốc giảm co bóp tử cung và theo dõi nếu chảy máu ít, hoặc mổ lấy thai nếu chảy máu nhiều. Rau bong non: đau bụng liên tục không thành cơn, tử cung cứng/tăng trương lực, chiều cao tử cung tăng nhanh, tim thai suy hoặc mất tim thai, có thể ra ít huyết đen hoặc nước ối màu nâu đỏ, thường xảy ra trên nền tiền sản giật; xử trí là chỉ định mổ cấp cứu lấy thai kèm hồi sức tim thai, chuẩn bị ê-kíp hồi sức sơ sinh.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
   },
   {
     "question": "Các dấu hiệu nhận biết suy thai cấp trong chuyển dạ là gì?",
-    "ground_truth_sources": ["Thuc-hanh-LS-SPK.md"],
-    "ground_truth": "Dấu hiệu suy thai cấp bao gồm: tần số tim thai bất thường (tim thai bình thường 120-160 lần/phút; suy thai khi tim thai >160 hoặc <120 lần/phút, hoặc nhịp tim thai không đều); nước ối có lẫn phân su hoặc có màu bất thường (nâu đỏ); tim thai không cải thiện dù đã hồi sức. Khi phát hiện các dấu hiệu này trong chuyển dạ (kể cả khi bấm ối hoặc truyền oxytocin) cần ngừng các can thiệp gây kích thích và có thể chỉ định mổ lấy thai nếu hồi sức không có kết quả."
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Dấu hiệu suy thai cấp bao gồm: tần số tim thai bất thường (tim thai bình thường 120-160 lần/phút; suy thai khi tim thai >160 hoặc <120 lần/phút, hoặc nhịp tim thai không đều); nước ối có lẫn phân su hoặc có màu bất thường (nâu đỏ); tim thai không cải thiện dù đã hồi sức. Khi phát hiện các dấu hiệu này trong chuyển dạ (kể cả khi bấm ối hoặc truyền oxytocin) cần ngừng các can thiệp gây kích thích và có thể chỉ định mổ lấy thai nếu hồi sức không có kết quả.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
   },
   {
     "question": "Nội dung cần khai thác trong phần tiền sử sản phụ khoa và tiền sử bệnh tật của bệnh án là gì?",
-    "ground_truth_sources": ["Thuc-hanh-LS-SPK.md"],
-    "ground_truth": "Tiền sử sản phụ khoa: tình hình kinh nguyệt (tuổi có kinh, vòng kinh, tính chất kinh nguyệt - số lượng, màu sắc, đau bụng), tuổi lấy chồng, số lần có thai/đẻ/sảy/nạo, tình hình sinh đẻ các lần trước (dễ hay khó, có can thiệp bằng Forceps/giác hút/cắt khâu tầng sinh môn/mổ lấy thai, lý do, có chảy máu sau đẻ không, trọng lượng con), số con hiện còn sống hoặc đã chết và nguyên nhân. Tiền sử bệnh tật: các bệnh đã mắc từ trước liên quan đến bệnh hiện nay và có ảnh hưởng đến thai nghén như bệnh tim, bệnh thận, cao huyết áp, bệnh phụ khoa, bệnh truyền nhiễm, bệnh da liễu; nếu có tiền sử sang chấn cột sống, xương chậu, xương đùi cần nêu rõ mức độ và thời gian."
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Tiền sử sản phụ khoa: tình hình kinh nguyệt (tuổi có kinh, vòng kinh, tính chất kinh nguyệt - số lượng, màu sắc, đau bụng), tuổi lấy chồng, số lần có thai/đẻ/sảy/nạo, tình hình sinh đẻ các lần trước (dễ hay khó, có can thiệp bằng Forceps/giác hút/cắt khâu tầng sinh môn/mổ lấy thai, lý do, có chảy máu sau đẻ không, trọng lượng con), số con hiện còn sống hoặc đã chết và nguyên nhân. Tiền sử bệnh tật: các bệnh đã mắc từ trước liên quan đến bệnh hiện nay và có ảnh hưởng đến thai nghén như bệnh tim, bệnh thận, cao huyết áp, bệnh phụ khoa, bệnh truyền nhiễm, bệnh da liễu; nếu có tiền sử sang chấn cột sống, xương chậu, xương đùi cần nêu rõ mức độ và thời gian.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
   },
   {
     "question": "Làm thế nào để điều trị triệt để bệnh lao phổi cho phụ nữ đang mang thai trong 3 tháng đầu?",
     "ground_truth_sources": [],
-    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp."
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
   },
   {
     "question": "Hướng dẫn cách thiết lập môi trường lập trình Python cho người mới bắt đầu trên Windows?",
     "ground_truth_sources": [],
-    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp."
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
   },
   {
     "question": "Phác đồ điều trị xạ trị ung thư gan giai đoạn cuối kết hợp hóa trị là gì?",
     "ground_truth_sources": [],
-    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp."
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
   },
   {
     "question": "Biến động tỷ giá USD/VND trong năm 2025 ảnh hưởng như thế nào đến lạm phát kinh tế Việt Nam?",
     "ground_truth_sources": [],
-    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp."
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
   },
   {
     "question": "Các bước tự thay nhớt và bảo dưỡng xe máy tay ga tại nhà an toàn nhất?",
     "ground_truth_sources": [],
-    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp."
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
   },
   {
     "question": "Luật giao thông đường bộ quy định bao nhiêu tuổi thì được thi sát hạch bằng lái xe ô tô hạng B2?",
     "ground_truth_sources": [],
-    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp."
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Theo Tổ chức Y tế thế giới năm 2013, tăng glucose huyết tương phát hiện lần đầu trong thai kỳ được phân loại thành mấy nhóm, là những nhóm nào?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Theo WHO (2013), được phân thành 2 nhóm: đái tháo đường mang thai (Diabetes in pregnancy, còn gọi là đái tháo đường rõ - Overt Diabetes, có mức glucose huyết tương đạt ngưỡng chẩn đoán đái tháo đường tiêu chuẩn WHO 2006) và đái tháo đường thai kỳ (Gestational Diabetes Mellitus, có mức glucose huyết tương thấp hơn).",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Thời điểm tầm soát đái tháo đường thai kỳ thường quy cho mọi thai phụ là khi nào?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Nên tầm soát ĐTĐTK cho mọi thai phụ từ tuần thứ 24-28 của tuổi thai, đây được xem là thời điểm chuẩn, tốt nhất để phát hiện bất thường chuyển hóa carbohydrate trong thai kỳ. Với thai phụ nguy cơ cao, nên thực hiện nghiệm pháp tầm soát sớm ngay từ lần khám thai đầu tiên, nếu âm tính sẽ lặp lại ở tuần 24-28.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Mục tiêu kiểm soát glucose huyết tương khi điều trị đái tháo đường thai kỳ bằng thuốc là bao nhiêu?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Mục tiêu: glucose đói < 5,3 mmol/l; glucose sau ăn 1 giờ < 7,8 mmol/l; glucose sau ăn 2 giờ < 6,7 mmol/l; HbA1c < 6% (kiểm tra 1 tháng/lần); và không có biểu hiện hạ đường máu.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Insulin được chỉ định điều trị cho thai phụ đái tháo đường thai kỳ trong những trường hợp nào?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Chỉ định Insulin khi: glucose huyết tương không đạt mục tiêu sau 1-2 tuần áp dụng chế độ dinh dưỡng và tập luyện hợp lý (trên 20% số mẫu xét nghiệm không đạt mục tiêu); hoặc glucose huyết tương cao (lúc đói 5,6-5,8 mmol/l trở lên và/hoặc glucose đỉnh sau ăn trên 7,8 mmol/l); hoặc thai to hơn so với tuổi thai.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Mức glucose huyết tương của mẹ cần được duy trì trong suốt cuộc chuyển dạ và sinh là bao nhiêu?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Cần kiểm soát glucose huyết tương mẹ trong suốt cuộc chuyển dạ và sinh, tốt nhất dao động từ 60-100 mg/dl (3,3-5,6 mmol/l).",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Sau khi sổ rau, cần lưu ý điều chỉnh liều Insulin cho sản phụ như thế nào?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Sau sổ rau, nếu đang dùng insulin phải cân nhắc giảm liều thích hợp, vì sau khi lấy hết bánh rau, mất hiện tượng kháng insulin có thể gây hạ glucose máu; cần theo dõi chặt chẽ nồng độ glucose huyết thanh để điều chỉnh thuốc cho phù hợp.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Trẻ sơ sinh của mẹ đái tháo đường thai kỳ cần được theo dõi những biến chứng gì trong 3 ngày đầu sau sinh?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Cần theo dõi sát trẻ sơ sinh trong vòng 3 ngày đầu để phát hiện và xử trí kịp thời các biến chứng: hạ glucose huyết, hạ calci, đa hồng cầu, tăng bilirubin máu, hội chứng suy hô hấp cấp chu sinh, nhiễm khuẩn sơ sinh.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Sau sinh bao lâu thì cần làm lại nghiệm pháp dung nạp glucose để tầm soát đái tháo đường týp 2 cho mẹ, và tần suất theo dõi tiếp theo ra sao?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Sau sinh 4-12 tuần, làm lại nghiệm pháp dung nạp 75 gram glucose - 2 giờ. Nếu kết quả bình thường: tầm soát định kỳ 1 năm/lần. Nếu có 1 trị số vượt ngưỡng: tiền đái tháo đường, chuyển Nội tiết theo dõi quản lý. Nếu có từ 2 trị số vượt ngưỡng: đái tháo đường, chuyển Nội tiết điều trị và theo dõi.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Ngay sau sinh, thai phụ bị đái tháo đường thai kỳ (không phải đái tháo đường thực sự) có cần dùng Insulin ngay không?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Không. Đối với thai phụ ĐTĐTK, ngay sau sinh không cần dùng Insulin vì glucose huyết tương thường trở về bình thường; chỉ cần kiểm tra glucose huyết tương đói vào ngày hôm sau. (Khác với trường hợp ĐTĐ và thai kỳ - đái tháo đường thực sự - nếu glucose huyết tương sau sinh ≥ 11,1 mmol/l thì vẫn phải dùng Insulin cho mẹ.)",
+    "question_type": "paraphrase",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Mẹ bị tiểu đường lúc mang bầu thì có phải uống thuốc viên hạ đường huyết không?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Không. Tại Việt Nam, các thuốc viên chưa được Bộ Y tế chấp thuận để điều trị đái tháo đường cho phụ nữ mang thai; do đó Insulin là thuốc duy nhất được chấp nhận sử dụng.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Phụ nữ béo phì và có mẹ ruột bị đái tháo đường thì có thuộc nhóm cần tầm soát đái tháo đường thai kỳ sớm ngay từ lần khám thai đầu tiên không?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Có. Béo phì và tiền sử gia đình có người đái tháo đường thế hệ thứ nhất đều là các yếu tố nguy cơ chính của ĐTĐTK. Khuyến cáo nhấn mạnh việc đánh giá nguy cơ ĐTĐTK ngay lần khám thai đầu tiên cho thai phụ có yếu tố nguy cơ; nếu thuộc nhóm nguy cơ cao nên thực hiện nghiệm pháp tầm soát sớm, và nếu âm tính sẽ lặp lại khi tuổi thai 24-28 tuần.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Biện pháp tránh thai nào được khuyến cáo áp dụng cho phụ nữ sau sinh có tiền sử đái tháo đường thai kỳ?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Áp dụng biện pháp tránh thai như bao cao su, dụng cụ tử cung, hoặc viên thuốc ngừa thai kết hợp hàm lượng thấp.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Khi mổ lấy thai cho thai phụ đang điều trị Insulin, cần xử trí liều Insulin vào ngày mổ như thế nào?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Ngày mổ: nhịn ăn từ 0 giờ, thử glucose huyết tương đói, ngưng mũi Insulin cữ sáng (Insulin tác dụng nhanh, ngắn); nếu dùng Insulin trộn/hỗn hợp thì giảm 1/2 liều. Nên mổ trong buổi sáng ngày mổ; nếu đến 12 giờ chưa được mổ, cần thử lại glucose huyết tương mao mạch và xử trí tùy kết quả.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Nếu chỉ tăng glucose huyết tương sau ăn (không tăng lúc đói), thì phác đồ Insulin nào được khuyến cáo sử dụng?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Sử dụng Insulin tác dụng nhanh (regular, lispro, aspart) tiêm trước các bữa ăn có glucose huyết tương tăng cao (≥7,8 mmol/l sau ăn 1 giờ hoặc ≥6,7 mmol/l sau ăn 2 giờ, dưới 11,1 mmol/l). Số mũi tiêm từ 1-3 mũi tùy số bữa ăn có tăng glucose. Liều khởi đầu ≤ 0,1 IU/kg/bữa ăn, chỉnh liều 2-3 ngày/lần, mỗi lần tăng 1-2 đơn vị.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Phác đồ dùng bơm insulin tự động (insulin pump) điều trị đái tháo đường týp 1 ở người không mang thai được thực hiện như thế nào?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "ood_boundary",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Thai nghén có nguy cơ cao được chia thành những nhóm yếu tố nguy cơ nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Chia thành 5 nhóm chính: (1) nhóm nguy cơ liên quan tới thai phụ (tuổi, thể trạng, bất thường giải phẫu đường sinh dục); (2) nhóm liên quan tới bệnh tật có từ trước của mẹ (tăng huyết áp, bệnh thận, bệnh tim, đái tháo đường, bệnh nhiễm khuẩn...); (3) nhóm có tiền sử thai sản nặng nề (sẩy thai liên tiếp, thai lưu, tiền sử mổ lấy thai...); (4) nhóm nguy cơ liên quan tới yếu tố xã hội (nghèo đói, trình độ văn hóa thấp, ở xa cơ sở y tế); (5) các yếu tố bất thường phát sinh trong kỳ thai này (về phía mẹ, phía thai, phần phụ của thai).",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Các bệnh cảnh thường gặp gây chảy máu trong nửa đầu thai kỳ là gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Ba bệnh cảnh thường gặp: dọa sẩy thai/sẩy thai, thai ngoài tử cung, và chửa trứng.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Nguyên tắc xử trí chung khi thai phụ bị chảy máu trong nửa đầu thai kỳ là gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Đánh giá nhanh thể trạng chung và các dấu hiệu sinh tồn (mạch, huyết áp, nhịp thở), nghe tim phổi; nếu có dấu hiệu sốc hoặc chảy máu nhiều phải xử trí ngay; tư vấn, giải thích rõ cách xử trí tùy theo tình huống cụ thể.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Sẩy thai được định nghĩa như thế nào về mặt tuổi thai?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Sẩy thai là trường hợp thai và rau bị tống ra khỏi buồng tử cung trước 22 tuần, tính từ ngày đầu của kỳ kinh cuối.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Cơn co tử cung được coi là tiên lượng tốt cho cuộc chuyển dạ khi có đặc điểm gì theo từng giai đoạn?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Cơn co tử cung nhịp nhàng, đều đặn, phù hợp với độ xóa mở cổ tử cung là tiên lượng tốt: giai đoạn tiềm tàng 2-3 cơn/10 phút; khi cổ tử cung mở 5-6cm là 3-5 cơn/10 phút; khi cổ tử cung mở hết và rặn đẻ là 4-6 cơn/10 phút. Nếu cơn co không đồng bộ, cường tính (>6 cơn/10 phút) hoặc quá yếu đều là tiên lượng không tốt.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Cân nặng thai bao nhiêu được coi là yếu tố nguy cơ của đẻ khó?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Thai to > 3500g là nguy cơ của đẻ khó, có thể dẫn đến chuyển dạ kéo dài, cơn co cường tính, thai suy, dọa vỡ tử cung, rau bong non, phải hỗ trợ sinh bằng dụng cụ và chảy máu sau đẻ.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Ba dấu hiệu để phân biệt chuyển dạ thật và chuyển dạ giả là gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Phân biệt qua 3 dấu hiệu: (1) Cơn co tử cung - chuyển dạ thật tiến triển tăng dần, đều đặn, gây đau; chuyển dạ giả thất thường, không tăng, không gây đau. (2) Xóa mở cổ tử cung - chuyển dạ thật có cổ tử cung mở rộng dần; chuyển dạ giả cổ tử cung hầu như không tiến triển. (3) Đầu ối - chuyển dạ thật đã thành lập đầu ối; chuyển dạ giả chưa thành lập.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Bị ra máu âm đạo ở những tháng đầu mang thai thì có phải là dấu hiệu nguy hiểm không, và cần làm gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Ra máu âm đạo trong nửa đầu thai kỳ (trước 22 tuần) có thể là dấu hiệu của dọa sẩy thai/sẩy thai, thai ngoài tử cung, hoặc chửa trứng - đều cần được đánh giá y tế. Cần đánh giá nhanh thể trạng, các dấu hiệu sinh tồn (mạch, huyết áp, nhịp thở); nếu có dấu hiệu sốc hoặc chảy máu nhiều phải xử trí ngay tại cơ sở y tế.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Sản phụ có tiền sử mổ lấy thai và hiện đang có cơn co tử cung gây đau nhiều thì thuộc nhóm nguy cơ khẩn cấp nào cần đánh giá ngay khi vào phòng đẻ?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Thuộc nhóm 'bất thường khẩn cấp của cuộc chuyển dạ' cần đánh giá nhanh khi vào khoa sinh - phòng đẻ, cụ thể là dấu hiệu 'có cơn co nhiều, gây đau trên sản phụ có vết mổ cũ' - đây là yếu tố cần xác định ngay để xử trí hoặc chuyển tuyến phù hợp, vì nguy cơ liên quan đến sẹo mổ cũ (dọa vỡ tử cung).",
+    "question_type": "multi_hop",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Phác đồ hóa trị kết hợp xạ trị cho bệnh nhân ung thư cổ tử cung giai đoạn cuối được quy định như thế nào?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "ood_boundary",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Chỉ định bấm ối đúng lúc và bấm ối sớm trong chuyển dạ là gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Bấm ối đúng lúc: khi cổ tử cung mở > 8cm, đầu ối không còn tác dụng, để chuẩn bị đỡ đẻ. Bấm ối sớm trong các trường hợp: cổ tử cung mở 3-4cm khi màng ối dày/đầu ối phồng cản trở cuộc đẻ hoặc cổ tử cung tiến triển chậm; gây đẻ chỉ huy, làm nghiệm pháp lọt ngôi chỏm, hoặc đẻ thai thứ hai trong sinh đôi; cầm máu trong rau tiền đạo bám bên/bám mép; giảm áp lực buồng ối trong đa ối; hoặc trong một số bệnh lý của mẹ (bệnh tim, tiền sản giật nặng) khi cổ tử cung đã mở ≥ 4cm.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Chống chỉ định của thủ thuật bấm ối là gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Chống chỉ định bấm ối: chưa chuyển dạ thực sự, cơn co chưa đều đặn (trừ trường hợp gây đẻ non); sa dây rau trong bọc ối; cổ tử cung chưa mở hết trong ngôi mông, ngôi mặt, ngôi vai.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Các biến chứng có thể gặp sau khi thực hiện thủ thuật bấm ối là gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Biến chứng sau bấm ối gồm: sa dây rau (xử trí bằng cách cho sản phụ nằm đầu thấp mông cao, đẩy dây rau lên, nếu không được phải mổ lấy thai); chảy máu hoặc nước ối bất thường sau bấm ối; nhiễm trùng ối/thai nhi (đặc biệt nếu mẹ nhiễm khuẩn âm đạo hoặc bấm ối trên 6 giờ mà thai chưa sổ); chọc vào thai gây chạm thương; gây máu tụ sau rau, nặng có thể gây rau bong non.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Nếu đầu ối phồng, nên tiến hành bấm ối trong hay ngoài cơn co tử cung?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Nếu đầu ối phồng thì bấm ối ngoài cơn co tử cung; nếu đầu ối dẹt thì bấm ối trong cơn co tử cung.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Sau khi bấm ối, tại sao cần nghe lại tim thai ngay?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Cần nghe lại tim thai sau bấm ối để đề phòng biến chứng sa dây rau, vì sa dây rau bên ngôi rất khó phát hiện bằng các cách khác, nên mọi trường hợp sau bấm ối bắt buộc phải nghe tim thai để phát hiện kịp thời.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Kỹ thuật bấm ối cần điều chỉnh như thế nào trong trường hợp thai phụ bị rau tiền đạo?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Nếu bấm ối trong rau tiền đạo, sau khi chọc đầu ối phải xé rộng màng ối song song với bờ bánh rau, tránh xé vào bánh rau gây chảy máu.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Kỹ thuật phẫu thuật nội soi cắt tử cung hoàn toàn qua đường bụng được thực hiện theo các bước nào?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "ood_boundary",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "U xơ tử cung được phân loại thành mấy loại theo vị trí, là những loại nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "U xơ tử cung được phân thành 3 loại: u xơ dưới thanh mạc (phát triển về phía ổ bụng, hố chậu hoặc giữa hai lá dây chằng rộng, dễ nhầm với u buồng trứng); u xơ kẽ (phát triển từ phần giữa cơ tử cung, làm biến dạng buồng tử cung); u xơ dưới niêm mạc (khối u xơ ở dưới niêm mạc, đôi khi có cuống đẩy lồi vào buồng tử cung gọi là polip xơ).",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "U xơ tử cung ảnh hưởng như thế nào đến thai nghén và cuộc chuyển dạ?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "U xơ tử cung có thể gây chậm có thai hoặc vô sinh; sẩy thai, chậm phát triển trong tử cung, đẻ non; rau tiền đạo, rau bám chặt; đẻ khó do rối loạn cơn co hoặc ngôi thai bất thường (u xơ có thể trở thành khối u tiền đạo cản trở đường ra của thai); thời kỳ sổ rau thường gây băng huyết, đờ tử cung; thời kỳ hậu sản có thể gây bế sản dịch, nhiễm khuẩn hậu sản.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Hướng xử trí u xơ tử cung phụ thuộc vào những yếu tố nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Nếu khối u nhỏ, chưa có biến chứng: theo dõi, khám định kỳ 3 tháng/lần hoặc điều trị nội khoa. Nếu khối u to và/hoặc có biến chứng, phương pháp điều trị được lựa chọn dựa trên tuổi, số con, nhu cầu sinh sản và loại biến chứng, có thể là điều trị trì hoãn bằng thuốc (progestin, kháng progesteron, viên tránh thai kết hợp, GnRH đồng vận) hoặc phẫu thuật (bảo tồn tử cung như bóc nhân xơ, thuyên tắc mạch; hoặc cắt tử cung toàn phần).",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "U nang bì (u quái) buồng trứng có đặc điểm gì và tỷ lệ ác tính là bao nhiêu?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "U nang bì (teratoma) chứa các mô như răng, lông tóc, bã đậu; thường lành tính nhưng cũng có thể trở thành ác tính với tỷ lệ 1-5%. Hay được phát hiện ở lứa tuổi 20-30, ít khi gặp cả 2 bên.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Xoắn nang buồng trứng khi mang thai cần xử trí như thế nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "U buồng trứng khi mang thai nếu bị xoắn nang phải phẫu thuật cấp cứu; nếu không xoắn thì phẫu thuật vào đầu quý II của thai kỳ hoặc sau sinh. U nang có thể gây sẩy thai, đẻ non, u tiền đạo, ngôi bất thường.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Vô sinh được định nghĩa như thế nào, và có khác biệt gì về thời gian tính nếu người vợ trên 35 tuổi?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Vô sinh là tình trạng vợ chồng sau một năm chung sống, có quan hệ tình dục trung bình 2-3 lần/tuần, không sử dụng biện pháp tránh thai mà người vợ vẫn không có thai. Nếu người vợ trên 35 tuổi, thời gian này chỉ tính 6 tháng.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Vô sinh nguyên phát và vô sinh thứ phát khác nhau như thế nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Vô sinh nguyên phát là khi người vợ chưa có thai lần nào. Vô sinh thứ phát là khi người vợ có ít nhất một lần mang thai trước đây, sau đó tối thiểu 1 năm muốn có con nhưng chưa thụ thai lần nữa.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Hội chứng buồng trứng đa nang là gì và tỷ lệ mắc trong phụ nữ độ tuổi sinh sản là bao nhiêu?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Hội chứng buồng trứng đa nang là rối loạn nội tiết và chuyển hóa phổ biến, xảy ra trong khoảng 5-10% phụ nữ trong độ tuổi sinh sản. Biểu hiện lâm sàng quan trọng nhất gồm rối loạn phóng noãn, các dấu hiệu cường androgen và hình ảnh buồng trứng đa nang trên siêu âm.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Chống chỉ định tuyệt đối của việc đặt dụng cụ tử cung (DCTC) là gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Chống chỉ định tuyệt đối: có thai; nhiễm khuẩn hậu sản; ngay sau sẩy thai nhiễm khuẩn; ra máu âm đạo chưa rõ nguyên nhân; bệnh nguyên bào nuôi ác tính hoặc β hCG vẫn tăng; ung thư cổ tử cung/niêm mạc tử cung; đang bị ung thư vú (chỉ với DCTC giải phóng levonorgestrel); u xơ tử cung hoặc dị dạng làm biến dạng buồng tử cung; đang viêm tiểu khung; đang viêm mủ cổ tử cung hoặc nhiễm Chlamydia/lậu cầu; lao vùng chậu.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Thời điểm nào có thể đặt DCTC chứa đồng sau sinh cho khách hàng chưa từng dùng biện pháp tránh thai?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Có thể đặt trong vòng 48 giờ sau sinh (kể cả sau mổ lấy thai) nếu không có chống chỉ định; hoặc sau sinh 4 tuần trở đi (nếu vô kinh, đặt bất kỳ lúc nào nếu chắc chắn không có thai; nếu đã có kinh trở lại thì áp dụng như trường hợp kinh nguyệt bình thường).",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Khách hàng vừa sinh con được 2 tuần, đang cho con bú và chưa có kinh trở lại, muốn đặt DCTC giải phóng levonorgestrel thì có được không?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Không nên. Theo hướng dẫn, không đặt DCTC giải phóng levonorgestrel cho sản phụ trong vòng 4 tuần đầu sau sinh (đây thuộc nhóm chống chỉ định tương đối trong khoảng 48 giờ đến 4 tuần đầu sau sinh); cần đợi từ sau sinh 4 tuần trở đi mới xem xét đặt.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "DCTC có giúp phòng tránh các bệnh lây truyền qua đường tình dục (NKLTQĐTD) và HIV không?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Không. Khách hàng nhiễm HIV hay có bạn tình nhiễm HIV có thể sử dụng DCTC, nhưng cần lưu ý biện pháp tránh thai này không giúp ngăn ngừa nhiễm khuẩn lây truyền qua đường tình dục (NKLTQĐTD) và HIV/AIDS.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Xử trí tích cực giai đoạn III của chuyển dạ được chỉ định trong trường hợp nào và cần thuốc gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Chỉ định cho mọi trường hợp đẻ đường dưới, khi thai vừa mới sổ ra ngoài và chắc chắn không còn thai nào trong tử cung. Thuốc cần chuẩn bị: oxytocin 10 đơn vị, chuẩn bị sẵn trong bơm tiêm trên bàn dụng cụ đỡ đẻ.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Các bước tiến hành xử trí tích cực giai đoạn III của chuyển dạ gồm những gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Bước 1: nắn tử cung ngay sau khi thai sổ để chắc chắn không còn thai nào nữa. Bước 2: tiêm bắp 10 đơn vị oxytocin vào 1/3 dưới mặt trước ngoài đùi. Bước 3: cặp dây rốn gần sát âm hộ mẹ. Bước 4: kéo dây rốn có kiểm soát kết hợp đỡ rau (một tay ấn nhẹ trên bụng phía trên xương mu tránh tử cung bị kéo xuống, tay kia kéo dây rốn nhẹ nhàng liên tục); sau đó xoa bóp đáy tử cung qua thành bụng đến khi co tốt, và kiểm tra bánh rau, màng rau, dây rốn.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Nếu kéo dây rốn mà bánh rau không bong, cách xử trí ở tuyến xã và tuyến huyện khác nhau như thế nào?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Không được kéo giật, kéo mạnh, cần chờ đợi rồi tiếp tục kéo. Nếu vẫn không kết quả: tại tuyến xã, nếu chảy máu cần bóc rau nhân tạo, nếu không chảy máu thì chuyển tuyến trên; tại tuyến huyện trở lên có thể đặt âm đạo 1-4 viên misoprostol (200-800mcg) hoặc ngậm dưới lưỡi, sau 10 phút nếu rau vẫn không bong thì tiến hành bóc rau nhân tạo. Nếu dây rốn bị đứt trong khi kéo, thực hiện bóc rau nhân tạo.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Sau khi rau đã sổ, cần hướng dẫn sản phụ tự xoa bóp đáy tử cung như thế nào trong 2 giờ đầu?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Hướng dẫn sản phụ xoa bóp nhẹ đáy tử cung 15 phút/lần trong vòng 2 giờ đầu để đảm bảo chắc chắn tử cung co tốt.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Khi nào mới được tiến hành kiểm tra bánh rau, màng rau, dây rốn sau khi sổ rau?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Chỉ khi đã chắc chắn tử cung co tốt và không thấy chảy máu mới tiến hành kiểm tra bánh rau, màng rau, dây rốn như thường lệ.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Nếu sau đẻ, nhau (rau) không tự bong ra thì nhân viên y tế cần làm gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Không được kéo giật hay kéo mạnh dây rốn, cần chờ đợi rồi tiếp tục kéo có kiểm soát. Nếu vẫn không có kết quả: ở tuyến xã, nếu chảy máu cần bóc rau nhân tạo ngay, nếu không chảy máu thì chuyển tuyến trên; ở tuyến huyện trở lên có thể dùng thuốc misoprostol đặt âm đạo hoặc ngậm dưới lưỡi trước khi cân nhắc bóc rau nhân tạo.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Tay người đỡ đẻ đặt ở đâu và làm gì để hỗ trợ đỡ rau khi kéo dây rốn có kiểm soát?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Một tay người đỡ đẻ đặt trên bụng sản phụ, phía trên xương mu, ấn nhẹ vào mặt trước đoạn dưới tử cung, đẩy nhẹ lên phía xương ức để tránh tử cung bị kéo xuống dưới khi kéo dây rốn; tay kia giữ kẹp dây rốn, kéo nhẹ nhàng và liên tục dọc theo ống đẻ trong vòng 2-3 phút.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Phác đồ tầm soát và điều trị loãng xương ở phụ nữ mãn kinh trên 60 tuổi được quy định như thế nào?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "ood_boundary",
+    "source_doc_tag": "out_of_domain"
   }
 ]
