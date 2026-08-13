@@ -716,5 +716,598 @@
     "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
     "question_type": "ood_boundary",
     "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Trình tự các bước đưa mỏ vịt vào âm đạo trong quá trình khám phụ khoa được thực hiện như thế nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Cầm mỏ vịt khép lại, đưa nhẹ nhàng vào âm đạo theo hướng trước sau, đẩy sâu vào khoảng 3 - 4cm thì quay chuôi cầm mỏ vịt sang chiều ngang rồi đưa theo trục từ trên xuống dưới, từ ngoài vào trong, vào sâu khoảng 7-8cm thì mở dần mỏ vịt. Khi bộc lộ rõ 2 mép cổ tử cung thì vặn chặt ốc ở chuôi để cố định.[cite: 3]",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Mục đích của việc bôi dung dịch lugol 3% vào cổ tử cung trong quá trình khám phụ khoa là gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Để làm chứng nghiệm Schiller. Iod trong dung dịch lugol sẽ tác dụng với glycogen ở biểu mô cổ tử cung tạo ra màu nâu thẫm, giúp phân biệt biểu mô bình thường với các tổn thương (vùng không bắt màu).[cite: 3]",
+    "question_type": "paraphrase",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Nếu sau khi bôi acid acetic 3% mà cổ tử cung có hiện tượng rớm máu tươi thì nguyên nhân do đâu?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Do tác dụng của acid acetic làm niêm mạc bị se đi và có hiện tượng co thắt cục bộ, nên bờ vết loét hoặc đôi chỗ vùng lộ tuyến có thể bị rớm máu tươi.[cite: 3]",
+    "question_type": "multi_hop",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Một bệnh nhân được khám phụ khoa, bác sĩ bôi dung dịch lugol 3% và thấy toàn bộ cổ tử cung có màu nâu thẫm. Kết quả này mang ý nghĩa gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Đây là chứng nghiệm Schiller âm tính, biểu hiện cho thấy đó là biểu mô lát bình thường, không có tổn thương hay loét.[cite: 3]",
+    "question_type": "applied",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Tại sao acid acetic 3% lại làm kết tủa được protein trong các tế bào ung thư cổ tử cung?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Đoạn trích chỉ đề cập acid acetic làm kết tủa niêm dịch và làm se niêm mạc để nhìn rõ tổn thương, không giải thích cơ chế hóa học ở cấp độ protein của tế bào ung thư.[cite: 3]",
+    "question_type": "boundary",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Triệu chứng lâm sàng toàn thân của viêm phúc mạc toàn bộ hậu sản là gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Triệu chứng toàn thân gồm: môi khô, lưỡi bẩn, mắt trũng, dấu hiệu nhiễm độc, nhiễm trùng.[cite: 3]",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Bệnh viêm phúc mạc toàn bộ hậu sản thường xuất hiện vào thời điểm nào sau sinh?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Thường xuất hiện sau đẻ 7-10 ngày, hoặc sau mổ đẻ 3-4 ngày.[cite: 3]",
+    "question_type": "paraphrase",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Nguyên nhân gây viêm phúc mạc toàn bộ có thể bắt nguồn từ những thủ thuật sản khoa nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Nguyên nhân có thể do sau mổ lấy thai không vô khuẩn, sau các thủ thuật bóc rau, kiểm soát tử cung, hoặc do biến chứng từ viêm niêm mạc tử cung/viêm tử cung toàn bộ.[cite: 3]",
+    "question_type": "multi_hop",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Bệnh nhân sau sinh 8 ngày, có biểu hiện môi khô, lưỡi bẩn, chụp X-quang bụng thấy quai ruột giãn và có mức nước mức hơi. Bác sĩ nên chỉ định hướng điều trị ngoại khoa nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Bệnh nhân có biểu hiện của viêm phúc mạc toàn bộ. Bác sĩ cần bồi phụ nước, điện giải, dùng kháng sinh toàn thân, sau đó tiến hành cắt tử cung bán phần, rửa và dẫn lưu ổ bụng.[cite: 3]",
+    "question_type": "applied",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Liều lượng cụ thể của kháng sinh nhóm cephalosporin dùng trong điều trị viêm phúc mạc toàn bộ là bao nhiêu?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Tài liệu chỉ ghi nguyên tắc là dùng \"kháng sinh toàn thân\" cho viêm phúc mạc toàn bộ, nhưng không nêu rõ nhóm thuốc cụ thể hay liều lượng.[cite: 3]",
+    "question_type": "boundary",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Các trường hợp nào có chỉ định phải tiến hành thủ thuật bóc rau nhân tạo?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Chỉ định bóc rau nhân tạo khi: Xử trí giai đoạn 3 thất bại (không lấy được rau sau 10 phút); chảy máu trong thời kỳ sổ rau khi rau còn trong tử cung; cần kiểm tra sự toàn vẹn của buồng tử cung sau khi sổ thai.[cite: 4]",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Nếu sản phụ đang bị choáng, bác sĩ có được bóc rau nhân tạo ngay lập tức không?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Không. Nếu sản phụ đang choáng, phải hồi sức rồi mới được tiến hành bóc rau nhân tạo.[cite: 4]",
+    "question_type": "paraphrase",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Để bóc rau nhân tạo an toàn, người thủ thuật viên cần sử dụng những loại thuốc gì để hỗ trợ cho sản phụ trước và sau khi bóc?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Trước khi làm thủ thuật dùng thuốc giảm đau (như Dolosal, Fentanyl hoặc Diazepam). Sau khi bóc rau dùng thuốc co tử cung (oxytocin, Ergometrin, Misoprostol) và kháng sinh dự phòng.[cite: 4]",
+    "question_type": "multi_hop",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Trong quá trình bóc rau nhân tạo, bác sĩ phát hiện rau bám rất chặt và nghi ngờ rau cài răng lược không bóc được. Hướng xử trí đúng là gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Nếu không bóc được bánh rau vì rau bám chặt hoặc rau cài răng lược thì không được cố sức bóc, phải chuyển phẫu thuật cắt tử cung.[cite: 4]",
+    "question_type": "applied",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Thuốc giảm đau Fentanyl dùng trong bóc rau nhân tạo có ảnh hưởng tới việc tiết sữa của mẹ sau sinh không?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Tài liệu chỉ hướng dẫn dùng Fentanyl 1% tiêm tĩnh mạch chậm 50mcg để giảm đau trước thủ thuật, không đề cập đến tác dụng phụ của thuốc này lên việc tiết sữa mẹ.[cite: 4]",
+    "question_type": "boundary",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Nếu thai phụ đái tháo đường thai kỳ có đường huyết lúc đói thường xuyên từ 5,3 đến dưới 7 mmol/L, liều khởi đầu của Insulin nền được khuyến cáo là bao nhiêu?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Liều khởi đầu được khuyến cáo là 0,1 IU/kg/ngày (dựa trên trọng lượng thực).[cite: 2]",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Insulin nền nên được điều chỉnh liều như thế nào trong quá trình điều trị đái tháo đường thai kỳ?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Cần chỉnh liều Insulin cứ 2 - 3 ngày/lần, mỗi lần thêm 1 - 2 IU cho đến khi đạt mục tiêu điều trị.[cite: 2]",
+    "question_type": "paraphrase",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Bệnh nhân đái tháo đường thai kỳ tăng đường huyết cả lúc đói và sau ăn thì sử dụng phác đồ insulin nào và có thể phải tiêm tối đa bao nhiêu mũi một ngày?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Cần sử dụng phác đồ tiêm Insulin nền - phóng (basal - bolus). Tùy tình trạng, có thể tiêm từ 1 đến 4 mũi, thậm chí 5 mũi tiêm Insulin trong ngày.[cite: 2]",
+    "question_type": "multi_hop",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Nếu xét nghiệm đường huyết thai phụ lúc đói là 7,5 mmol/L, bác sĩ sản khoa nên tiếp tục theo dõi điều trị hay chuyển tuyến?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Nếu glucose huyết tương lúc đói bằng hoặc lớn hơn 7 mmol/L (đái tháo đường thực sự), cần chuyển bệnh nhân sang bác sỹ chuyên khoa Nội tiết để theo dõi điều trị.[cite: 2]",
+    "question_type": "applied",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Tác dụng phụ thường gặp nhất khi tiêm Insulin Detemir ở thai phụ là gì?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Đoạn trích chỉ đề cập Insulin Detemir là insulin kéo dài có tác dụng 12-24 giờ và không có đỉnh, không liệt kê các tác dụng phụ của loại insulin này đối với thai phụ.[cite: 2]",
+    "question_type": "boundary",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Các loại vắc xin nào bắt buộc tiêm phòng cho trẻ em dưới 1 tuổi theo chương trình tiêm chủng mở rộng quốc gia?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Có những cách nào để sơ cứu bệnh nhân bị rắn độc cắn khi đang đi trong rừng?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Người bị gãy xương đùi hở nếu không cố định tốt trong quá trình di chuyển có thể dẫn đến sốc chấn thương do những cơ chế nào?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Bệnh nhân nam 40 tuổi có triệu chứng tiểu đêm, tiểu buốt và đau vùng thắt lưng, nghi ngờ sỏi thận thì nên chỉ định chụp X-quang hay siêu âm loại gì?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "applied",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Phụ nữ có thai 3 tháng giữa bị đái tháo đường nên sử dụng bao nhiêu đơn vị sữa mỗi ngày?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Phụ nữ có thai 3 tháng giữa: Tăng thêm 2 đơn vị so với 3 tháng đầu, sử dụng 5 đơn vị sữa và chế phẩm sữa/ ngày.[cite: 2]",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Loại sữa nào được khuyên dùng cho thai phụ mắc tiểu đường?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Nên sử dụng sữa và chế phẩm sữa không đường hoặc sử dụng thực phẩm dinh dưỡng y học cho người đái tháo đường theo sự chỉ dẫn của bác sỹ.[cite: 2]",
+    "question_type": "paraphrase",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Thai phụ bị tiểu đường ở 3 tháng cuối cần uống nhiều hơn 3 tháng đầu bao nhiêu đơn vị sữa và tương đương bao nhiêu canxi?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Thai phụ 3 tháng đầu cần 3 đơn vị/ngày, 3 tháng cuối cần 6 đơn vị/ngày, do đó cần uống nhiều hơn 3 đơn vị sữa mỗi ngày, tương đương bổ sung thêm 300 mg canxi (do mỗi đơn vị sữa tương đương 100 mg canxi).[cite: 2]",
+    "question_type": "multi_hop",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Một thai phụ đái tháo đường thai kỳ đang mang thai tuần thứ 10 hỏi cô ấy cần bổ sung bao nhiêu canxi từ sữa mỗi ngày, bạn tư vấn thế nào?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Trong 3 tháng đầu (tuần 10), thai phụ nên sử dụng 3 đơn vị sữa/ngày, tương đương 300 mg canxi (vì mỗi đơn vị sữa tương đương 100 ml sữa dạng lỏng hoặc 100 mg canxi).[cite: 2]",
+    "question_type": "applied",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Thành phần lactose trong sữa bò có làm tăng đường huyết đột ngột ở thai phụ đái tháo đường không?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Đoạn trích chỉ khuyến cáo nên sử dụng sữa không đường hoặc thực phẩm dinh dưỡng y học cho người đái tháo đường, nhưng không đề cập trực tiếp đến cơ chế thành phần lactose trong sữa bò làm tăng đường huyết.[cite: 2]",
+    "question_type": "boundary",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Trong thai nghén có nguy cơ cao, những bệnh nội tiết nào của mẹ dễ gây biến chứng cho thai nhi?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Bệnh nội tiết: Basedow, đái tháo đường dễ gây biến chứng cho mẹ và cho thai nhi (gây thai to, thai suy dinh dưỡng, thai chết lưu).[cite: 3]",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Các mầm bệnh lây truyền qua đường tình dục nào được xếp vào nhóm nguy cơ cao khi mang thai?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Bệnh lây truyền qua đường tình dục nguy cơ cao bao gồm: chlamydia trachomatis, herpes sinh dục, HPV, lậu, giang mai, HIV.[cite: 3]",
+    "question_type": "paraphrase",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Nếu thai phụ mắc bệnh thận hoặc bệnh tim trước khi mang thai, biến chứng nguy hiểm nhất có thể xảy ra là gì?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Bệnh thận có nguy cơ tăng huyết áp mạn tính dẫn tới tiền sản giật, sản giật; bệnh tim đặc biệt là bệnh tim có biến chứng gây nguy cơ tử vong cao.[cite: 3]",
+    "question_type": "multi_hop",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Một thai phụ 30 tuổi có tiền sử mắc bệnh thiếu máu hồng cầu lưỡi liềm đến khám. Cô ấy có thuộc nhóm thai nghén nguy cơ cao không?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Có, thai phụ này thuộc nhóm nguy cơ cao liên quan tới bệnh tật của mẹ có từ trước (Bệnh thiếu máu: suy tuỷ, hồng cầu lưỡi liềm).[cite: 3]",
+    "question_type": "applied",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Tỷ lệ di truyền của bệnh Thalassemia từ mẹ sang con là bao nhiêu phần trăm?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Đoạn trích có đề cập bệnh Thalassemia là bệnh di truyền có tính chất gia đình thuộc nhóm nguy cơ cao, nhưng không cung cấp tỷ lệ di truyền cụ thể là bao nhiêu phần trăm.[cite: 3]",
+    "question_type": "boundary",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Thời gian rặn đẻ tối đa đối với người sinh con so và con rạ được quy định là bao nhiêu?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Thời gian rặn tối đa ở người con so là 60 phút, ở người con rạ là 30 phút.[cite: 4]",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Khi nào thì nhân viên y tế mới cho phép sản phụ bắt đầu rặn đẻ?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Chỉ cho sản phụ rặn khi cổ tử cung đã mở hết và đầu lọt thấp.[cite: 4]",
+    "question_type": "paraphrase",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Trong quá trình sản phụ rặn đẻ kéo dài quá 60 phút đối với con so, thái độ xử trí bắt buộc tiếp theo là gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Nếu quá thời gian rặn tối đa (60 phút ở con so), cần can thiệp để lấy thai ra bằng Forceps hoặc bằng giác kéo.[cite: 4]",
+    "question_type": "multi_hop",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Một sản phụ sinh con rạ đã rặn đẻ được 40 phút nhưng thai chưa sổ. Hướng xử trí lúc này là gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Vì thời gian rặn của con rạ đã vượt quá thời gian tối đa cho phép là 30 phút, bác sĩ cần can thiệp để lấy thai ra bằng Forceps hoặc bằng giác kéo.[cite: 4]",
+    "question_type": "applied",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Áp lực hút chân không chuẩn khi sử dụng giác kéo lấy thai trong trường hợp rặn đẻ kéo dài là bao nhiêu mmHg?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Tài liệu quy định nếu quá thời gian rặn tối đa thì dùng Forceps hoặc giác kéo, nhưng đoạn trích này không nêu rõ thông số áp lực hút chân không cụ thể của giác kéo là bao nhiêu.[cite: 4]",
+    "question_type": "boundary",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Phác đồ dùng kháng sinh Azithromycin trong điều trị viêm loét dạ dày tá tràng do vi khuẩn H. Pylori là gì?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Bệnh tay chân miệng ở trẻ em dưới 3 tuổi có những biến chứng thần kinh nào?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Làm thế nào để phân biệt triệu chứng nhồi máu cơ tim cấp và cơn đau thắt ngực ổn định ở người già?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Bệnh nhân nam 65 tuổi bị phì đại tuyến tiền liệt có nên sử dụng thuốc chẹn alpha-1 không?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "applied",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Cách xử trí khi trẻ bị sặc dị vật đường thở tại nhà theo phương pháp Heimlich?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Mức tăng cân khuyến cáo cho thai phụ có BMI trước mang thai bình thường là bao nhiêu?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Đối với thai phụ có tình trạng dinh dưỡng bình thường (BMI: 18,5-24,9 kg/m2), mức tăng cân khuyến cáo trong thai kỳ là 11,5 - 16 kg.",
+    "question_type": "direct",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Đối với bà mẹ bị béo phì trước khi mang thai, trong thai kỳ nên kiểm soát tăng cân ở mức nào?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Bà mẹ béo phì (BMI ≥ 30,0 kg/m2) nên kiểm soát mức tăng cân trong khoảng từ 5 - 9 kg.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Một thai phụ bị thiếu năng lượng trường diễn (BMI < 18,5) thì mức tăng cân trung bình mỗi tuần trong quý 2 và quý 3 nên là bao nhiêu?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Mức tăng cân trung bình trong quý 2 và quý 3 cho thai phụ thiếu năng lượng trường diễn là 0,51 kg/tuần (dao động từ 0,44 - 0,58 kg/tuần).",
+    "question_type": "multi_hop",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Chị A trước khi mang thai có BMI = 26 (thừa cân). Tổng trọng lượng cô ấy nên tăng trong suốt thai kỳ là bao nhiêu để phòng ngừa nguy cơ đái tháo đường thai kỳ?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Vì chị A thuộc nhóm thừa cân (BMI từ 25,0 - 29,9 kg/m2), tổng trọng lượng chị nên tăng trong thai kỳ là từ 7 - 11,5 kg.",
+    "question_type": "applied",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Chế độ tập luyện cardio nào giúp giảm cân hiệu quả nhất cho phụ nữ béo phì trước khi mang thai?",
+    "ground_truth_sources": [
+      "Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.md"
+    ],
+    "ground_truth": "Đoạn trích chỉ khuyến cáo mức tăng cân trong thai kỳ cho phụ nữ béo phì và khuyên hoạt động thể chất 30 phút/ngày, không đi sâu vào các bài tập cardio giảm cân cụ thể trước khi mang thai.",
+    "question_type": "boundary",
+    "source_doc_tag": "dtd_thai_ky"
+  },
+  {
+    "question": "Phụ nữ trước khi có thai được khuyến cáo uống acid folic với liều lượng bao nhiêu hàng ngày?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Phụ nữ trước khi có thai được khuyến cáo uống bổ sung viên sắt và acid folic 400 mcg hàng ngày.",
+    "question_type": "direct",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Việc bổ sung acid folic trước khi mang thai nên được thực hiện bắt đầu từ thời điểm nào?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Nên dùng acid folic ít nhất 3 tháng trước khi có thai để đề phòng chống thiếu máu và làm giảm nguy cơ dị tật bẩm sinh ống thần kinh của thai nhi.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Nếu người phụ nữ có thai cần tẩy giun bằng albendazol, việc này có giúp phòng chống dị tật bẩm sinh ống thần kinh không?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Tẩy giun bằng albendazol giúp cải thiện sức khỏe mẹ, nhưng để làm giảm nguy cơ dị tật bẩm sinh ống thần kinh của thai nhi thì cần dùng acid folic trước khi có thai ít nhất 3 tháng.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Chị B năm nay 25 tuổi, dự định sinh con vào năm tới. Trạm y tế xã nên tư vấn chị tiêm loại vắc xin nào để bảo vệ sức khỏe trước khi mang thai?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Trạm y tế nên tư vấn chị tiêm vắc xin phòng uốn ván (vì trong độ tuổi 15-35), cùng với tiêm phòng cúm và rubella ít nhất 3 tháng trước khi có thai.",
+    "question_type": "applied",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Liều lượng vitamin C tối đa mỗi ngày để tăng sức đề kháng cho phụ nữ trước mang thai là bao nhiêu?",
+    "ground_truth_sources": [
+      "Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.md"
+    ],
+    "ground_truth": "Tài liệu có đề cập bổ sung đa vi chất và đảm bảo vitamin từ thực phẩm, nhưng không ghi cụ thể liều lượng vitamin C tối đa mỗi ngày.",
+    "question_type": "boundary",
+    "source_doc_tag": "skss_quoc_gia"
+  },
+  {
+    "question": "Các bước hồi sức ngay lập tức cho trẻ sơ sinh bị ngạt bao gồm những gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Lau khô và kích thích, ủ ấm bằng khăn khô dưới đèn tỏa nhiệt, để trẻ hơi ưỡn cổ; nếu nước ối có phân su phải hút sạch hầu họng trước khi kích thích.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Tần số bóp bóng qua mặt nạ hỗ trợ hô hấp cho sơ sinh ngạt ở mức 2 là bao nhiêu lần/phút?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Khi trẻ ngạt ở mức 2, cần hỗ trợ hô hấp bằng bóp bóng qua mặt nạ hoặc đặt nội khí quản với tần số 40 lần/phút, thể tích 60 ml/lần.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Nếu trẻ sơ sinh có chỉ số Apgar 3 điểm, nhân viên y tế cần kết hợp thông khí qua nội khí quản và bóp tim ngoài lồng ngực với tần số bao nhiêu?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Nếu Apgar 3 điểm, trẻ cần thông khí qua nội khí quản kết hợp bóp tim ngoài lồng ngực với tần số 100 - 120 lần/phút.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Trẻ sơ sinh ra đời có da xanh bạc, thở yếu (Apgar mức 2). Bác sĩ nên thực hiện thao tác hút dịch như thế nào trước khi hỗ trợ hô hấp?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Với trẻ ở mức 2, bác sĩ cần hút sạch dịch trong miệng và mũi trước, sau đó mới tiến hành hỗ trợ hô hấp bằng bóp bóng qua mặt nạ hoặc nội khí quản.",
+    "question_type": "applied",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Tác dụng phụ của việc sử dụng adrenalin qua nội khí quản ở trẻ sơ sinh bị bệnh tim bẩm sinh là gì?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Tài liệu chỉ hướng dẫn bơm adrenalin qua nội khí quản trong quy trình hồi sức trẻ có Apgar 3 điểm, không phân tích tác dụng phụ của thuốc trên trẻ có bệnh tim bẩm sinh.",
+    "question_type": "boundary",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Chiều cao tử cung được đo từ vị trí nào đến vị trí nào trên bụng thai phụ?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Chiều cao tử cung được đo bằng thước dây đặt từ bờ trên khớp vệ đến đáy tử cung.",
+    "question_type": "direct",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Trọng lượng thai nhi và tuổi thai có thể được ước tính dựa vào những chỉ số nào khi khám ngoài?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Tuổi thai (theo tháng) và trọng lượng thai có thể được dự tính dựa vào kết quả đo chiều cao tử cung và vòng bụng.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Để đo vòng bụng chính xác, thầy thuốc cần luồn thước dây qua vị trí nào trên cơ thể thai phụ khi họ đang nằm ngửa?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Thầy thuốc cần luồn thước dây qua lưng thai phụ và đo ở chỗ tử cung cao nhất, thường là đo qua rốn.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Khi khám thai, nếu phát hiện tử cung của thai phụ bị lệch trục, bác sĩ cần xử lý tư thế tử cung thế nào trước khi tiến hành đo chiều cao tử cung?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Bác sĩ cần đẩy tử cung nhẹ nhàng về hướng trung gian rồi mới đo, hoặc có thể đo chiều cao tử cung theo hướng lệch của tử cung.",
+    "question_type": "applied",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Sai số trung bình của siêu âm so với việc dùng thước dây đo chiều cao tử cung trong dự đoán cân nặng thai nhi là bao nhiêu gram?",
+    "ground_truth_sources": [
+      "Thuc-hanh-LS-SPK.md"
+    ],
+    "ground_truth": "Tài liệu chỉ hướng dẫn kỹ thuật đo chiều cao tử cung và vòng bụng bằng thước dây để dự tính trọng lượng thai, không so sánh sai số định lượng với siêu âm.",
+    "question_type": "boundary",
+    "source_doc_tag": "thuc_hanh_spk"
+  },
+  {
+    "question": "Phương pháp ghép thận nhân tạo hiện nay thường được áp dụng cho những đối tượng bệnh nhân nào?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "direct",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Hướng dẫn cách cài đặt và sử dụng phần mềm Adobe Photoshop trên hệ điều hành Mac OS?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "paraphrase",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Những chính sách hỗ trợ vay vốn mua nhà ở xã hội mới nhất trong năm 2024 bao gồm những gì?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "multi_hop",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Kỹ thuật nuôi tôm sú thương phẩm trong ao lót bạt cần chú ý những tiêu chuẩn môi trường nước nào?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "applied",
+    "source_doc_tag": "out_of_domain"
+  },
+  {
+    "question": "Các bước an toàn cần thiết để khắc phục sự cố rò rỉ khí gas tại hộ gia đình chung cư là gì?",
+    "ground_truth_sources": [],
+    "ground_truth": "Không có thông tin liên quan trong tài liệu được cung cấp.",
+    "question_type": "boundary",
+    "source_doc_tag": "out_of_domain"
   }
 ]

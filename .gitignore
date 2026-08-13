@@ -72,3 +72,28 @@ evaluation/results/chunks_cache/*
 !evaluation/results/chunks_cache/.gitkeep
 
 evaluation/results/*.csv
+
+# ============================================================
+# Vector DB & BM25 (artifact — phải build lại, không push)
+# ============================================================
+data/vector_db/bm25_index.pkl
+data/vector_db/qdrant/
+
+# ============================================================
+# Kết quả eval (phải chạy lại, không push)
+# ============================================================
+evaluation/results/*.md
+evaluation/results/*.json
+
+# ============================================================
+# File nội bộ — chỉ giữ trên máy local, không push
+# ============================================================
+commands_to_run.txt
+generation_pipeline_prompt.md
+
+# ============================================================
+# Tài liệu gốc PDF (nặng, bản quyền — người dùng tự chuẩn bị)
+# ============================================================
+data/raw/*.pdf
+data/interim/*.md
+data/cleaned/*.md

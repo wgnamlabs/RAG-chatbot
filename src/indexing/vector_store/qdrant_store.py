@@ -175,7 +175,7 @@ class QdrantVectorStore(BaseVectorStore):
     # Search
     # ------------------------------------------------------------------
 
-    def search(self, query_vector: np.ndarray, top_k: int = 10) -> List[dict]:
+    def search(self, query_vector: np.ndarray, top_k: int = 15) -> List[dict]:
         """Tìm kiếm top-k chunk gần nhất với query vector.
 
         Dùng query_points() thay vì search() (deprecated từ qdrant-client >= 1.7.0).

@@ -38,9 +38,12 @@ from indexing.vector_store import QdrantVectorStore, QdrantStoreConfig
 
 # ── Cấu hình mặc định ──────────────────────────────────────────────────────────
 
+# Phương án đã chốt (xem README > Kết luận cuối):
+#   Chunker : Semantic (MRR cao nhất 0.895)
+#   Embedder: AITeamVN/Vietnamese_Embedding_v2 (MRR 0.895, OOD sim thấp nhất ~0.35, ~2.3GB)
 DEFAULT_CHUNKER   = "semantic"
-DEFAULT_EMB_MODEL = "AITeamVN/Vietnamese_Embedding"
-DEFAULT_EMB_DIM   = 1024
+DEFAULT_EMB_MODEL = "AITeamVN/Vietnamese_Embedding_v2"
+DEFAULT_EMB_DIM   = 1024    # Vietnamese_Embedding_v2 output dim (bge-m3 based)
 
 # ── Tokenizer tiếng Việt cho BM25 ──────────────────────────────────────────────
 
