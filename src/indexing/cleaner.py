@@ -37,6 +37,7 @@ Dùng:
   python -m indexing.cleaner path/to/dir/           # 1 thư mục tùy chọn
 """
 
+import html
 import re
 import sys
 import unicodedata
@@ -89,6 +90,10 @@ HEADING_RE = re.compile(r"^##\s+\S")
 # Match '## ' followed by numbers like '1.', '1.1', '1.1.', '1.1.1', etc.
 HEADING_LEVEL_RE = re.compile(r"^##\s+((\d+\.)+\d*\.?)\s+(.*)")
 
+# Heading bị vỡ do OCR ngắt trang: phần tiếp theo chỉ có 1-3 ký tự thường
+# Ví dụ: "### 6.3. Điều trị bằng thuố" + "## c" → gộp thành 1 heading
+BROKEN_HEADING_SUFFIX_RE = re.compile(r"^#{1,6}\s+([a-záàảãạăắặằẳẵâấầẩẫậđéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ]{1,3})\s*$", re.IGNORECASE | re.UNICODE)
+
 # Blacklist lọc rác front-matter
 FRONT_MATTER_BLACKLIST = [
     re.compile(r"^(##\s*)?BỘ Y TẾ\s*$", re.IGNORECASE),
@@ -115,16 +120,57 @@ def remove_toc_block(lines: list[str]) -> list[str]:
     return result
 
 
+def repair_broken_headings(lines: list[str]) -> list[str]:
+    """Gộp heading bị vỡ ngang do OCR ngắt trang.
+
+    Trường hợp điển hình:
+        Dòng N  : "### 6.3. Điều trị bằng thuố"   ← heading cụt, không kết thúc hợp lý
+        Dòng N+1: "## c"                            ← heading giả, chỉ là đoạn cuối
+    Sau sửa    : "### 6.3. Điều trị bằng thuốc"    ← heading hoàn chỉnh
+
+    Điều kiện để gộp:
+      - Dòng hiện tại là heading (bắt đầu bằng #+ space).
+      - Dòng tiếp theo khớp BROKEN_HEADING_SUFFIX_RE (heading giả 1-3 ký tự thường).
+      - Dòng giữa (nếu có dòng trắng) sẽ không gộp — cần liền nhau hoặc cách 1 dòng trắng.
+    """
+    result: list[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        # Kiểm tra xem dòng kế (bỏ qua dòng trắng đơn) có phải heading cụt không
+        next_real = i + 1
+        # Cho phép tối đa 1 dòng trắng giữa 2 phần vỡ
+        if next_real < len(lines) and lines[next_real].strip() == "":
+            next_real += 1
+        if (
+            re.match(r"^#{1,6}\s+", line)                          # dòng hiện tại là heading
+            and next_real < len(lines)
+            and BROKEN_HEADING_SUFFIX_RE.match(lines[next_real])   # dòng kế là heading giả
+        ):
+            # Lấy phần text thật của heading giả (không có #)
+            suffix_text = BROKEN_HEADING_SUFFIX_RE.match(lines[next_real]).group(1)
+            merged = line.rstrip() + suffix_text
+            result.append(merged)
+            i = next_real + 1  # bỏ qua dòng trắng lẫn heading giả
+            continue
+        result.append(line)
+        i += 1
+    return result
+
+
 def clean_markdown(text: str, drop_image_placeholders: bool = True) -> str:
     """Làm sạch chuỗi Markdown, trả về chuỗi đã xử lý."""
     # (1) Chuẩn hóa Unicode
     text = unicodedata.normalize("NFC", text)
 
-    # (2) Sửa lỗi font cũ
+    # (2) Giải mã HTML entities (&lt; → <, &gt; → >, &amp; → &, &#160; → ' ', v.v.)
+    text = html.unescape(text)
+
+    # (3) Sửa lỗi font cũ
     for wrong, right in LEGACY_FONT_FIX.items():
         text = text.replace(wrong, right)
 
-    # (3) Sửa PUA
+    # (4) Sửa PUA
     for wrong, right in SYMBOL_PUA_MEANINGFUL.items():
         text = text.replace(wrong, right)
     for ch in SYMBOL_PUA_DECORATIVE:
@@ -132,8 +178,11 @@ def clean_markdown(text: str, drop_image_placeholders: bool = True) -> str:
 
     lines = text.split("\n")
 
-    # (4) Xóa khối MỤC LỤC
+    # (5) Xóa khối MỤC LỤC
     lines = remove_toc_block(lines)
+
+    # (6) Sửa heading bị vỡ do OCR ngắt trang
+    lines = repair_broken_headings(lines)
 
     cleaned_lines = []
     for line in lines:

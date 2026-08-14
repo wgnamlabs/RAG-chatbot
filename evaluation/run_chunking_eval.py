@@ -1,4 +1,5 @@
 import json
+import unicodedata
 from pathlib import Path
 import sys
 
@@ -57,8 +58,10 @@ def run_chunking(cleaned_dir: Path, output_dir: Path) -> None:
             print(f"\n  📄 {file_path.name}")
             text = file_path.read_text(encoding="utf-8")
 
-            # source là tên file .md đã clean (không đổi sang .pdf)
-            chunks = chunker.chunk(text, metadata={"source": file_path.name})
+            # source là tên file .md đã clean, chuẩn hóa NFC để tránh lỗi so sánh NFD/NFC
+            # trên Windows: os.fspath / Path.name có thể trả NFD khi đọc từ filesystem
+            source_name = unicodedata.normalize("NFC", file_path.name)
+            chunks = chunker.chunk(text, metadata={"source": source_name})
 
             for chunk in chunks:
                 all_chunks.append({
@@ -66,7 +69,7 @@ def run_chunking(cleaned_dir: Path, output_dir: Path) -> None:
                     "metadata": chunk.metadata,
                 })
 
-            n_file = sum(1 for c in all_chunks if c["metadata"].get("source") == file_path.name)
+            n_file = sum(1 for c in all_chunks if c["metadata"].get("source") == source_name)
             print(f"     → {n_file} chunks")
 
         out_file = output_dir / f"{chunker_name}.json"
