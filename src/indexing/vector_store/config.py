@@ -30,3 +30,10 @@ class QdrantStoreConfig:
     # Kaggle/Colab support:
     path: str = None              # Ví dụ: "data/vector_db/qdrant_local"
     memory: bool = False          # True nếu muốn chạy in-memory hoàn toàn
+
+    def __post_init__(self):
+        import os
+        # Tự động nhận diện môi trường Kaggle
+        if "KAGGLE_KERNEL_RUN_TYPE" in os.environ:
+            if not self.path:
+                self.path = "data/vector_db/qdrant_local"
