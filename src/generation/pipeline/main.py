@@ -38,7 +38,7 @@ logger = logging.getLogger(__name__)
 
 # ── Cấu hình mặc định ────────────────────────────────────────────────────────
 DEFAULT_CONFIG: dict = {
-    "rewrite_model":    "qwen3:4b",
+    "rewrite_model":    "qwen3:8b",    # Dùng chung 1 model 8B cho cả rewrite và generate để tránh tràn VRAM
     "generate_model":   "qwen3:8b",
     "top_k_retrieval":  15,
     "top_k_rerank":     10,    # rerank lấy top 10 để dedup có pool đủ lớn
@@ -79,10 +79,13 @@ def _call_ollama_generate(
     Raises:
         RuntimeError: Nếu không kết nối được Ollama.
     """
+    # Yêu cầu Ollama >= v0.9.0 để nhận diện param "think": False ở top-level payload
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
         "options": {"temperature": temperature},
+        "think": False,
+        "keep_alive": "30m",
         "stream": False,
     }
 
@@ -257,6 +260,8 @@ def run_pipeline(
         logger.error("[run_pipeline] generate lỗi bất ngờ: %s", exc)
         answer = _ERROR_ANSWER
     latency["generation"] = time.perf_counter() - t0
+
+    latency["total"] = sum(latency.values())
 
     logger.info(
         "[run_pipeline] Hoàn thành | latency=%s | sources=%d",

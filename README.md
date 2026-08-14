@@ -48,23 +48,47 @@ Câu hỏi người dùng
 
 ## CHANGELOG / Quyết định kỹ thuật
 
-### 2024-08 — Chốt cấu hình retrieval: **Hybrid RRF** (bỏ rerank)
+### Chọn cấu hình embedding: AITeamVN/Vietnamese_Embedding_v2 + Semantic Chunking
 
-Eval trên 127 câu in-domain + 24 câu OOD (Vietnamese medical corpus):
+So sánh dense-only (`run_embedding_eval.py` + `run_chunking_eval.py`) giữa 3 embedding model × 2 chiến lược chunking, ở k=10:
 
-| Cấu hình | R@10 | P@5 | MRR | Latency P95 |
-|----------|------|-----|-----|-------------|
-| Dense only | 0.9722 | 0.7000 | 0.9028 | 0.069s |
-| **Hybrid RRF** ✅ | **0.9861** | **0.7556** | **0.9167** | **0.140s** |
-| Hybrid + Rerank | 0.9861 | 0.7111 | 0.9028 | 3.454s |
+| Chunker | Embedding | Recall@10 | Precision@10 | MRR | Top1-sim OOD |
+|---|---|---|---|---|---|
+| **semantic** ✅ | **AITeamVN/Vietnamese_Embedding_v2** | 0.9846 | 0.7162 | **0.9228** | **0.3619** |
+| hierarchical | AITeamVN/Vietnamese_Embedding_v2 | 0.9846 | 0.7015 | 0.9024 | 0.3634 |
+| semantic | Qwen/Qwen3-Embedding-4B | 0.9923 | 0.7092 | 0.9177 | 0.3801 |
+| hierarchical | Qwen/Qwen3-Embedding-4B | 1.0000 | 0.7123 | 0.9224 | 0.3862 |
+| semantic | BAAI/bge-m3 | 0.9769 | 0.7085 | 0.8865 | 0.5011 |
+| hierarchical | BAAI/bge-m3 | 0.9923 | 0.7200 | 0.8946 | 0.5001 |
 
-**Lý do bỏ rerank** (`use_rerank=False` trong DEFAULT_CONFIG):
-- MRR giảm: 0.9167 → 0.9028
-- Precision@5 giảm: 0.7556 → 0.7111
-- Latency P95 tăng: 0.14s → 3.45s (**~25×**)
-- Debug: `bge-reranker-v2-m3` mismatch văn phong protocol lâm sàng tiếng Việt
+**Lý do chọn AITeamVN/Vietnamese_Embedding_v2 + semantic chunking:**
 
-**Để thử reranker mới:** set `use_rerank=True` trong config. Code path vẫn còn trong `src/generation/pipeline/main.py` và `rerank.py`.
+- **MRR cao nhất** trong 6 tổ hợp (0.9228) — chunk đúng thường nằm ở vị trí top-1/top-2 hơn các cấu hình còn lại, quan trọng vì pipeline chỉ lấy top_k=15 rồi qua RRF chứ không rerank.
+- **Top1-sim OOD thấp nhất** (0.3619) — với câu hỏi ngoài phạm vi 3 tài liệu nguồn, model này cho similarity thấp nhất, tức ít khả năng "tự tin nhầm" và kéo theo context sai vào prompt. Đây là tiêu chí quan trọng hơn recall thuần trong bài toán tư vấn y tế, vì retrieve sai cho câu ngoài domain có thể khiến LLM generate câu trả lời sai lệch thay vì từ chối.
+- Chênh lệch recall so với Qwen3-Embedding-4B (0.9846 vs 0.9923–1.0000) là không đáng kể (~1%) và không đủ bù lại việc OOD sim cao hơn ~5%.
+- BAAI/bge-m3 tuy precision cạnh tranh nhưng OOD sim cao hơn hẳn (~0.50, gần gấp rưỡi) — rủi ro cao nhất trong 3 model, loại khỏi lựa chọn.
+- Giữa 2 chiến lược chunking trên cùng embedding AITeamVN, semantic nhỉnh hơn hierarchical ở cả precision (0.7162 vs 0.7015) lẫn MRR (0.9228 vs 0.9024), OOD sim gần như tương đương.
+
+### Chọn cấu hình retrieval: Hybrid RRF (bỏ rerank)
+
+So sánh 3 cấu hình retrieval trên embedding + chunking đã chọn ở trên (`eval_pipeline.py`):
+
+| Cấu hình | R@5 | R@10 | P@5 | P@10 | MRR | Latency (Avg / P50 / P95) |
+|----------|-----|------|-----|------|-----|---------------------------|
+| Dense only | 0.9846 | 0.9846 | 0.7277 | 0.7162 | 0.9269 | 0.060s / 0.053s / 0.079s |
+| **Hybrid RRF** ✅ | **0.9923** | **0.9923** | **0.7692** | 0.7008 | 0.9269 | 0.091s / 0.090s / 0.113s |
+| Hybrid + Rerank | 0.9923 | 0.9923 | 0.7308 | 0.7091 | 0.9308 | 2.642s / 2.115s / 4.351s |
+
+**Out-of-Domain — khả năng từ chối câu hỏi ngoài miền:** 30/30 (100%) — không có case nào retrieve nhầm context và trả lời sai cho câu hỏi ngoài phạm vi 3 tài liệu nguồn.
+
+**Lý do chọn Hybrid RRF:**
+
+- **P@5 tốt nhất** trong 3 cấu hình (0.7692), cao hơn Dense only (0.7277) và Hybrid + Rerank (0.7308).
+- **Rerank không đáng đánh đổi**: MRR chỉ nhích thêm 0.0039 (0.9308 vs 0.9269) nhưng latency trung bình tăng gấp **~29 lần** (2.642s vs 0.091s), P95 lên tới 4.351s — không phù hợp với chatbot cần phản hồi gần real-time. `use_rerank=False` trong `DEFAULT_CONFIG`; code path vẫn còn trong `src/generation/pipeline/main.py` và `rerank.py` để bật lại khi cần (`use_rerank=True`).
+- **Dense only** nhanh hơn (~30ms) nhưng P@5 thấp hơn rõ rệt — mức chênh lệch latency này không đáng để đổi lấy precision thấp hơn.
+- **OOD rejection đạt 100%** trên cấu hình Hybrid RRF — xác nhận thêm rằng lựa chọn embedding (AITeamVN, top1-sim OOD thấp nhất) đang phát huy đúng vai trò an toàn khi triển khai thực tế.
+
+> **Lưu ý:** kết quả OOD (30/30) chưa khớp với số câu `out_of_domain` (24 câu) ghi trong `evaluation/eval_questions.json` ở mục "Tập dữ liệu đánh giá" bên dưới — cần rà lại xem bộ câu hỏi eval đã được mở rộng hay chưa và cập nhật lại con số ở mục đó cho khớp.
 
 ---
 
@@ -116,146 +140,3 @@ rag-phu-san-chatbot/
 ├── pyproject.toml
 └── .env.example
 ```
-
----
-
-## Cài đặt
-
-### Yêu cầu
-
-- Python 3.10+
-- Docker (chạy Qdrant)
-- [Ollama](https://ollama.ai/) (chạy LLM local)
-- GPU NVIDIA (khuyến nghị, CPU cũng chạy được nhưng chậm hơn)
-
-### Bước 1 — Clone & cài thư viện
-
-```bash
-git clone https://github.com/<your-repo>/rag-phu-san-chatbot.git
-cd rag-phu-san-chatbot
-
-python -m venv .venv
-.venv\Scripts\activate          # Windows
-# source .venv/bin/activate     # Linux/Mac
-
-pip install -r requirements.txt
-pip install -e .
-```
-
-### Bước 2 — Chuẩn bị dữ liệu
-
-Đặt 3 file PDF vào `data/raw/`:
-- `Huong dan quoc gia dai thao duong thai ky - Sản phụ khoa.pdf`
-- `Hướng dẫn quốc gia về các dịch vụ chăm sóc sức khỏe sinh sản.pdf`
-- `Thuc-hanh-LS-SPK.pdf`
-
-### Bước 3 — Khởi động hạ tầng
-
-```bash
-# Qdrant vector database
-docker run -d -p 6333:6333 -p 6334:6334 \
-  -v D:/rag-phu-san-chatbot/data/vector_db/qdrant:/qdrant/storage \
-  --name qdrant-phu-san qdrant/qdrant
-
-# Ollama models
-ollama pull qwen3:4b    # query rewriting
-ollama pull qwen3:8b    # generation
-```
-
-### Bước 4 — Build index
-
-```bash
-# Chạy loader (PDF → Markdown)
-python src/indexing/loader.py
-
-# Chạy cleaner (chuẩn hoá văn bản)
-python src/indexing/cleaner.py
-
-# Build vector store (Qdrant + BM25)
-python evaluation/build_vector_store.py
-```
-
----
-
-## Chạy pipeline
-
-```python
-import pickle
-from src.indexing.embedding import SentenceTransformerEmbedder
-from src.indexing.embedding.config import EmbedderConfig
-from src.indexing.vector_store import QdrantVectorStore, QdrantStoreConfig
-from src.generation.pipeline.main import run_pipeline
-
-# Load infra (1 lần)
-embedder = SentenceTransformerEmbedder(EmbedderConfig(
-    model_name="AITeamVN/Vietnamese_Embedding_v2", device="cuda"
-))
-embedder.load()
-
-qdrant = QdrantVectorStore(config=QdrantStoreConfig(collection_name="phu_san_chunks"))
-qdrant.load()
-
-with open("data/vector_db/bm25_index.pkl", "rb") as f:
-    bm25_data = pickle.load(f)
-
-# Chạy pipeline
-result = run_pipeline(
-    query="Tiêu chuẩn chẩn đoán đái tháo đường thai kỳ là gì?",
-    qdrant_store=qdrant,
-    bm25_data=bm25_data,
-    embedder=embedder,
-)
-
-print(result.answer)
-print("Latency:", result.latency_breakdown)
-```
-
----
-
-## Evaluation
-
-```bash
-# Eval retrieval (embedding quality)
-python evaluation/run_embedding_eval.py
-
-# So sánh 3 cấu hình retrieval
-python evaluation/eval_pipeline.py --device cuda
-
-# Faithfulness (LLM-as-judge, cần Ollama)
-python evaluation/faithfulness_eval.py --n 50 --save-cases --device cuda
-
-# Escalation (hành vi câu khẩn cấp)
-python evaluation/escalation_eval.py --device cuda
-
-# False Rejection Rate
-python evaluation/frr_eval.py --device cuda
-```
-
----
-
-## Tập dữ liệu đánh giá
-
-`evaluation/eval_questions.json` — **151 câu** được phân bổ:
-
-| Tài liệu | Tag | Số câu |
-|----------|-----|--------|
-| Hướng dẫn quốc gia SKSS | `skss_quoc_gia` | 49 |
-| Thực hành lâm sàng SPK | `thuc_hanh_spk` | 41 |
-| Đái tháo đường thai kỳ | `dtd_thai_ky` | 37 |
-| Out-of-domain | `out_of_domain` | 24 |
-
-Mỗi câu có 5 loại: `direct`, `paraphrase`, `multi_hop`, `applied`, `boundary`.
-
----
-
-## Stack kỹ thuật
-
-| Component | Công nghệ |
-|-----------|-----------|
-| PDF parsing | [Docling](https://github.com/DS4SD/docling) |
-| Embedding | [AITeamVN/Vietnamese_Embedding_v2](https://huggingface.co/AITeamVN/Vietnamese_Embedding_v2) (dim=1024) |
-| Vector DB | [Qdrant](https://qdrant.tech/) |
-| Sparse retrieval | BM25 + underthesea tokenizer |
-| Fusion | Reciprocal Rank Fusion (RRF, k=60) |
-| LLM | [Ollama](https://ollama.ai/) — qwen3:4b (rewrite), qwen3:8b (generation) |
-| Schema | Pydantic v2 |

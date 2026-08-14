@@ -56,10 +56,13 @@ def rewrite_query(
     """
     prompt = _REWRITE_PROMPT_TEMPLATE.format(query=query.strip())
 
+    # Yêu cầu Ollama >= v0.9.0 để tắt thinking mode
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
         "options": {"temperature": temperature},
+        "think": False,
+        "keep_alive": "30m",   # Giữ model trong VRAM 30 phút, tránh re-load
         "stream": False,
     }
 
