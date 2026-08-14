@@ -47,17 +47,25 @@ class QdrantVectorStore(BaseVectorStore):
         """Kết nối tới Qdrant server tại host:port."""
         from qdrant_client import QdrantClient
 
-        self._client = QdrantClient(
-            host=self.config.host,
-            port=self.config.port,
-        )
+        if self.config.memory:
+            self._client = QdrantClient(":memory:")
+            print("[QdrantStore] ✅ Khởi tạo Qdrant (in-memory mode)")
+        elif self.config.path:
+            self._client = QdrantClient(path=self.config.path)
+            print(f"[QdrantStore] ✅ Khởi tạo Qdrant (local file) tại {self.config.path}")
+        else:
+            self._client = QdrantClient(
+                host=self.config.host,
+                port=self.config.port,
+            )
         # Kiểm tra kết nối
         try:
             self._client.get_collections()
-            print(f"[QdrantStore] ✅ Kết nối Qdrant tại "
-                  f"http://{self.config.host}:{self.config.port}")
-            print(f"[QdrantStore] 🌐 Dashboard: "
-                  f"http://{self.config.host}:{self.config.port + 1}/dashboard")
+            if not self.config.memory and not self.config.path:
+                print(f"[QdrantStore] ✅ Kết nối Qdrant tại "
+                      f"http://{self.config.host}:{self.config.port}")
+                print(f"[QdrantStore] 🌐 Dashboard: "
+                      f"http://{self.config.host}:{self.config.port + 1}/dashboard")
         except Exception as e:
             raise ConnectionError(
                 f"Không kết nối được Qdrant tại {self.config.host}:{self.config.port}.\n"

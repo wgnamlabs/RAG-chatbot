@@ -26,3 +26,7 @@ class QdrantStoreConfig:
     port: int = 6333
     vector_size: int = 1024       # AITeamVN/Vietnamese_Embedding dim
     distance: str = "cosine"
+    
+    # Kaggle/Colab support:
+    path: str = None              # Ví dụ: "data/vector_db/qdrant_local"
+    memory: bool = False          # True nếu muốn chạy in-memory hoàn toàn
