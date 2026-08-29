@@ -1,34 +1,133 @@
-# Eval Questions Schema v2.0
+# EVAL_SCHEMA — Master RAG Benchmark v3
 
-This benchmark is intentionally **chunker-independent**. Gold truth is anchored to exact source evidence and section paths, not to `chunk_id`, because `semantic.json` and `hierarchical.json` create different chunk boundaries.
+## Mục tiêu
 
-## Dataset size
+Bộ `eval_questions.json` này là benchmark dùng xuyên suốt pipeline:
 
-- 220 total questions
-- 160 standard in-domain
-- 30 hard / multi-evidence
-- 30 out-of-domain (OOD)
-- 60 dev / 160 test
-- 27 table-lookup questions
-- 30 patient-style questions
-- 20 numeric-focused questions
+- chunking / embedding retrieval
+- dense / sparse / hybrid retrieval
+- reranking
+- context precision / recall
+- generation correctness
+- key-fact coverage
+- citation
+- OOD / abstention
+- query rewriting
 
-## Core evaluation uses
+## Nguyên tắc v3
 
-The same master set can support dense embedding retrieval, BM25/hybrid/RRF, reranking, table retrieval, multi-evidence recall, answer correctness, key-fact coverage, citation correctness, faithfulness/context metrics, and OOD abstention.
+`question` phải giống câu hỏi thực tế của người dùng hoặc câu hỏi lâm sàng tự nhiên.
 
-## Important evaluation rule
+Không dùng wording máy móc kiểu:
 
-Do **not** score a retrieved chunk as relevant merely because its `metadata.source` equals the source document. That makes large documents artificially easy. Match against `gold_evidence` / `ground_truth_sections`, using breadcrumb/section overlap and evidence-text overlap.
+- “Theo hướng dẫn...”
+- “Theo tài liệu...”
+- “Nội dung chính của mục...”
+- “Theo Bảng X...”
 
-## Split policy
+trừ khi use case thực sự là tra cứu cấu trúc văn bản.
 
-Use `split=dev` for model/configuration tuning. Use `split=test` only after the pipeline configuration is frozen.
+Ground truth **không thay đổi theo cách viết câu hỏi**. `gold_evidence` vẫn là đoạn nguyên văn từ 7 file clean.
 
-## Record fields
+## Các trường
 
-`id`, `question`, `source_doc_tag`, `source_file`, `answerable`, `expected_behavior`, `question_type`, `base_question_type`, `question_style`, `benchmark_group`, `difficulty`, `requires_table`, `requires_multiple_evidence`, `gold_evidence`, `gold_evidence_count`, `ground_truth_sections`, `ground_truth_evidence_ids`, `reference_answer`, `reference_answer_type`, `key_facts`, `evaluation_targets`, `tags`, `split`, `language`.
+### Nhận dạng và query
 
-## OOD behavior
+- `id`: ID ổn định, duy nhất.
+- `question`: raw query tiếng Việt đưa vào pipeline.
+- `language`: `vi`.
 
-For `answerable=false`, the expected system behavior is to abstain or explicitly state that the answer is not supported by the provided corpus. These records are suitable for OOD detection, hallucination-rate and abstention evaluation.
+### Nguồn và khả năng trả lời
+
+- `source_doc_tag`: tag tài liệu; `null` với OOD.
+- `source_file`: tên file clean; `null` với OOD.
+- `answerable`: corpus có đủ evidence hay không.
+- `expected_behavior`: `answer_from_corpus` hoặc `abstain_or_state_not_in_corpus`.
+
+### Phân loại query
+
+- `question_type`: loại năng lực cần truy xuất, độc lập với cách diễn đạt.
+  Ví dụ: `definition`, `fact`, `numeric`, `risk_factor`, `diagnosis`,
+  `symptom`, `procedure`, `recommendation`, `counseling`,
+  `table_lookup`, `comparison`, `multi_evidence`, `out_of_domain`.
+- `base_question_type`: loại nền được giữ để tương thích phân tích cũ.
+- `question_style`:
+  - `patient_style`: câu hỏi/scenario gần cách bệnh nhân hoặc người chăm sóc hỏi.
+  - `natural`: câu hỏi trung tính tự nhiên.
+  - `clinical`: câu hỏi chuyên môn hoặc staff-facing.
+- `difficulty`: `easy`, `medium`, `hard`.
+- `benchmark_group`: `standard`, `hard_multi`, `ood`.
+
+### Query features
+
+`query_features` gồm:
+
+- `colloquial`: wording hội thoại/đời thường.
+- `short_query`: query ngắn <= 10 từ.
+- `contains_typo`: có chủ động đưa lỗi chính tả vào benchmark hay không.
+- `implicit_medical_term`: dùng cách gọi đời thường thay cho thuật ngữ/heading nguồn.
+
+Field này hữu ích để đánh giá query rewriting theo từng slice.
+
+### Ground truth
+
+- `requires_table`: evidence nằm trong Markdown table.
+- `requires_multiple_evidence`: cần nhiều evidence units.
+- `gold_evidence`: danh sách evidence độc lập chunker:
+  - `evidence_id`
+  - `source_doc_tag`
+  - `source_file`
+  - `section_path`
+  - `heading`
+  - `start_line`
+  - `end_line`
+  - `evidence_text`
+- `gold_evidence_count`
+- `ground_truth_sections`
+- `ground_truth_evidence_ids`
+
+Không dùng `chunk_id` làm gold ground truth vì Semantic và Hierarchical tạo chunk khác nhau.
+
+### Generation reference
+
+- `reference_answer`: đáp án chuẩn bám nguồn.
+- `reference_answer_type`: `extractive`, `extractive_composite`, `abstention`.
+- `key_facts`: các ý nguyên tử cần có trong câu trả lời đúng.
+
+### Evaluation metadata
+
+- `evaluation_targets`
+- `tags`
+- `split`: `dev` hoặc `test`.
+
+## DEV / TEST
+
+- DEV: 60 câu.
+- TEST: 160 câu.
+- 30 câu hard/multi-evidence.
+- 30 câu OOD.
+
+Dùng DEV để chọn chunker, embedding, top-k, hybrid weights, reranker.
+TEST chỉ dùng sau khi đã chốt cấu hình.
+
+## Lưu ý với embedding evaluation
+
+Metric final phải match retrieved chunks với `gold_evidence`, không chỉ kiểm tra `source_file`.
+
+Các metric nên dùng:
+
+- Evidence Recall@K
+- Hit@K
+- Evidence Complete@K
+- MRR
+- nDCG@K
+- OOD AUROC
+
+## Lưu ý với query rewriting
+
+Luôn đưa `question` nguyên bản vào benchmark raw retrieval trước.
+Sau đó mới chạy một experiment riêng:
+
+`question -> query rewriter -> retrieval`
+
+để đo mức cải thiện do rewriting.
