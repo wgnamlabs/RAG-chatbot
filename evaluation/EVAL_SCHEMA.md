@@ -1,4 +1,4 @@
-# EVAL_SCHEMA — Master RAG Benchmark v3
+# EVAL_SCHEMA — Master RAG Benchmark v3.1
 
 ## Mục tiêu
 
@@ -131,3 +131,13 @@ Sau đó mới chạy một experiment riêng:
 `question -> query rewriter -> retrieval`
 
 để đo mức cải thiện do rewriting.
+
+
+## QA revision v3.1
+
+- Sửa các câu có wording không khớp `gold_evidence` sau lần rewrite v3.
+- Sửa `reference_answer` và `key_facts` cho các câu bảng hỏi nhiều ô/hàng.
+- Không thay đổi `gold_evidence` của 220 câu.
+- DEV vẫn 60 câu, TEST vẫn 160 câu.
+- DEV OOD vẫn 10 câu nhưng có thêm các câu health-adjacent/dynamic để tránh OOD quá dễ.
+- Tag `qa_fixed_v3_1` đánh dấu mọi record thuộc bản QA final này.

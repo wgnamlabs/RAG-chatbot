@@ -49,7 +49,8 @@
       "recommendation",
       "dinh_duong_cua_nguoi_me_trong_thoi_ky_mang_thai_co_vai_tro_q",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -109,7 +110,8 @@
       "recommendation",
       "dinh_duong_thai_ky_voi_suc_khoe_cua_nguoi_me",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -170,7 +172,8 @@
       "qd_776",
       "recommendation",
       "nhu_cau_khuyen_nghi_nang_luong_va_chat_dinh_duong",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -229,7 +232,8 @@
       "qd_776",
       "recommendation",
       "huong_dan_quoc_gia_dinh_duong_cho_phu_nu_co_thai_va_ba_me_ch",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -290,7 +294,8 @@
       "qd_776",
       "recommendation",
       "nhu_cau_khuyen_nghi_cac_vitamin",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -351,7 +356,8 @@
       "qd_776",
       "recommendation",
       "nhu_cau_khuyen_nghi_cac_vitamin",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -410,7 +416,8 @@
       "qd_776",
       "recommendation",
       "ii_nhu_cau_khuyen_nghi_vitamin_va_chat_khoang",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -471,7 +478,8 @@
       "qd_776",
       "fact",
       "gia_tri_dinh_duong_cua_sua_va_che_pham_sua",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -530,7 +538,8 @@
       "qd_776",
       "fact",
       "luu_y_lua_chon_sua_va_che_pham_sua_cho_phu_nu_co_thai_va_ba_",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -591,7 +600,8 @@
       "qd_776",
       "recommendation",
       "che_o_dinh_duong_trong_cac_giai_oan_cua_thoi_ky_mang_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -650,7 +660,8 @@
       "qd_776",
       "fact",
       "chat_khoang_va_vitamin",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -709,7 +720,8 @@
       "qd_776",
       "fact",
       "chat_khoang_va_vitamin",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -771,7 +783,8 @@
       "recommendation",
       "dinh_duong_cho_phu_nu_co_thai_va_ba_me_cho_con_bu",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -832,7 +845,8 @@
       "qd_776",
       "recommendation",
       "huong_dan_quoc_gia_dinh_duong_cho_phu_nu_co_thai_va_ba_me_ch",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -893,7 +907,8 @@
       "qd_776",
       "recommendation",
       "dinh_duong_oi_voi_thai_phu_bi_tieu_uong",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -954,7 +969,8 @@
       "qd_776",
       "counseling",
       "nguyen_tac_tu_van_dinh_duong_cho_pnct_va_bmccb",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1013,7 +1029,8 @@
       "qd_776",
       "recommendation",
       "phu_luc_bang_tom_tat_nhu_cau_dinh_duong_khuyen_nghi",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -1074,7 +1091,8 @@
       "qd_1139",
       "counseling",
       "tu_van_cham_soc_truoc_khi_co_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1135,7 +1153,8 @@
       "qd_1139",
       "fact",
       "tiem_chung_cho_phu_nu_trong_o_tuoi_sinh_san",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -1196,7 +1215,8 @@
       "prevention",
       "cac_loai_vac_xin_su_dung_cho_phu_nu_truoc_khi_mang_thai",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1257,7 +1277,8 @@
       "qd_1139",
       "recommendation",
       "cac_loai_tiem_chung_cho_phu_nu_trong_thoi_ky_mang_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1316,7 +1337,8 @@
       "qd_1139",
       "fact",
       "tu_van_cho_phu_nu_co_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -1376,7 +1398,8 @@
       "qd_1139",
       "fact",
       "tu_van_cho_phu_nu_co_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1389,14 +1412,14 @@
   },
   {
     "id": "EVAL_QD_1139_007",
-    "question": "Trong thời gian mang thai, những việc nào nên tránh để giảm nguy cơ cho mẹ và thai?",
+    "question": "Khi tư vấn cho phụ nữ mang thai, nhân viên y tế nên tránh những cách nói hoặc cách cung cấp thông tin nào?",
     "source_doc_tag": "qd_1139",
     "source_file": "qd_1139_2026_cham_soc_truoc_thai_truoc_sinh_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "fact",
+    "question_type": "counseling",
     "base_question_type": "fact",
-    "question_style": "patient_style",
+    "question_style": "clinical",
     "benchmark_group": "standard",
     "difficulty": "medium",
     "requires_table": false,
@@ -1437,7 +1460,8 @@
       "qd_1139",
       "fact",
       "tu_van_cho_phu_nu_co_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1496,7 +1520,8 @@
       "qd_1139",
       "fact",
       "cham_soc_truoc_sinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1509,14 +1534,14 @@
   },
   {
     "id": "EVAL_QD_1139_009",
-    "question": "Gia đình nên hỗ trợ phụ nữ mang thai như thế nào trong quá trình chăm sóc trước sinh?",
+    "question": "Khi khám thai, cần hỏi những thông tin gì về sức khỏe và bệnh tật của bố mẹ, anh chị em trong gia đình thai phụ?",
     "source_doc_tag": "qd_1139",
     "source_file": "qd_1139_2026_cham_soc_truoc_thai_truoc_sinh_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
     "question_type": "fact",
     "base_question_type": "fact",
-    "question_style": "patient_style",
+    "question_style": "clinical",
     "benchmark_group": "standard",
     "difficulty": "medium",
     "requires_table": false,
@@ -1540,12 +1565,13 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1139_da46c9f39e46"
     ],
-    "reference_answer": "Sức khỏe bố mẹ, anh chị em. Có ai mắc bệnh nội khoa: Tăng huyết áp, đái tháo đường, tim mạch, gan, thận... Có ai mắc bệnh nhiễm khuẩn: Lao, bệnh NKLTQĐTD, HIV/AIDS, sốt rét.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Khi khai thác tiền sử gia đình cần hỏi sức khỏe bố mẹ, anh chị em; bệnh nội khoa như tăng huyết áp, đái tháo đường, tim mạch, gan, thận; bệnh nhiễm khuẩn như lao, NKLTQĐTD, HIV/AIDS, sốt rét; các tình trạng như sinh đôi, sinh con dị dạng, dị ứng; đồng thời sàng lọc bạo hành phụ nữ.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Sức khỏe bố mẹ, anh chị em.",
-      "Có ai mắc bệnh nội khoa: Tăng huyết áp, đái tháo đường, tim mạch, gan, thận...",
-      "Có ai mắc bệnh nhiễm khuẩn: Lao, bệnh NKLTQĐTD, HIV/AIDS, sốt rét."
+      "Hỏi sức khỏe bố mẹ, anh chị em.",
+      "Hỏi bệnh nội khoa và bệnh nhiễm khuẩn trong gia đình.",
+      "Hỏi các tình trạng như sinh đôi, sinh con dị dạng, dị ứng.",
+      "Sàng lọc bạo hành phụ nữ."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -1557,7 +1583,8 @@
       "qd_1139",
       "fact",
       "cham_soc_truoc_sinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -1618,7 +1645,8 @@
       "qd_1139",
       "fact",
       "kham_san_khoa",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1679,7 +1707,8 @@
       "qd_1139",
       "fact",
       "tien_hanh_xet_nghiem_va_can_lam_sang",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1740,7 +1769,8 @@
       "qd_1139",
       "fact",
       "giao_duc_suc_khoe",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -1800,7 +1830,8 @@
       "fact",
       "sang_loc_lech_boi_nhiem_sac_the_trong_thai_ky",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1860,7 +1891,8 @@
       "qd_1139",
       "symptom",
       "sang_loc_lech_boi_nhiem_sac_the_trong_thai_ky",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -1922,7 +1954,8 @@
       "fact",
       "cac_dau_hieu_goi_y_tren_sieu_am_soft_markers",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -1981,7 +2014,8 @@
       "qd_1139",
       "fact",
       "lua_chon_xet_nghiem_sang_loc",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2041,7 +2075,8 @@
       "qd_1139",
       "fact",
       "lua_chon_xet_nghiem_sang_loc",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2102,7 +2137,8 @@
       "qd_1139",
       "fact",
       "tu_van_du_phong_ngo_oc_ruou_thai_nhi",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2163,7 +2199,8 @@
       "qd_1139",
       "fact",
       "anh_huong_cua_ruou_bia_oi_voi_phu_nu_mang_thai_thai_nhi_va_t",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -2224,7 +2261,8 @@
       "qd_1154",
       "fact",
       "huong_dan_sang_loc_chan_oan_va_xu_tri_tang_huyet_ap_o_phu_nu",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2285,7 +2323,8 @@
       "qd_1154",
       "diagnosis",
       "chan_oan_va_xu_tri_tien_san_giat_tien_san_giat_tren_nguoi_ta",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2346,7 +2385,8 @@
       "qd_1154",
       "fact",
       "chan_oan_va_xu_tri_tien_san_giat_tien_san_giat_tren_nguoi_ta",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -2408,7 +2448,8 @@
       "fact",
       "chan_oan_va_xu_tri_tien_san_giat_tien_san_giat_tren_nguoi_ta",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2421,7 +2462,7 @@
   },
   {
     "id": "EVAL_QD_1154_005",
-    "question": "Sản giật được chẩn đoán như thế nào?",
+    "question": "Tăng huyết áp mạn tính ở phụ nữ mang thai được chẩn đoán như thế nào?",
     "source_doc_tag": "qd_1154",
     "source_file": "qd_1154_2024_tang_huyet_ap_tien_san_giat_clean.md",
     "answerable": true,
@@ -2467,25 +2508,26 @@
       "qd_1154",
       "diagnosis",
       "chan_oan_va_xu_tri_tang_huyet_ap_man_tinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
     "query_features": {
       "colloquial": false,
-      "short_query": true,
+      "short_query": false,
       "contains_typo": false,
       "implicit_medical_term": false
     }
   },
   {
     "id": "EVAL_QD_1154_006",
-    "question": "Nguyên tắc xử trí tăng huyết áp và tiền sản giật trong thai kỳ là gì?",
+    "question": "Nguyên tắc sàng lọc và dự phòng tiền sản giật trong thai kỳ là gì?",
     "source_doc_tag": "qd_1154",
     "source_file": "qd_1154_2024_tang_huyet_ap_tien_san_giat_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "fact",
+    "question_type": "prevention",
     "base_question_type": "fact",
     "question_style": "clinical",
     "benchmark_group": "standard",
@@ -2511,12 +2553,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1154_e203eb427019"
     ],
-    "reference_answer": "Tích hợp sàng lọc TSG thực hiện thường quy vào quy trình quản lý thai, khám thai cho tất cả mọi thai phụ. Thực hiện sàng lọc TSG theo mô hình hai giai đoạn: Giai đoạn 1: tại thời điểm 11 - 13 tuần 6 ngày tuổi thai, mục tiêu tập trung vào sàng lọc TSG sớm và can thiệp dự phòng.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Sàng lọc tiền sản giật cần được tích hợp thường quy vào quản lý thai và khám thai cho tất cả thai phụ. Sàng lọc theo hai giai đoạn: giai đoạn 1 ở 11–13 tuần 6 ngày để tập trung phát hiện tiền sản giật sớm và can thiệp dự phòng; giai đoạn 2 vào 3 tháng giữa và/hoặc 3 tháng cuối để tiếp tục sàng lọc tiền sản giật sớm và muộn, quản lý trường hợp nguy cơ cao và xác định thời điểm, địa điểm, cách thức kết thúc thai kỳ phù hợp.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Tích hợp sàng lọc TSG thực hiện thường quy vào quy trình quản lý thai, khám thai cho tất cả mọi thai phụ.",
-      "Thực hiện sàng lọc TSG theo mô hình hai giai đoạn:",
-      "Giai đoạn 1: tại thời điểm 11 - 13 tuần 6 ngày tuổi thai, mục tiêu tập trung vào sàng lọc TSG sớm và can thiệp dự phòng."
+      "Tích hợp sàng lọc TSG thường quy vào quản lý thai/khám thai cho mọi thai phụ.",
+      "Giai đoạn 1: 11–13 tuần 6 ngày, tập trung TSG sớm và dự phòng.",
+      "Giai đoạn 2: 3 tháng giữa và/hoặc cuối, tiếp tục sàng lọc TSG sớm/muộn và quản lý nguy cơ cao."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -2528,7 +2570,8 @@
       "qd_1154",
       "fact",
       "sang_loc_va_ieu_tri_du_phong_tien_san_giat",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2541,12 +2584,12 @@
   },
   {
     "id": "EVAL_QD_1154_007",
-    "question": "Ở tuyến khám chữa bệnh ban đầu, thai phụ bị tăng huyết áp hoặc nghi tiền sản giật cần được xử trí và chuyển tuyến như thế nào?",
+    "question": "Ở tuyến khám chữa bệnh ban đầu, nguy cơ tiền sản giật được sàng lọc dựa trên những yếu tố nào và phương pháp này có hạn chế gì?",
     "source_doc_tag": "qd_1154",
     "source_file": "qd_1154_2024_tang_huyet_ap_tien_san_giat_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "procedure",
+    "question_type": "risk_factor",
     "base_question_type": "procedure",
     "question_style": "clinical",
     "benchmark_group": "standard",
@@ -2588,7 +2631,8 @@
       "qd_1154",
       "procedure",
       "tiep_can_sang_loc_tien_san_giat_theo_cac_cap",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2649,7 +2693,8 @@
       "qd_1154",
       "fact",
       "cap_kham_chua_benh_co_ban_va_chuyen_sau",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -2711,7 +2756,8 @@
       "fact",
       "cac_hinh_thai_tang_huyet_ap_trong_thai_ky",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2772,7 +2818,8 @@
       "fact",
       "cac_hinh_thai_tang_huyet_ap_trong_thai_ky",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2833,7 +2880,8 @@
       "qd_1154",
       "fact",
       "cac_hinh_thai_tang_huyet_ap_trong_thai_ky",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2892,7 +2940,8 @@
       "qd_1154",
       "risk_factor",
       "phu_luc_5",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -2952,7 +3001,8 @@
       "qd_1359",
       "fact",
       "cac_pham_chat_can_thiet_cua_can_bo_tu_van_khhg",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3013,7 +3063,8 @@
       "qd_1359",
       "counseling",
       "sau_buoc_tu_van_khhg",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -3073,7 +3124,8 @@
       "qd_1359",
       "procedure",
       "dung_cu_tranh_thai_trong_tu_cung",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3134,7 +3186,8 @@
       "qd_1359",
       "fact",
       "nhung_van_e_kho_khan_khi_su_dung_va_cach_xu_tri",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3195,7 +3248,8 @@
       "qd_1359",
       "fact",
       "nhung_van_e_kho_khan_khi_su_dung_va_cach_xu_tri",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3256,7 +3310,8 @@
       "qd_1359",
       "counseling",
       "vien_thuoc_tranh_thai_ket_hop",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -3315,7 +3370,8 @@
       "qd_1359",
       "fact",
       "roi_loan_kinh_nguyet",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3375,7 +3431,8 @@
       "qd_1359",
       "fact",
       "mot_so_van_e_khac",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3436,7 +3493,8 @@
       "fact",
       "thoi_iem_thuc_hien",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -3497,7 +3555,8 @@
       "qd_1359",
       "fact",
       "mot_so_van_e_khac",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3556,7 +3615,8 @@
       "qd_1359",
       "fact",
       "phan_ke_hoach_hoa_gia_inh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3618,7 +3678,8 @@
       "fact",
       "thoi_iem_thuc_hien",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3679,7 +3740,8 @@
       "qd_1359",
       "fact",
       "roi_loan_kinh_nguyet",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -3692,12 +3754,12 @@
   },
   {
     "id": "EVAL_QD_1359_014",
-    "question": "Những trường hợp nào cần tháo dụng cụ tránh thai trong tử cung?",
+    "question": "Những trường hợp nào cần tháo que cấy tránh thai?",
     "source_doc_tag": "qd_1359",
     "source_file": "qd_1359_2026_khhgd_pha_thai_an_toan_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "fact",
+    "question_type": "procedure",
     "base_question_type": "fact",
     "question_style": "patient_style",
     "benchmark_group": "standard",
@@ -3723,12 +3785,14 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1359_fa54f01dc789"
     ],
-    "reference_answer": "Áp xe, nhiễm khuẩn tại vị trí cấy thuốc cấy tránh thai. Ra máu âm đạo kéo dài sau cấy thuốc cấy tránh thai không kiểm soát được. Hết hạn sử dụng thuốc cấy tránh thai.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Cần tháo que cấy tránh thai khi có thai; áp xe hoặc nhiễm khuẩn tại vị trí cấy; ra máu âm đạo kéo dài không kiểm soát được; hết hạn sử dụng; người dùng muốn sinh con, muốn đổi biện pháp hoặc không muốn tiếp tục; hoặc xuất hiện tăng huyết áp kéo dài/tăng lên, bệnh ác tính phụ thuộc progesteron hay tắc mạch trong thời gian sử dụng.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Áp xe, nhiễm khuẩn tại vị trí cấy thuốc cấy tránh thai.",
-      "Ra máu âm đạo kéo dài sau cấy thuốc cấy tránh thai không kiểm soát được.",
-      "Hết hạn sử dụng thuốc cấy tránh thai."
+      "Có thai.",
+      "Áp xe/nhiễm khuẩn tại vị trí cấy hoặc ra máu kéo dài không kiểm soát.",
+      "Hết hạn sử dụng.",
+      "Muốn sinh con, đổi biện pháp hoặc không muốn tiếp tục.",
+      "Xuất hiện tăng HA kéo dài/tăng lên, bệnh ác tính phụ thuộc progesteron hoặc tắc mạch."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -3740,13 +3804,14 @@
       "qd_1359",
       "fact",
       "chi_inh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
     "query_features": {
       "colloquial": false,
-      "short_query": false,
+      "short_query": true,
       "contains_typo": false,
       "implicit_medical_term": false
     }
@@ -3801,7 +3866,8 @@
       "qd_1359",
       "fact",
       "thoi_iem_thuc_hien",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3862,7 +3928,8 @@
       "qd_1359",
       "fact",
       "tai_vi_tri_cay",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -3922,7 +3989,8 @@
       "qd_1359",
       "fact",
       "phan_ke_hoach_hoa_gia_inh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -3984,7 +4052,8 @@
       "fact",
       "thoi_iem_thuc_hien",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4045,7 +4114,8 @@
       "qd_1359",
       "fact",
       "nhung_van_e_kho_khan_khi_su_dung_mdtt_va_cach_xu_tri",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4105,7 +4175,8 @@
       "qd_1359",
       "fact",
       "bien_phap_tranh_thai_khan_cap",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -4164,7 +4235,8 @@
       "qd_1359",
       "fact",
       "nhung_van_e_kho_khan_khi_su_dung_tranh_thai_khan_cap_va_cach",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4224,7 +4296,8 @@
       "qd_1359",
       "fact",
       "cac_bien_phap_tranh_thai_tu_nhien",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4285,7 +4358,8 @@
       "qd_1359",
       "fact",
       "phan_pha_thai_an_toan",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4346,7 +4420,8 @@
       "qd_1359",
       "counseling",
       "quy_trinh_tu_van",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -4407,7 +4482,8 @@
       "qd_1470",
       "definition",
       "chuong_1_ai_cuong_ve_ai_thao_uong_va_ai_thao_uong_thai_ky",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4468,7 +4544,8 @@
       "qd_1470",
       "risk_factor",
       "chuong_1_ai_cuong_ve_ai_thao_uong_va_ai_thao_uong_thai_ky",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -4528,7 +4605,8 @@
       "qd_1470",
       "fact",
       "tieu_chuan_sang_loc_va_chan_oan",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4541,14 +4619,14 @@
   },
   {
     "id": "EVAL_QD_1470_004",
-    "question": "Ở 3 tháng cuối thai kỳ, thai phụ bị đái tháo đường thai kỳ cần được theo dõi những chỉ số nào và với tần suất ra sao?",
+    "question": "Có thể sàng lọc đái tháo đường thai kỳ ở 3 tháng cuối không, và thời điểm nào được khuyến nghị làm thường quy để quản lý hiệu quả?",
     "source_doc_tag": "qd_1470",
     "source_file": "qd_1470_2024_dai_thao_duong_thai_ky_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "numeric",
+    "question_type": "fact",
     "base_question_type": "numeric",
-    "question_style": "clinical",
+    "question_style": "natural",
     "benchmark_group": "standard",
     "difficulty": "medium",
     "requires_table": false,
@@ -4588,7 +4666,8 @@
       "fact",
       "thoi_iem_tam_soat",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4650,7 +4729,8 @@
       "fact",
       "thuc_hien_tai_cac_cap_kham_benh_chua_benh",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4709,7 +4789,8 @@
       "qd_1470",
       "prevention",
       "chuong_3_quan_ly_ai_thao_uong_trong_giai_oan_mang_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -4769,7 +4850,8 @@
       "qd_1470",
       "fact",
       "du_phong_ai_thao_uong_thai_ky_ieu_chinh_loi_song",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4829,7 +4911,8 @@
       "qd_1470",
       "recommendation",
       "du_phong_ai_thao_uong_thai_ky_ieu_chinh_loi_song",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4890,7 +4973,8 @@
       "qd_1470",
       "procedure",
       "chuong_4_quan_ly_ai_thao_uong_thai_ky_sau_sinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -4903,12 +4987,12 @@
   },
   {
     "id": "EVAL_QD_1470_010",
-    "question": "Sau sinh, phụ nữ từng bị đái tháo đường thai kỳ nên cho con bú và theo dõi đường huyết như thế nào?",
+    "question": "Sau sinh, phụ nữ từng bị đái tháo đường thai kỳ nên cho con bú như thế nào và có thể lựa chọn biện pháp tránh thai nào?",
     "source_doc_tag": "qd_1470",
     "source_file": "qd_1470_2024_dai_thao_duong_thai_ky_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "numeric",
+    "question_type": "care",
     "base_question_type": "numeric",
     "question_style": "patient_style",
     "benchmark_group": "standard",
@@ -4952,7 +5036,8 @@
       "fact",
       "tai_cap_kham_benh_chua_benh_co_ban_va_chuyen_sau",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -5012,7 +5097,8 @@
       "fact",
       "cham_soc_tre_trong_90_phut_au_sau_sinh",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5074,7 +5160,8 @@
       "fact",
       "cham_soc_tre_trong_90_phut_au_sau_sinh",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -5135,7 +5222,8 @@
       "qd_2323",
       "care",
       "cham_soc_thuong_quy_tre_so_sinh_en_khi_ra_vien",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5148,12 +5236,12 @@
   },
   {
     "id": "EVAL_QD_2323_004",
-    "question": "Nhân viên y tế có vai trò gì trong việc hỗ trợ nuôi con bằng sữa mẹ?",
+    "question": "Nhân viên y tế cần làm gì để bảo đảm trẻ sơ sinh được chăm sóc đúng mốc, được khám đầy đủ và mẹ biết cách theo dõi trẻ sau ra viện?",
     "source_doc_tag": "qd_2323",
     "source_file": "qd_2323_2025_cham_soc_dieu_tri_so_sinh_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "fact",
+    "question_type": "care",
     "base_question_type": "fact",
     "question_style": "clinical",
     "benchmark_group": "standard",
@@ -5194,7 +5282,8 @@
       "qd_2323",
       "fact",
       "bai_7_cham_soc_thuong_quy_tre_so_sinh_va_huong_dan_ra_vien",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5255,7 +5344,8 @@
       "qd_2323",
       "fact",
       "bai_8_nuoi_con_bang_sua_me",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -5316,7 +5406,8 @@
       "qd_2323",
       "counseling",
       "noi_dung_tu_van_cho_ba_me_tai_cac_thoi_iem_tu_khi_mang_thai_",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5377,7 +5468,8 @@
       "qd_2323",
       "fact",
       "tu_van_cho_mot_so_truong_hop_ac_biet",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5390,12 +5482,12 @@
   },
   {
     "id": "EVAL_QD_2323_008",
-    "question": "Ở tuyến khám chữa bệnh ban đầu, việc sàng lọc sơ sinh cần được tổ chức như thế nào?",
+    "question": "Ở tuyến khám chữa bệnh ban đầu, nhân viên y tế cần hỗ trợ nuôi con bằng sữa mẹ như thế nào?",
     "source_doc_tag": "qd_2323",
     "source_file": "qd_2323_2025_cham_soc_dieu_tri_so_sinh_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "procedure",
+    "question_type": "care",
     "base_question_type": "procedure",
     "question_style": "clinical",
     "benchmark_group": "standard",
@@ -5421,12 +5513,14 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_2323_7842b2617816"
     ],
-    "reference_answer": "Thực hiện các tư vấn về NCBSM cho phụ nữ mang thai. Tư vấn, hỗ trợ bà mẹ cho con bú trước, trong và những ngày đầu sau sinh. Đối với trẻ đẻ non, cho trẻ thực hiện phương pháp Kangaroo càng sớm càng tốt.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Ở cấp khám bệnh, chữa bệnh ban đầu cần tư vấn nuôi con bằng sữa mẹ cho phụ nữ mang thai; tư vấn và hỗ trợ cho con bú trước, trong và những ngày đầu sau sinh; cho trẻ đẻ non thực hiện Kangaroo càng sớm càng tốt; nếu trẻ chưa bú được thì hướng dẫn mẹ vắt, trữ sữa và cho ăn bằng thìa/cốc; đồng thời xử trí các vấn đề thường gặp trong nuôi con bằng sữa mẹ.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Thực hiện các tư vấn về NCBSM cho phụ nữ mang thai.",
-      "Tư vấn, hỗ trợ bà mẹ cho con bú trước, trong và những ngày đầu sau sinh.",
-      "Đối với trẻ đẻ non, cho trẻ thực hiện phương pháp Kangaroo càng sớm càng tốt."
+      "Tư vấn NCBSM cho phụ nữ mang thai.",
+      "Hỗ trợ cho bú trước, trong và những ngày đầu sau sinh.",
+      "Trẻ đẻ non: Kangaroo càng sớm càng tốt.",
+      "Trẻ chưa bú được: hướng dẫn vắt/trữ sữa và cho ăn bằng thìa/cốc.",
+      "Xử trí các vấn đề thường gặp trong NCBSM."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -5438,7 +5532,8 @@
       "qd_2323",
       "procedure",
       "vai_tro_cua_can_bo_y_te",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5451,14 +5546,14 @@
   },
   {
     "id": "EVAL_QD_2323_009",
-    "question": "Những trẻ nào thuộc đối tượng sàng lọc bệnh tim bẩm sinh nặng bằng đo SpO2?",
+    "question": "Trẻ sơ sinh nên được lấy mẫu máu khô để sàng lọc trong khoảng thời gian nào, thời điểm tối ưu là khi nào và nếu cần truyền máu thì lấy mẫu lúc nào?",
     "source_doc_tag": "qd_2323",
     "source_file": "qd_2323_2025_cham_soc_dieu_tri_so_sinh_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
     "question_type": "numeric",
     "base_question_type": "numeric",
-    "question_style": "patient_style",
+    "question_style": "natural",
     "benchmark_group": "standard",
     "difficulty": "medium",
     "requires_table": false,
@@ -5500,7 +5595,8 @@
       "fact",
       "nhom_benh_sang_loc_bang_ky_thuat_xet_nghiem_tren_mau_mau_kho",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -5560,7 +5656,8 @@
       "qd_2323",
       "fact",
       "quy_trinh_thuc_hien_sang_loc",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5619,7 +5716,8 @@
       "qd_2323",
       "procedure",
       "quy_trinh_thuc_hien_sang_loc",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5680,7 +5778,8 @@
       "qd_2323",
       "fact",
       "bai_52_quy_trinh_ky_thuat_tam_tre_so_sinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -5741,7 +5840,8 @@
       "qd_2323",
       "procedure",
       "tam_ngam",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5800,7 +5900,8 @@
       "qd_2323",
       "procedure",
       "tam_ngam",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5861,7 +5962,8 @@
       "qd_2323",
       "procedure",
       "tam_lau",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -5921,7 +6023,8 @@
       "qd_2323",
       "procedure",
       "tam_quan_tam_ngam_quan_khan",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -5981,7 +6084,8 @@
       "qd_2323",
       "care",
       "cham_soc_mat_cho_tre_so_sinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6041,7 +6145,8 @@
       "qd_4128",
       "fact",
       "cac_ky_nang_tu_van_co_ban",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6102,7 +6207,8 @@
       "qd_4128",
       "fact",
       "phong_kham_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -6164,7 +6270,8 @@
       "risk_factor",
       "phat_hien_cac_yeu_to_nguy_co",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6225,7 +6332,8 @@
       "qd_4128",
       "fact",
       "xu_tri_cu_the",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6286,7 +6394,8 @@
       "qd_4128",
       "fact",
       "chay_mau_sau_e",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6347,7 +6456,8 @@
       "qd_4128",
       "diagnosis",
       "ngoi_mat",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -6406,7 +6516,8 @@
       "qd_4128",
       "fact",
       "cac_bat_thuong_trong_thai_nghen_chuyen_da_va_sinh_e",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6467,7 +6578,8 @@
       "qd_4128",
       "symptom",
       "viem_niem_mac_tu_cung",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6528,7 +6640,8 @@
       "qd_4128",
       "fact",
       "benh_basedow_va_thai_nghen",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6589,7 +6702,8 @@
       "qd_4128",
       "fact",
       "cac_truong_hop_tim_benh_ly_trong_thai_ky",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -6649,7 +6763,8 @@
       "qd_4128",
       "prevention",
       "viem_gan_va_thai_nghen",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6710,7 +6825,8 @@
       "qd_4128",
       "fact",
       "kham_vu",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6771,7 +6887,8 @@
       "qd_4128",
       "prevention",
       "cac_ton_thuong_lanh_tinh_o_co_tu_cung",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -6833,7 +6950,8 @@
       "fact",
       "benh_vu_lanh_tinh_thuong_gap",
       "numeric",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6893,7 +7011,8 @@
       "qd_4128",
       "fact",
       "u_xo_tu_cung",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -6952,7 +7071,8 @@
       "qd_4128",
       "diagnosis",
       "u_buong_trung",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7013,7 +7133,8 @@
       "qd_4128",
       "treatment",
       "ieu_tri_tuy_theo_trieu_chung_than_phien_chinh_va_mong_muon_c",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -7073,7 +7194,8 @@
       "qd_4128",
       "treatment",
       "man_kinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7134,7 +7256,8 @@
       "qd_4128",
       "counseling",
       "tu_van_ve_phong_va_ieu_tri_benh_hieu_qua",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7195,7 +7318,8 @@
       "qd_4128",
       "symptom",
       "hoi_chung_tiet_dich_nieu_ao_o_nam_gioi",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7256,7 +7380,8 @@
       "qd_4128",
       "counseling",
       "sui_mao_ga_sinh_duc",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -7317,7 +7442,8 @@
       "qd_4128",
       "diagnosis",
       "hoi_chung_loet_sinh_duc",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7378,7 +7504,8 @@
       "qd_4128",
       "counseling",
       "hoi_chung_sung_hach_ben",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7439,7 +7566,8 @@
       "qd_4128",
       "fact",
       "nhung_ac_iem_giai_phau_tam_sinh_ly_trong_thoi_ky_vi_thanh_ni",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -7498,7 +7626,8 @@
       "qd_4128",
       "counseling",
       "tu_van_ve_suc_khoe_sinh_san_vi_thanh_nien_va_thanh_nien",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7559,7 +7688,8 @@
       "qd_4128",
       "symptom",
       "xuat_tinh_o_vtn_nam",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7620,7 +7750,8 @@
       "qd_4128",
       "procedure",
       "tham_kham_vtn_nam",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7680,7 +7811,8 @@
       "qd_4128",
       "fact",
       "cac_bien_phap_tranh_thai_cho_vtn_tn",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -7741,7 +7873,8 @@
       "qd_4128",
       "definition",
       "vi_thanh_nien_va_thanh_nien_voi_van_e_bao_hanh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7802,7 +7935,8 @@
       "qd_4128",
       "fact",
       "cac_ac_iem_co_ban_cua_cac_dich_vu_suc_khoe_than_thien_voi_vt",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7863,7 +7997,8 @@
       "qd_4128",
       "fact",
       "su_dung_chat_gay_nghien_o_vi_thanh_nien_va_thanh_nien",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -7924,7 +8059,8 @@
       "qd_4128",
       "fact",
       "huong_dan_kham_suc_khoe_tre_em_inh_ky",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -7985,7 +8121,8 @@
       "qd_4128",
       "symptom",
       "quy_trinh_sang_loc",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8045,7 +8182,8 @@
       "qd_4128",
       "care",
       "so_theo_doi_suc_khoe_ba_me_va_tre_em",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8089,10 +8227,11 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_776_6c8084d57fc7"
     ],
-    "reference_answer": "1.760",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Phụ nữ 20–29 tuổi hoạt động thể lực nhẹ có nhu cầu khoảng 1.760 kcal/ngày. Khi mang thai 3 tháng cuối, nhu cầu năng lượng tăng thêm 450 kcal/ngày.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "20-29 tuổi: 1.760"
+      "Phụ nữ 20–29 tuổi, hoạt động thể lực nhẹ: 1.760 kcal/ngày.",
+      "Phụ nữ có thai 3 tháng cuối: tăng thêm 450 kcal/ngày."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8105,7 +8244,8 @@
       "qd_776",
       "table_lookup",
       "bang_1_nhu_cau_khuyen_nghi_nang_luong_kcal_ngay",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8149,10 +8289,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_776_3d636830841c"
     ],
-    "reference_answer": "60",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Nhu cầu protein tăng thêm 10 g/ngày ở 3 tháng giữa, 31 g/ngày ở 3 tháng cuối thai kỳ và 19 g/ngày trong 6 tháng đầu cho con bú.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "20-29 tuổi: 60"
+      "Phụ nữ có thai 3 tháng giữa: +10 g protein/ngày.",
+      "Phụ nữ có thai 3 tháng cuối: +31 g protein/ngày.",
+      "Bà mẹ cho con bú 6 tháng đầu: +19 g protein/ngày."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8165,7 +8307,8 @@
       "qd_776",
       "table_lookup",
       "bang_2_nhu_cau_khuyen_nghi_protein",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8209,10 +8352,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_776_4b8b0a0fc82e"
     ],
-    "reference_answer": "46- 57",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Nhu cầu lipid tăng thêm 1,5 g/ngày ở 3 tháng đầu, 7,5 g/ngày ở 3 tháng giữa và 15 g/ngày ở 3 tháng cuối thai kỳ.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "20-29 tuổi: 46- 57"
+      "3 tháng đầu: +1,5 g lipid/ngày.",
+      "3 tháng giữa: +7,5 g lipid/ngày.",
+      "3 tháng cuối: +15 g lipid/ngày."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8225,7 +8370,8 @@
       "qd_776",
       "table_lookup",
       "bang_3_nhu_cau_khuyen_nghi_lipid",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -8269,10 +8415,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_776_218179884f3e"
     ],
-    "reference_answer": "320-360",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Nhu cầu glucid tăng thêm 7–10 g/ngày ở 3 tháng đầu, 35–40 g/ngày ở 3 tháng giữa và 65–70 g/ngày ở 3 tháng cuối thai kỳ.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "20-29 tuổi: 320-360"
+      "3 tháng đầu: +(7–10) g glucid/ngày.",
+      "3 tháng giữa: +(35–40) g glucid/ngày.",
+      "3 tháng cuối: +(65–70) g glucid/ngày."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8285,7 +8433,8 @@
       "qd_776",
       "table_lookup",
       "bang_4_nhu_cau_khuyen_nghi_glucid",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8329,10 +8478,11 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_776_13a0fba9b624"
     ],
-    "reference_answer": "1200",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Phụ nữ có thai cần khoảng 1.200 mg canxi/ngày; bà mẹ cho con bú cần khoảng 1.300 mg/ngày.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Phụ nữ có thai: 1200"
+      "Phụ nữ có thai: 1.200 mg canxi/ngày.",
+      "Bà mẹ cho con bú: 1.300 mg canxi/ngày."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8345,7 +8495,8 @@
       "qd_776",
       "table_lookup",
       "bang_6_nhu_cau_khuyen_nghi_can_xi_mg_ngay",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8389,10 +8540,11 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_776_46ecf981b651"
     ],
-    "reference_answer": "26,1",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Trong suốt thai kỳ, nhu cầu sắt tăng thêm 15 mg/ngày với khẩu phần có mức hấp thu 10% và tăng thêm 10 mg/ngày với khẩu phần có mức hấp thu 15%.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "20-29 tuổi: 26,1"
+      "Thai kỳ, khẩu phần hấp thu 10%: +15 mg sắt/ngày.",
+      "Thai kỳ, khẩu phần hấp thu 15%: +10 mg sắt/ngày."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8405,7 +8557,8 @@
       "qd_776",
       "table_lookup",
       "bang_7_nhu_cau_khuyen_nghi_sat_mg_ngay",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8449,10 +8602,13 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_776_52d10d21d135"
     ],
-    "reference_answer": "20,0",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Ở cả 3 tam cá nguyệt, nhu cầu kẽm của phụ nữ có thai là 20,0 mg/ngày khi mức hấp thu kém, 10,0 mg/ngày khi mức hấp thu vừa và 6,0 mg/ngày khi mức hấp thu tốt.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Phụ nữ có thai: 20,0"
+      "Mức hấp thu kém: 20,0 mg kẽm/ngày.",
+      "Mức hấp thu vừa: 10,0 mg kẽm/ngày.",
+      "Mức hấp thu tốt: 6,0 mg kẽm/ngày.",
+      "Các mức này giống nhau ở 3 tháng đầu, giữa và cuối thai kỳ."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8465,7 +8621,8 @@
       "qd_776",
       "table_lookup",
       "bang_8_nhu_cau_khuyen_nghi_kem_mg_ngay",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -8509,10 +8666,11 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_776_4c9ae1ec9871"
     ],
-    "reference_answer": "220",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Phụ nữ có thai cần 220 μg iod/ngày; bà mẹ cho con bú cần 250 μg iod/ngày.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Phụ nữ có thai: 220"
+      "Phụ nữ có thai: 220 μg iod/ngày.",
+      "Bà mẹ cho con bú: 250 μg iod/ngày."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8525,7 +8683,8 @@
       "qd_776",
       "table_lookup",
       "bang_9_nhu_cau_khuyen_nghi_iod_g_ngay",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8569,10 +8728,13 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1139_5bca6896385a"
     ],
-    "reference_answer": "99%",
-    "reference_answer_type": "extractive",
+    "reference_answer": "cfDNA/NIPT thực hiện từ 9–10 tuần, khả năng phát hiện trisomy 21 khoảng 99%. Double test kết hợp siêu âm NT thực hiện 11–13 tuần 6 ngày, khả năng phát hiện 82–87%. Triple test thực hiện 15–20 tuần, khả năng phát hiện khoảng 70%. Chỉ siêu âm đo NT thực hiện 11–13 tuần 6 ngày, khả năng phát hiện khoảng 70%.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "cfDNA (NIPT): 99%"
+      "cfDNA/NIPT: 9–10 tuần; phát hiện trisomy 21 khoảng 99%.",
+      "Double test + NT: 11–13 tuần 6 ngày; phát hiện khoảng 82–87%.",
+      "Triple test: 15–20 tuần; phát hiện khoảng 70%.",
+      "Chỉ siêu âm NT: 11–13 tuần 6 ngày; phát hiện khoảng 70%."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8585,7 +8747,8 @@
       "qd_1139",
       "table_lookup",
       "bang_trong_muc_a_cac_xet_nghiem_mau_va_o_o_mo_da_gay_sang_lo",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8629,10 +8792,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1154_afde8752e088"
     ],
-    "reference_answer": "Tiền sử TSG (đặc biệt khi TSG có biến chứng nặng), đa thai, tăng HA mạn, đái tháo đường týp 1 hoặc 2, bệnh thận mạn tính, bệnh tự miễn (lupus ban đỏ hệ thống, hội chứng kháng phospholipid...), bệnh tăng đông máu, béo phì (BMI >35), có sử dụng các kỹ thuật hỗ trợ sinh sản, tăng triglyceride trong thai kỳ.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Nguy cơ cao gồm tiền sử tiền sản giật, đa thai, tăng huyết áp mạn, đái tháo đường týp 1 hoặc 2, bệnh thận mạn, bệnh tự miễn, bệnh tăng đông máu, béo phì BMI >35, sử dụng kỹ thuật hỗ trợ sinh sản hoặc tăng triglyceride trong thai kỳ. Nguy cơ trung bình gồm thai con so, tiền sử gia đình tiền sản giật, mẹ trên 40 tuổi, mức sống thấp, lạm dụng chất kích thích, tiền sử thai nhẹ cân hoặc kết quả thai kỳ bất lợi, khoảng cách hai lần mang thai trên 10 năm, nhiễm trùng thai nghén hoặc bệnh lý nguyên bào nuôi. Nguy cơ thấp là tiền sử sinh đủ tháng, không biến chứng.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Nguy cơ cao: Tiền sử TSG (đặc biệt khi TSG có biến chứng nặng), đa thai, tăng HA mạn, đái tháo đường týp 1 hoặc 2, bệnh thận mạn tính, bệnh tự miễn (lupus ban đỏ hệ thống, hội chứng kháng phospholipid...), bệnh tăng đông máu, béo phì (BMI >35), có sử dụng các kỹ thuật hỗ trợ sinh sản, tăng triglyceride trong thai kỳ."
+      "Nguy cơ cao: tiền sử TSG, đa thai, THA mạn, ĐTĐ týp 1/2, bệnh thận mạn, bệnh tự miễn, tăng đông, BMI >35, hỗ trợ sinh sản hoặc tăng triglyceride thai kỳ.",
+      "Nguy cơ trung bình: con so, tiền sử gia đình TSG, mẹ >40 tuổi, yếu tố xã hội, lạm dụng chất kích thích, tiền sử thai nhẹ cân/kết quả thai kỳ bất lợi, khoảng cách mang thai >10 năm, nhiễm trùng thai nghén hoặc bệnh lý nguyên bào nuôi.",
+      "Nguy cơ thấp: tiền sử sinh đủ tháng, không biến chứng."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8645,7 +8810,8 @@
       "qd_1154",
       "table_lookup",
       "bang_2_phan_loai_muc_o_nguy_co",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -8689,10 +8855,11 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1154_a108fb9510c6"
     ],
-    "reference_answer": "<130",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Huyết áp 150/95 mmHg tại phòng khám nằm trong mức tăng huyết áp độ 1 (nhẹ), vì HATT 140–159 mmHg và/hoặc HATTr 90–99 mmHg.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Bình thường: <130"
+      "THA độ 1 (nhẹ): HATT 140–159 mmHg và/hoặc HATTr 90–99 mmHg.",
+      "150/95 mmHg được xếp THA độ 1 (nhẹ)."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8705,7 +8872,8 @@
       "qd_1154",
       "table_lookup",
       "bang_trong_muc_chan_oan_tang_huyet_ap_theo_nguong_huyet_ap_o",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8749,10 +8917,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1154_71affe58cfdb"
     ],
-    "reference_answer": "Thấp",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Nguy cơ tim mạch tăng dần khi số yếu tố nguy cơ tăng và khi mức huyết áp cao hơn. Với 1–2 yếu tố nguy cơ, nguy cơ có thể từ thấp đến trung bình hoặc cao tùy mức huyết áp; với trên 3 yếu tố nguy cơ, nguy cơ từ thấp/trung bình đến cao. Khi đã có tổn thương cơ quan đích, bệnh thận mạn giai đoạn >3, đái tháo đường hoặc bệnh tim mạch, nguy cơ được xếp cao ở mọi mức huyết áp trong bảng.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Không có YTNC: Thấp"
+      "Nhiều yếu tố nguy cơ hơn làm mức nguy cơ tim mạch tăng.",
+      "Trên 3 yếu tố nguy cơ: nguy cơ từ thấp/trung bình đến cao tùy mức huyết áp.",
+      "Có tổn thương cơ quan đích, BTM giai đoạn >3, ĐTĐ hoặc bệnh tim mạch: nguy cơ cao ở mọi mức trong bảng."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8765,7 +8935,8 @@
       "qd_1154",
       "table_lookup",
       "bang_trong_muc_phan_tang_nguy_co_o_benh_nhan_tang_huyet_ap",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8809,10 +8980,13 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1359_247d02da7fac"
     ],
-    "reference_answer": "Không cần BPTT hỗ trợ",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Nếu quên POP vào những ngày khác ngoài ngày 1–5 của chu kỳ, dòng POP truyền thống quên trên 3 giờ cần dùng biện pháp tránh thai hỗ trợ 2 ngày; dòng POP thế hệ mới quên trên 24 giờ cần dùng biện pháp hỗ trợ 7 ngày. Theo bảng, không cần biện pháp hỗ trợ khi ở ngày 1–5 của chu kỳ, ngay sau sinh dưới 21 ngày hoặc sau sảy thai/phá thai dưới 7 ngày.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Ngày 1-5 của chu kỳ: Không cần BPTT hỗ trợ"
+      "POP truyền thống, quên >3 giờ vào những ngày khác: dùng BPTT hỗ trợ 2 ngày.",
+      "POP thế hệ mới, quên >24 giờ vào những ngày khác: dùng BPTT hỗ trợ 7 ngày.",
+      "Ngày 1–5 của chu kỳ: không cần BPTT hỗ trợ.",
+      "Ngay sau sinh <21 ngày hoặc sau sảy thai/phá thai <7 ngày: không cần BPTT hỗ trợ."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8825,7 +8999,8 @@
       "qd_1359",
       "table_lookup",
       "bang_tom_tat_thoi_iem_dung_thuoc_va_cach_xu_tri_dung_bptt_ho",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8869,10 +9044,11 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1470_65f88fe4f128"
     ],
-    "reference_answer": "23 - 24,9",
-    "reference_answer_type": "extractive",
+    "reference_answer": "BMI 24 kg/m² được xếp vào nhóm thừa cân theo tiêu chuẩn dành riêng cho người châu Á, vì khoảng thừa cân là 23–24,9 kg/m².",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "OVERWEIGHT (Thừa cân): 23 - 24,9"
+      "Theo tiêu chuẩn châu Á, thừa cân: BMI 23–24,9 kg/m².",
+      "BMI 24 kg/m²: thừa cân."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8885,7 +9061,8 @@
       "qd_1470",
       "table_lookup",
       "bang_1_phan_loai_bmi_theo_tieu_chuan_cua_who_va_theo_chau_a",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8929,10 +9106,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1470_c3f19b5ce834"
     ],
-    "reference_answer": "≥ 92",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Trong nghiệm pháp 75 g glucose, ngưỡng bất thường là glucose huyết tương lúc đói ≥92 mg/dL (≥5,1 mmol/L), sau 1 giờ ≥180 mg/dL (≥10,0 mmol/L), và sau 2 giờ ≥153 mg/dL (≥8,5 mmol/L).",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Đói: ≥ 92"
+      "Lúc đói: ≥92 mg/dL (≥5,1 mmol/L).",
+      "Sau 1 giờ: ≥180 mg/dL (≥10,0 mmol/L).",
+      "Sau 2 giờ: ≥153 mg/dL (≥8,5 mmol/L)."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -8945,7 +9124,8 @@
       "qd_1470",
       "table_lookup",
       "bang_3_tham_so_glucose_huyet_tuong_trong_nghiem_phap_75gram_",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -8989,10 +9169,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1470_41a483d83fed"
     ],
-    "reference_answer": "12,5 - 18",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Với BMI bình thường trước mang thai (18,5–22,9 kg/m²), mức tăng cân khuyến cáo là 11,5–16 kg cho cả thai kỳ và trung bình 0,42 kg/tuần trong quý 2–3, với khoảng 0,35–0,50 kg/tuần.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Thiếu năng lượng trường diễn (BMI < 18,5 kg/m²): 12,5 - 18"
+      "BMI bình thường trước mang thai: 18,5–22,9 kg/m².",
+      "Tăng cân cả thai kỳ: 11,5–16 kg.",
+      "Quý 2–3: trung bình 0,42 kg/tuần (0,35–0,50)."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9005,7 +9187,8 @@
       "qd_1470",
       "table_lookup",
       "bang_5_khuyen_cao_ve_muc_tang_can_trong_thai_ky_tieu_chuan_c",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9049,10 +9232,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1470_81d8142c2776"
     ],
-    "reference_answer": "Ít nhất 30 phút / ngày",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Thai phụ bị ĐTĐTK được khuyến cáo hoạt động thể chất ít nhất 30 phút/ngày; có thể đi bộ hoặc tập tay khi ngồi trong 10 phút sau ăn. Người đã tích cực tập luyện trước khi mang thai nên duy trì tập luyện trong thai kỳ.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Ít nhất 30 phút / ngày: Ít nhất 30 phút / ngày"
+      "Ít nhất 30 phút hoạt động thể chất mỗi ngày.",
+      "Có thể đi bộ hoặc tập tay lúc ngồi trong 10 phút sau ăn.",
+      "Nếu tích cực tập luyện trước mang thai, nên duy trì trong thai kỳ."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9065,7 +9250,8 @@
       "qd_1470",
       "table_lookup",
       "bang_6_cac_hoat_ong_the_chat_trong_thai_ky",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -9109,10 +9295,13 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_1470_3dd586f8374c"
     ],
-    "reference_answer": "≥ 126 mg/dL (≥ 7 mmol/L)",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Sau sinh, với nghiệm pháp 75 g glucose: glucose đói 100–125 mg/dL (5,6–6,9 mmol/L) là tiền đái tháo đường và ≥126 mg/dL (≥7 mmol/L) là đái tháo đường; glucose 2 giờ 140–199 mg/dL (7,8–11 mmol/L) là tiền đái tháo đường và ≥200 mg/dL (≥11,1 mmol/L) là đái tháo đường.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Khi đói: ≥ 126 mg/dL (≥ 7 mmol/L)"
+      "Glucose đói 100–125 mg/dL: tiền ĐTĐ.",
+      "Glucose đói ≥126 mg/dL: ĐTĐ.",
+      "Glucose 2 giờ 140–199 mg/dL: tiền ĐTĐ.",
+      "Glucose 2 giờ ≥200 mg/dL: ĐTĐ."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9125,7 +9314,8 @@
       "qd_1470",
       "table_lookup",
       "bang_8_gia_tri_glucose_huyet_tuong_tinh_mach_nghiem_phap_75g",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9169,10 +9359,13 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_2323_70dd3d972592"
     ],
-    "reference_answer": "Co hồi tử cung; Giảm mất máu; Giảm nhiễm trùng; Chậm có kinh; Giảm cân, cải thiện hình thể nhanh chóng; Giảm trầm cảm sau sinh; Giảm căng thẳng và lo lắng",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Đối với mẹ, lợi ích ngắn hạn gồm co hồi tử cung, giảm mất máu và nhiễm trùng, chậm có kinh, hỗ trợ giảm cân, giảm trầm cảm, căng thẳng và lo lắng; lợi ích lâu dài gồm giảm nguy cơ ung thư vú, buồng trứng, nội mạc tử cung, đái tháo đường, loãng xương, tăng huyết áp, bệnh tim mạch, rối loạn chuyển hóa và Alzheimer. Đối với trẻ, lợi ích ngắn hạn gồm giảm nhiễm trùng, hạ đường máu sơ sinh, tử vong sơ sinh/trẻ em, đột tử nhũ nhi và một số biến chứng ở trẻ sinh non; lợi ích lâu dài gồm tăng số năm học và IQ, giảm béo phì/rối loạn chuyển hóa, một số ung thư trẻ em và bệnh dị ứng.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Lợi ích cho bà mẹ: Co hồi tử cung; Giảm mất máu; Giảm nhiễm trùng; Chậm có kinh; Giảm cân, cải thiện hình thể nhanh chóng; Giảm trầm cảm sau sinh; Giảm căng thẳng và lo lắng"
+      "Mẹ - ngắn hạn: co hồi tử cung, giảm mất máu/nhiễm trùng, chậm có kinh, hỗ trợ giảm cân và sức khỏe tâm lý.",
+      "Mẹ - lâu dài: giảm nguy cơ một số ung thư, ĐTĐ, loãng xương, THA, bệnh tim mạch, rối loạn chuyển hóa và Alzheimer.",
+      "Trẻ - ngắn hạn: giảm nhiễm trùng, hạ đường máu, tử vong, đột tử nhũ nhi và một số biến chứng ở trẻ sinh non.",
+      "Trẻ - lâu dài: tăng số năm học/IQ, giảm béo phì-rối loạn chuyển hóa, một số ung thư trẻ em và dị ứng."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9185,7 +9378,8 @@
       "qd_2323",
       "table_lookup",
       "tom_tat_loi_ich_cua_nuoi_con_bang_sua_me",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9229,10 +9423,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_2323_19f6a008415f"
     ],
-    "reference_answer": "Định lượng TSH (Thyroid Stimulating Hormone) trong mẫu máu khô trên thẻ thấm",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Suy giáp bẩm sinh được sàng lọc bằng định lượng TSH trong mẫu máu khô trên thẻ thấm; tăng sản thượng thận bẩm sinh bằng định lượng 17-OHP trong mẫu máu khô; thiếu men G6PD bằng đo hoạt độ men G6PD trong mẫu máu khô.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Suy giáp bẩm sinh: Định lượng TSH (Thyroid Stimulating Hormone) trong mẫu máu khô trên thẻ thấm"
+      "Suy giáp bẩm sinh: định lượng TSH trong mẫu máu khô.",
+      "Tăng sản thượng thận bẩm sinh: định lượng 17-OHP trong mẫu máu khô.",
+      "Thiếu men G6PD: đo hoạt độ men G6PD trong mẫu máu khô."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9245,7 +9441,8 @@
       "qd_2323",
       "table_lookup",
       "cac_benh_uoc_sang_loc_so_sinh_va_cac_xet_nghiem_tuong_ung",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -9289,10 +9486,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_2323_5db0f8676bae"
     ],
-    "reference_answer": "Ủ ấm trẻ; Thực hiện da kề da với mẹ hoặc người thân, hoặc nằm giường sưởi/lồng ấp",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Nếu trẻ bị hạ thân nhiệt khi tắm: ủ ấm, thực hiện da kề da với mẹ/người thân hoặc dùng giường sưởi/lồng ấp. Nếu trẻ tím tái: ngừng tắm, lau khô, ủ ấm, kích thích trẻ thở lại, hút dịch mũi miệng nếu tắc nghẽn, báo bác sĩ và đưa đến giường hồi sức nếu vẫn tím hoặc không thở.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "1: Ủ ấm trẻ; Thực hiện da kề da với mẹ hoặc người thân, hoặc nằm giường sưởi/lồng ấp"
+      "Hạ thân nhiệt: ủ ấm; da kề da hoặc giường sưởi/lồng ấp.",
+      "Tím tái: ngừng tắm, lau khô, ủ ấm, kích thích thở, hút dịch nếu tắc nghẽn.",
+      "Nếu trẻ vẫn tím/không thở: báo bác sĩ và đưa đến giường hồi sức."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9305,7 +9504,8 @@
       "qd_2323",
       "table_lookup",
       "bang_trong_muc_7_theo_doi_va_xu_tri_tai_bien",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9349,10 +9549,14 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_4128_0ec78490f4b9"
     ],
-    "reference_answer": "Kiểm tra ngay HA, cầu an toàn, ra máu.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Mạch >90 lần/phút: kiểm tra ngay huyết áp, cầu an toàn và ra máu. Huyết áp hạ với tối đa <90 mmHg: xử trí sốc sản khoa. Tăng huyết áp với tối đa >140 mmHg hoặc tăng 30 mmHg, hay tối thiểu >90 mmHg hoặc tăng 15 mmHg so với trước: xử trí tiền sản giật. Tử cung mềm, cao trên rốn: xử trí đờ tử cung. Chảy máu >500 ml và vẫn tiếp tục: xử trí băng huyết sau đẻ.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Mạch nhanh trên 90 lần/phút.: Kiểm tra ngay HA, cầu an toàn, ra máu."
+      "Mạch >90 lần/phút: kiểm tra ngay HA, cầu an toàn, ra máu.",
+      "HA tối đa <90 mmHg: xử trí sốc sản khoa.",
+      "Tăng HA theo ngưỡng trong bảng: xử trí tiền sản giật.",
+      "Tử cung mềm, cao trên rốn: xử trí đờ tử cung.",
+      "Chảy máu >500 ml và tiếp tục ra: xử trí băng huyết sau đẻ."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9365,7 +9569,8 @@
       "qd_4128",
       "table_lookup",
       "cho_me",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -9409,10 +9614,12 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_4128_c5695ecaa4f4"
     ],
-    "reference_answer": "Hồi sức thở-hồi sức tim-chuyển tuyến.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Trẻ khó thở, ngừng thở, tím tái hoặc cơ mềm nhẽo: hồi sức thở, hồi sức tim và chuyển tuyến. Trẻ bị lạnh hoặc phòng lạnh: ủ ấm, cho da kề da với mẹ và sưởi ấm bằng phương tiện sẵn có. Chảy máu rốn: làm rốn lại.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Khó thở, ngừng thở, tím tái, cơ mềm nhẽo.: Hồi sức thở-hồi sức tim-chuyển tuyến."
+      "Khó thở/ngừng thở/tím tái/cơ mềm nhẽo: hồi sức thở-hồi sức tim-chuyển tuyến.",
+      "Trẻ bị lạnh: ủ ấm, da kề da với mẹ, sưởi ấm.",
+      "Chảy máu rốn: làm rốn lại."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9425,7 +9632,8 @@
       "qd_4128",
       "table_lookup",
       "cho_con",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9485,7 +9693,8 @@
       "qd_4128",
       "table_lookup",
       "cho_me",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9529,10 +9738,15 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_4128_c1edff61aa83"
     ],
-    "reference_answer": "Hướng dẫn bà mẹ cách cho con bú",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Nếu trẻ chưa bú hoặc bú khó: hướng dẫn mẹ cách cho bú. Nếu trẻ lạnh: ủ ấm bằng da kề da, mặc thêm áo/chăn và làm ấm phòng. Khó thở hoặc tím tái: xử trí cấp cứu. Chảy máu rốn: làm lại rốn; nếu vẫn chảy máu và không rõ nguyên nhân thì hội chẩn hoặc chuyển tuyến. Không có phân su: kiểm tra hậu môn, nếu không hậu môn thì hội chẩn ngoại khoa hoặc chuyển tuyến. Vàng da: điều trị ngay hoặc chuyển tuyến.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Chưa bú mẹ hoặc khó khăn khi cho con bú.: Hướng dẫn bà mẹ cách cho con bú"
+      "Chưa bú/bú khó: hướng dẫn mẹ cách cho con bú.",
+      "Trẻ lạnh: ủ ấm da kề da, thêm áo/chăn, làm ấm phòng.",
+      "Khó thở/tím tái: xử trí cấp cứu.",
+      "Chảy máu rốn: làm lại rốn; kéo dài không rõ nguyên nhân thì hội chẩn/chuyển tuyến.",
+      "Không có phân su: kiểm tra hậu môn; không hậu môn thì hội chẩn ngoại khoa/chuyển tuyến.",
+      "Vàng da: điều trị ngay hoặc chuyển tuyến."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9545,7 +9759,8 @@
       "qd_4128",
       "table_lookup",
       "cho_con",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9589,10 +9804,13 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_4128_cfbf9738a0ef"
     ],
-    "reference_answer": "Quan sát tình trạng tinh thần: vui vẻ, phấn khởi, buồn bã, trầm cảm.; Các chỉ số sinh tồn: mạch, huyết áp, thân nhiệt, da xanh, phù nề.; Nắn bụng kiểm tra tử cung: co hồi, đau, mật độ (mềm, rắn).; Kiểm tra tầng sinh môn: khô, liền hay sưng, đau, nhiễm khuẩn.; Kiểm tra vú: bầu vú, núm vú, sự tiết sữa, lượng sữa.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Ở mẹ: đánh giá tình trạng tinh thần, các chỉ số sinh tồn, tử cung, tầng sinh môn và vú/sự tiết sữa. Ở trẻ: đánh giá toàn trạng, hô hấp, thân nhiệt, da/vàng da hoặc tổn thương da, rốn và tình trạng bú mẹ.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Quan sát tình trạng tinh thần: vui vẻ, phấn khởi, buồn bã, trầm cảm.; Các chỉ số sinh tồn: mạch, huyết áp, thân nhiệt, da xanh, phù nề.; Nắn bụng kiểm tra tử cung: co hồi, đau, mật độ (mềm, rắn).; Kiểm tra tầng sinh môn: khô, liền hay sưng, đau, nhiễm khuẩn.; Kiểm tra vú: bầu vú, núm vú, sự tiết sữa, lượng sữa.: Quan sát tình trạng tinh thần: vui vẻ, phấn khởi, buồn bã, trầm cảm.; Các chỉ số sinh tồn: mạch, huyết áp, thân nhiệt, da xanh, phù nề.; Nắn bụng kiểm tra tử cung: co hồi, đau, mật độ (mềm, rắn).; Kiểm tra tầng sinh môn: khô, liền hay sưng, đau, nhiễm khuẩn.; Kiểm tra vú: bầu vú, núm vú, sự tiết sữa, lượng sữa."
+      "Mẹ: tình trạng tinh thần và các chỉ số sinh tồn.",
+      "Mẹ: tử cung, tầng sinh môn, vú và sự tiết sữa.",
+      "Trẻ: toàn trạng, thở và thân nhiệt.",
+      "Trẻ: da/vàng da, rốn và bú mẹ."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9605,7 +9823,8 @@
       "qd_4128",
       "table_lookup",
       "bang_trong_muc_2_kham",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -9649,10 +9868,13 @@
     "ground_truth_evidence_ids": [
       "EVID_QD_4128_fe683c975656"
     ],
-    "reference_answer": "Hàng ngày: nằm chung với mẹ trong phòng ấm. Ngủ màn. Không đặt trẻ nằm sấp, trên nền lạnh, cứng. Không cho tiếp xúc với người đang có bệnh, không cho gần súc vật, không để trong môi trường khói, bụi, khói thuốc.; Nuôi con bằng sữa mẹ: cho bú mẹ hoàn toàn, bú cả ngày/đêm, ít nhất 8 lần/ngày. Nếu mẹ có khó khăn khi cho bú, hướng dẫn cách cho con bú đúng.; Chăm sóc mắt: rửa tay sạch bằng xà phòng trước/sau khi chăm sóc. Dùng khăn sạch, ẩm lau mắt hàng ngày. Không nhỏ bất cứ thuốc gì vào mắt trẻ.; Chăm sóc rốn: để rốn khô và sạch. Không băng kín hoặc đắp bất cứ thứ gì lên rốn. Hạn chế sờ vào rốn và vùng quanh rốn.; Vệ sinh thân thể và chăm sóc da: lau rửa hàng ngày, không nhất thiết phải tắm hàng ngày. Tắm bằng nước ấm,sạch trong phòng ấm, kín gió. Thay đồ vải như mũ, áo, tã lót hàng ngày và mỗi khi trẻ bài tiết.; Hẹn ngày tiêm phòng và ghi nhận xét vào phiếu. Hẹn đến thăm bé.",
-    "reference_answer_type": "extractive",
+    "reference_answer": "Đối với mẹ: vệ sinh vùng sinh dục và thân thể hằng ngày; chăm sóc vú và cho bú mẹ hoàn toàn; xử trí đau do co bóp tử cung; chăm sóc vết khâu tầng sinh môn nếu có; ăn đủ lượng, đủ chất, nghỉ ngủ hợp lý; vận động nhẹ sau đẻ; được hỗ trợ tâm lý, tư vấn KHHGĐ và nuôi con bằng sữa mẹ; hẹn khám sau đẻ. Đối với trẻ: nằm chung với mẹ trong phòng ấm, tránh tư thế/môi trường không an toàn; bú mẹ hoàn toàn ít nhất 8 lần/ngày; chăm sóc mắt, rốn, vệ sinh thân thể và da; thay đồ vải sạch; hẹn tiêm phòng và theo dõi.",
+    "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Vệ sinh hàng ngày: rửa vùng sinh dục ít nhất 3 lần/ngày; lau người thay đồ sạch, sau đẻ 2-3 ngày tắm nhanh bằng nước ấm.; Chăm sóc vú: cho con bú hoàn toàn sữa mẹ, không cho bất cứ thức ăn, nước uống khác; nếu tắc tia sữa cần xử lý sớm (day, vắt, hút, đi khám) để phòng ngừa viêm vú, áp xe vú.; Xử trí đau do co bóp tử cung: nếu đau nhẹ: không cần xử trí. Nếu đau nhiều: chườm nóng, cho uống paracetamol.; Vết khâu tầng sinh môn (nếu có): rửa sạch âm hộ sau đại, tiểu tiện và thấm khô. Cắt chỉ nếu đã 5 ngày sau đẻ.; Chế độ ăn uống và sinh hoạt: ăn đủ lượng, đủ chất, không kiêng vô lý. Ngủ 8 giờ/ngày, tôn trọng giấc ngủ trưa. Mặc đồ sạch sẽ, rộng rãi.; Chế độ vận động: sau đẻ 6 giờ đã có thể ngồi dậy, ngày hôm sau đi lại, vận động nhẹ nhàng.; Tư vấn và giúp giải quyết vấn đề tâm lý (nếu có).; Tư vấn về KHHGĐ, về nuôi con bằng sữa mẹ.; Hẹn đến thăm hoặc hẹn sản phụ đến khám tại trạm vào 6 tuần sau đẻ.: Hàng ngày: nằm chung với mẹ trong phòng ấm. Ngủ màn. Không đặt trẻ nằm sấp, trên nền lạnh, cứng. Không cho tiếp xúc với người đang có bệnh, không cho gần súc vật, không để trong môi trường khói, bụi, khói thuốc.; Nuôi con bằng sữa mẹ: cho bú mẹ hoàn toàn, bú cả ngày/đêm, ít nhất 8 lần/ngày. Nếu mẹ có khó khăn khi cho bú, hướng dẫn cách cho con bú đúng.; Chăm sóc mắt: rửa tay sạch bằng xà phòng trước/sau khi chăm sóc. Dùng khăn sạch, ẩm lau mắt hàng ngày. Không nhỏ bất cứ thuốc gì vào mắt trẻ.; Chăm sóc rốn: để rốn khô và sạch. Không băng kín hoặc đắp bất cứ thứ gì lên rốn. Hạn chế sờ vào rốn và vùng quanh rốn.; Vệ sinh thân thể và chăm sóc da: lau rửa hàng ngày, không nhất thiết phải tắm hàng ngày. Tắm bằng nước ấm,sạch trong phòng ấm, kín gió. Thay đồ vải như mũ, áo, tã lót hàng ngày và mỗi khi trẻ bài tiết.; Hẹn ngày tiêm phòng và ghi nhận xét vào phiếu. Hẹn đến thăm bé."
+      "Mẹ: vệ sinh, chăm sóc vú/cho bú, chăm sóc tầng sinh môn và xử trí đau.",
+      "Mẹ: ăn đủ chất, nghỉ ngơi, vận động nhẹ, hỗ trợ tâm lý, tư vấn KHHGĐ và hẹn khám.",
+      "Trẻ: giữ ấm và môi trường an toàn, bú mẹ hoàn toàn ít nhất 8 lần/ngày.",
+      "Trẻ: chăm sóc mắt, rốn, da/thân thể, đồ vải sạch và hẹn tiêm phòng/theo dõi."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -9665,7 +9887,8 @@
       "qd_4128",
       "table_lookup",
       "bang_trong_muc_3_huong_dan_cham_soc",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9740,7 +9963,8 @@
       "multi_evidence",
       "dinh_duong_trong_thai_ky_lien_quan_en_can_nang_khi_sinh_cua_",
       "dinh_duong_tot_trong_thai_ky_giup_nguoi_me_tang_can_phu_hop",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9817,7 +10041,8 @@
       "multi_evidence",
       "nhu_cau_protein_chat_am",
       "nhu_cau_lipid_chat_beo",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -9894,7 +10119,8 @@
       "multi_evidence",
       "nhu_cau_khuyen_nghi_vitamin_a",
       "nhu_cau_khuyen_nghi_vitamin_b6_pyridoxyl",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -9970,7 +10196,8 @@
       "multi_evidence",
       "cham_soc_dinh_duong_cho_phu_nu_thoi_ky_co_thai",
       "dinh_duong_cho_ba_me_cho_con_bu",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10047,7 +10274,8 @@
       "multi_evidence",
       "che_o_an_trong_tien_san_giat",
       "nguyen_tac_khi_tu_van_dinh_duong_cho_ca_nhan",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10124,7 +10352,8 @@
       "multi_evidence",
       "noi_dung_can_tu_van",
       "noi_dung_cham_soc_suc_khoe_truoc_khi_co_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10200,7 +10429,8 @@
       "multi_evidence",
       "vac_xin_phong_ngua_benh_soi_quai_bi_rubella",
       "vac_xin_phong_cum",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -10277,7 +10507,8 @@
       "multi_evidence",
       "sang_loc_bang_double_test_triple_test",
       "xet_nghiem_cfdna_nipt",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10354,7 +10585,8 @@
       "multi_evidence",
       "chan_oan_tien_san_giat",
       "phan_loai_tien_san_giat_theo_muc_o_nang_cua_benh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10367,7 +10599,7 @@
   },
   {
     "id": "EVAL_HARD_010",
-    "question": "Nguyên tắc xử trí tiền sản giật là gì, và ở tuyến cơ bản/chuyên sâu cần quản lý bệnh nhân khác tuyến ban đầu như thế nào?",
+    "question": "Sàng lọc và dự phòng tiền sản giật được thực hiện theo nguyên tắc nào, và ở tuyến cơ bản/chuyên sâu cách sàng lọc thay đổi ra sao tùy khả năng trang thiết bị và đào tạo?",
     "source_doc_tag": "qd_1154",
     "source_file": "qd_1154_2024_tang_huyet_ap_tien_san_giat_clean.md",
     "answerable": true,
@@ -10410,13 +10642,14 @@
       "EVID_QD_1154_e203eb427019",
       "EVID_QD_1154_e80206268528"
     ],
-    "reference_answer": "Phần 1 - Nguyên tắc (SÀNG LỌC VÀ ĐIỀU TRỊ DỰ PHÒNG TIỀN SẢN GIẬT): Tích hợp sàng lọc TSG thực hiện thường quy vào quy trình quản lý thai, khám thai cho tất cả mọi thai phụ. Thực hiện sàng lọc TSG theo mô hình hai giai đoạn: Giai đoạn 1: tại thời điểm 11 - 13 tuần 6 ngày tuổi thai, mục tiêu tập trung vào sàng lọc TSG sớm và can thiệp dự phòng. Phần 2 - Cấp khám chữa bệnh cơ bản và chuyên sâu: Nếu cấp khám chữa bệnh cơ bản và chuyên sâu không có đủ các công cụ sàng lọc, chưa được tập huấn siêu âm đo chỉ số xung động mạch tử cung để sàng lọc TSG, nên tiếp cận sàng lọc TSG dựa vào các yếu tố nguy cơ mẹ như cấp khám chữa bệnh ban đầu. Nếu cấp khám chữa bệnh cơ bản và chuyên sâu có đầy đủ các công cụ sàng lọc (đặc điểm mẹ, HA động mạch trung bình, siêu âm đo chỉ số xung động mạch tử cung, sinh hóa máu PlGF hoặc PAPP-A), đã được tập huấn sàng lọc TSG, nên tiếp cận sàng lọc TSG theo 2 giai đoạn.",
+    "reference_answer": "Sàng lọc tiền sản giật được tích hợp thường quy vào quản lý thai và thực hiện theo hai giai đoạn: 11–13 tuần 6 ngày để tập trung phát hiện TSG sớm và dự phòng; sau đó tiếp tục ở 3 tháng giữa và/hoặc cuối để quản lý nguy cơ và định hướng kết thúc thai kỳ. Ở cấp cơ bản/chuyên sâu, nếu thiếu công cụ hoặc chưa được tập huấn Doppler động mạch tử cung thì sàng lọc dựa vào yếu tố nguy cơ mẹ như cấp ban đầu; nếu đủ công cụ và đã được tập huấn thì áp dụng sàng lọc hai giai đoạn.",
     "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Tích hợp sàng lọc TSG thực hiện thường quy vào quy trình quản lý thai, khám thai cho tất cả mọi thai phụ.",
-      "Thực hiện sàng lọc TSG theo mô hình hai giai đoạn:",
-      "Nếu cấp khám chữa bệnh cơ bản và chuyên sâu không có đủ các công cụ sàng lọc, chưa được tập huấn siêu âm đo chỉ số xung động mạch tử cung để sàng lọc TSG, nên tiếp cận sàng lọc TSG dựa vào các yếu tố nguy cơ mẹ như cấp khám chữa bệnh ban đầu.",
-      "Nếu cấp khám chữa bệnh cơ bản và chuyên sâu có đầy đủ các công cụ sàng lọc (đặc điểm mẹ, HA động mạch trung bình, siêu âm đo chỉ số xung động mạch tử cung, sinh hóa máu PlGF hoặc PAPP-A), đã được tập huấn sàng lọc TSG, nên tiếp cận sàng lọc TSG theo 2 giai đoạn."
+      "Sàng lọc TSG thường quy và theo mô hình hai giai đoạn.",
+      "Giai đoạn 1: 11–13 tuần 6 ngày.",
+      "Giai đoạn 2: 3 tháng giữa và/hoặc cuối thai kỳ.",
+      "Cơ bản/chuyên sâu thiếu công cụ/chưa tập huấn: sàng lọc theo yếu tố nguy cơ mẹ như cấp ban đầu.",
+      "Có đủ công cụ và đã tập huấn: tiếp cận sàng lọc theo 2 giai đoạn."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -10431,7 +10664,8 @@
       "multi_evidence",
       "nguyen_tac_sang_loc_va_ieu_tri_du_phong_tien_san_giat",
       "cap_kham_chua_benh_co_ban_va_chuyen_sau",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -10444,12 +10678,12 @@
   },
   {
     "id": "EVAL_HARD_011",
-    "question": "Tăng huyết áp mạn tính và tiền sản giật trên nền tăng huyết áp mạn tính được chẩn đoán khác nhau như thế nào?",
+    "question": "Sản giật và hội chứng HELLP được chẩn đoán khác nhau như thế nào?",
     "source_doc_tag": "qd_1154",
     "source_file": "qd_1154_2024_tang_huyet_ap_tien_san_giat_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "multi_evidence",
+    "question_type": "comparison",
     "base_question_type": "multi_evidence",
     "question_style": "clinical",
     "benchmark_group": "hard_multi",
@@ -10487,13 +10721,13 @@
       "EVID_QD_1154_e883b2625d0f",
       "EVID_QD_1154_ca6bc9e5909e"
     ],
-    "reference_answer": "Phần 1 - Chẩn đoán (CHẨN ĐOÁN VÀ XỬ TRÍ SẢN GIẬT): Xuất hiện những cơn co cứng - co giật khu trú hoặc toàn thân có hoặc không kèm theo hôn mê xảy ra trên những bệnh nhân có triệu chứng TSG sau khi đã loại trừ cơn co giật do các nguyên nhân khác như động kinh, nhồi máu não, xuất huyết não hoặc do sử dụng thuốc. Các triệu chứng có thể kèm theo trong SG gồm: Tăng HA. Phần 2 - Chẩn đoán (CHẨN ĐOÁN VÀ XỬ TRÍ HỘI CHỨNG HELLP): Tiêu chuẩn chẩn đoán hội chứng HELLP: **Tan máu:** Bất thường phiến đồ máu ngoại vi (tế bào Burr, những mảnh vỡ hồng cầu).",
+    "reference_answer": "Sản giật được chẩn đoán khi xuất hiện cơn co cứng–co giật khu trú hoặc toàn thân, có hoặc không hôn mê, trên bệnh nhân có triệu chứng tiền sản giật sau khi loại trừ các nguyên nhân co giật khác; có thể kèm tăng huyết áp, đau đầu, rối loạn thị giác, đau hạ sườn phải/thượng vị và triệu chứng thần kinh. Hội chứng HELLP được chẩn đoán dựa trên bộ ba tan máu, tăng men gan và giảm tiểu cầu; tài liệu nêu các ngưỡng như bilirubin toàn phần ≥1,2 mg/dL, LDH ≥600 UI/L, AST ≥70 IU/L và tiểu cầu <150.000/mm³.",
     "reference_answer_type": "extractive_composite",
     "key_facts": [
-      "Xuất hiện những cơn co cứng - co giật khu trú hoặc toàn thân có hoặc không kèm theo hôn mê xảy ra trên những bệnh nhân có triệu chứng TSG sau khi đã loại trừ cơn co giật do các nguyên nhân khác như động kinh, nhồi máu não, xuất huyết não hoặc do sử dụng thuốc.",
-      "Các triệu chứng có thể kèm theo trong SG gồm:",
-      "Tiêu chuẩn chẩn đoán hội chứng HELLP:",
-      "**Tan máu:**"
+      "Sản giật: cơn co cứng-co giật ở bệnh nhân có triệu chứng TSG sau khi loại trừ nguyên nhân khác.",
+      "Sản giật có thể kèm tăng HA, đau đầu, rối loạn thị giác, đau hạ sườn phải/thượng vị và dấu thần kinh.",
+      "HELLP: tan máu + tăng men gan + giảm tiểu cầu.",
+      "HELLP: LDH ≥600 UI/L, AST ≥70 IU/L, tiểu cầu <150.000/mm³; bilirubin toàn phần ≥1,2 mg/dL là một dấu tan máu."
     ],
     "evaluation_targets": [
       "retrieval",
@@ -10508,7 +10742,8 @@
       "multi_evidence",
       "chan_oan_chan_oan_va_xu_tri_san_giat",
       "chan_oan_chan_oan_va_xu_tri_hoi_chung_hellp",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10584,7 +10819,8 @@
       "multi_evidence",
       "dung_cu_tranh_thai_trong_tu_cung",
       "bao_cao_su",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10660,7 +10896,8 @@
       "multi_evidence",
       "vien_thuoc_tranh_thai_ket_hop",
       "vien_thuoc_tranh_thai_chi_co_progestin_pop",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10735,7 +10972,8 @@
       "multi_evidence",
       "thuoc_tiem_tranh_thai",
       "thuoc_cay_tranh_thai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -10812,7 +11050,8 @@
       "multi_evidence",
       "bien_phap_tranh_thai_khan_cap",
       "cham_kinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10889,7 +11128,8 @@
       "multi_evidence",
       "tu_van_pha_thai_bang_thuoc",
       "tu_van_pha_thai_bang_thu_thuat",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -10966,7 +11206,8 @@
       "multi_evidence",
       "yeu_to_nguy_co",
       "oi_tuong_tam_soat_ai_thao_uong_trong_thai_ky",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11042,7 +11283,8 @@
       "multi_evidence",
       "du_phong_ai_thao_uong_thai_ky_ieu_chinh_loi_song",
       "hoat_ong_the_chat",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11119,7 +11361,8 @@
       "multi_evidence",
       "anh_gia_roi_loan_chuyen_hoa_glucose_sau_sinh_cho_cac_phu_nu_",
       "cho_con_bu_va_hau_san",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11196,7 +11439,8 @@
       "multi_evidence",
       "oi_voi_thai_phu",
       "oi_voi_thai_nhi_va_tre_so_sinh",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -11272,7 +11516,8 @@
       "multi_evidence",
       "cham_soc_tre_trong_90_phut_au_sau_sinh",
       "o_vong_au_can_nang_va_chieu_dai",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11349,7 +11594,8 @@
       "multi_evidence",
       "dau_hieu_oi_bu",
       "dau_hieu_tre_ngam_bat_vu_ung",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11362,14 +11608,14 @@
   },
   {
     "id": "EVAL_HARD_023",
-    "question": "Sàng lọc bệnh tim bẩm sinh nặng bằng SpO2 và sàng lọc khiếm thính ở trẻ sơ sinh được thực hiện khác nhau như thế nào?",
+    "question": "Sàng lọc sơ sinh bằng mẫu máu khô và sàng lọc bệnh tim bẩm sinh nặng bằng SpO2 được thực hiện khác nhau như thế nào?",
     "source_doc_tag": "qd_2323",
     "source_file": "qd_2323_2025_cham_soc_dieu_tri_so_sinh_clean.md",
     "answerable": true,
     "expected_behavior": "answer_from_corpus",
-    "question_type": "multi_evidence",
+    "question_type": "comparison",
     "base_question_type": "multi_evidence",
-    "question_style": "natural",
+    "question_style": "clinical",
     "benchmark_group": "hard_multi",
     "difficulty": "hard",
     "requires_table": false,
@@ -11425,7 +11671,8 @@
       "multi_evidence",
       "phuong_phap_nhom_benh_sang_loc_bang_ky_thuat_xet_nghiem_tren",
       "phuong_phap_sang_loc_benh_tim_bam_sinh_nang_bang_cach_o_bao_",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11501,7 +11748,8 @@
       "multi_evidence",
       "thai_ngoai_tu_cung",
       "chay_mau_sau_e",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11577,7 +11825,8 @@
       "multi_evidence",
       "kham_phu_khoa",
       "kham_vu",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11654,7 +11903,8 @@
       "multi_evidence",
       "hoi_chung_tiet_dich_am_ao",
       "hoi_chung_au_bung_duoi",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -11731,7 +11981,8 @@
       "multi_evidence",
       "nhung_iem_can_luu_y_khi_tu_van_skss_cho_vtn_tn",
       "mot_so_iem_can_luu_y_khi_cung_cap_bien_phap_tranh_thai_cho_v",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11806,7 +12057,8 @@
       "multi_evidence",
       "vi_thanh_nien_va_thanh_nien_voi_van_e_bao_hanh",
       "dich_vu_suc_khoe_than_thien_voi_vi_thanh_nien_va_thanh_nien",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11883,7 +12135,8 @@
       "multi_evidence",
       "nguyen_tac_khi_sang_loc_phu_nu_bi_bao_hanh",
       "cac_buoc_tu_van",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -11960,7 +12213,8 @@
       "multi_evidence",
       "anh_huong_cua_suy_giap_en_thai_phu",
       "anh_huong_cua_benh_tim_oi_voi_thai_nghen",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12000,7 +12254,8 @@
     "tags": [
       "ood",
       "adult_internal_medicine",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -12040,7 +12295,8 @@
     "tags": [
       "ood",
       "pediatrics",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -12080,7 +12336,8 @@
     "tags": [
       "ood",
       "surgery",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -12120,7 +12377,8 @@
     "tags": [
       "ood",
       "rheumatology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -12160,7 +12418,8 @@
     "tags": [
       "ood",
       "oncology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -12200,7 +12459,8 @@
     "tags": [
       "ood",
       "ophthalmology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "dev",
     "language": "vi",
@@ -12240,9 +12500,10 @@
     "tags": [
       "ood",
       "pediatrics",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
-    "split": "dev",
+    "split": "test",
     "language": "vi",
     "query_features": {
       "colloquial": true,
@@ -12280,9 +12541,10 @@
     "tags": [
       "ood",
       "orthopedics",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
-    "split": "dev",
+    "split": "test",
     "language": "vi",
     "query_features": {
       "colloquial": false,
@@ -12320,9 +12582,10 @@
     "tags": [
       "ood",
       "infectious_disease",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
-    "split": "dev",
+    "split": "test",
     "language": "vi",
     "query_features": {
       "colloquial": false,
@@ -12360,9 +12623,10 @@
     "tags": [
       "ood",
       "cardiology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
-    "split": "dev",
+    "split": "test",
     "language": "vi",
     "query_features": {
       "colloquial": false,
@@ -12400,7 +12664,8 @@
     "tags": [
       "ood",
       "rheumatology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12440,7 +12705,8 @@
     "tags": [
       "ood",
       "nephrology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12480,7 +12746,8 @@
     "tags": [
       "ood",
       "endocrinology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12520,7 +12787,8 @@
     "tags": [
       "ood",
       "emergency",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12560,7 +12828,8 @@
     "tags": [
       "ood",
       "gastroenterology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12600,7 +12869,8 @@
     "tags": [
       "ood",
       "neurology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12640,7 +12910,8 @@
     "tags": [
       "ood",
       "psychiatry",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12680,7 +12951,8 @@
     "tags": [
       "ood",
       "dermatology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12720,7 +12992,8 @@
     "tags": [
       "ood",
       "ophthalmology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12760,7 +13033,8 @@
     "tags": [
       "ood",
       "hepatology",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -12800,9 +13074,10 @@
     "tags": [
       "ood",
       "live_service_info",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
-    "split": "test",
+    "split": "dev",
     "language": "vi",
     "query_features": {
       "colloquial": true,
@@ -12840,9 +13115,10 @@
     "tags": [
       "ood",
       "live_local_info",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
-    "split": "test",
+    "split": "dev",
     "language": "vi",
     "query_features": {
       "colloquial": true,
@@ -12880,9 +13156,10 @@
     "tags": [
       "ood",
       "live_service_info",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
-    "split": "test",
+    "split": "dev",
     "language": "vi",
     "query_features": {
       "colloquial": false,
@@ -12920,9 +13197,10 @@
     "tags": [
       "ood",
       "current_news",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
-    "split": "test",
+    "split": "dev",
     "language": "vi",
     "query_features": {
       "colloquial": false,
@@ -12960,7 +13238,8 @@
     "tags": [
       "ood",
       "non_medical",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -13000,7 +13279,8 @@
     "tags": [
       "ood",
       "non_medical",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -13040,7 +13320,8 @@
     "tags": [
       "ood",
       "non_medical",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -13080,7 +13361,8 @@
     "tags": [
       "ood",
       "non_medical",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -13120,7 +13402,8 @@
     "tags": [
       "ood",
       "non_medical",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
@@ -13160,7 +13443,8 @@
     "tags": [
       "ood",
       "non_medical",
-      "natural_query_v3"
+      "natural_query_v3",
+      "qa_fixed_v3_1"
     ],
     "split": "test",
     "language": "vi",
