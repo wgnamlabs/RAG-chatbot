@@ -1,27 +1,16 @@
-"""
-Embedder cho các model so sánh:
-  - BAAI/bge-m3                      → không cần prefix
-  - intfloat/multilingual-e5-*       → cần prefix "query: " / "passage: "
-  - AITeamVN/Vietnamese_Embedding*   → không cần prefix (fine-tune từ bge-m3)
-  - Qwen/Qwen3-Embedding-4B          → không cần prefix, model nặng, dùng auto-batch
-  - nvidia/Nemotron-3-Embed-8B-BF16  → model nặng nhất, luôn dùng auto-batch
+"""SentenceTransformer embedder dùng cho benchmark embedding.
 
-Ghi chú về max_seq_length:
-  Không ghi đè model.max_seq_length sau khi load. Một số model (ví dụ
-  gte-multilingual-base) dùng custom modeling.py có bug khi max_seq_length
-  bị override externally → RoPE position_ids bị corrupt. Mỗi model tự quản
-  lý max_seq_length từ HuggingFace config của nó. Chunker đã giới hạn kích
-  thước chunk rồi.
-
-Ghi chú về auto_batch:
-  Với các model nặng (Qwen3-Embedding-4B, Nemotron-3-Embed-8B), VRAM T4
-  (16GB) khá sát giới hạn và độ dài chunk trong corpus không đều nhau, nên
-  encode() sẽ TỰ ĐỘNG lùi batch_size (chia đôi) mỗi khi gặp CUDA OOM, thay
-  vì crash và mất toàn bộ tiến trình đã chạy. Bật qua config.auto_batch.
+Điểm quan trọng:
+- AITeamVN/Vietnamese_Embedding_v2: dùng text trực tiếp.
+- BAAI/bge-m3: dùng text trực tiếp.
+- Qwen/Qwen3-Embedding-4B:
+    * query: dùng prompt_name="query"
+    * document/chunk: không dùng query prompt
+- Auto-batch chỉ giảm batch size khi CUDA OOM, không âm thầm đổi model.
 """
 
 import gc
-from typing import List
+from typing import Dict, List
 
 import numpy as np
 import torch
@@ -30,20 +19,20 @@ from sentence_transformers import SentenceTransformer
 from .base import BaseEmbedder
 from .config import EmbedderConfig
 
-# ---------------------------------------------------------------------------
-# E5 prefix (intfloat/multilingual-e5-*): bắt buộc theo spec của model
-# ---------------------------------------------------------------------------
-_E5_QUERY_PREFIX = "query: "
-_E5_PASSAGE_PREFIX = "passage: "
+
+def _is_qwen3_embedding(model_name: str) -> bool:
+    return "qwen3-embedding" in model_name.lower()
 
 
 def _is_e5(model_name: str) -> bool:
     return "e5" in model_name.lower()
 
 
+_E5_QUERY_PREFIX = "query: "
+_E5_PASSAGE_PREFIX = "passage: "
+
+
 def _log_gpu_memory(tag: str = "") -> None:
-    """In VRAM đã cấp phát / tổng VRAM, để theo dõi thực tế thay vì đoán
-    qua thanh RAM GPU trên UI Colab (không phải lúc nào cũng real-time)."""
     if not torch.cuda.is_available():
         return
     allocated = torch.cuda.memory_allocated() / 1e9
@@ -56,25 +45,43 @@ class SentenceTransformerEmbedder(BaseEmbedder):
     def __init__(self, config: EmbedderConfig):
         self.config = config
         self.model = None
-
-    # ------------------------------------------------------------------
-    # Load / Unload
-    # ------------------------------------------------------------------
+        self.runtime_device = config.device
 
     def load(self) -> None:
         if self.model is not None:
             return
+
         device = self.config.device
         if device == "cuda" and not torch.cuda.is_available():
-            print("[Embedder] ⚠️  CUDA không khả dụng, chuyển sang CPU.")
+            print("[Embedder] CUDA không khả dụng, chuyển sang CPU.")
             device = "cpu"
-        print(f"[Embedder] Loading {self.config.model_name} → {device} ...")
+
+        self.runtime_device = device
+        print(f"[Embedder] Loading {self.config.model_name} -> {device} ...")
+
         self.model = SentenceTransformer(
             self.config.model_name,
             device=device,
-            trust_remote_code=True,
+            trust_remote_code=self.config.trust_remote_code,
         )
-        # Không ghi đè max_seq_length sau khi load (xem docstring module)
+
+        effective_max = getattr(self.model, "max_seq_length", None)
+        if effective_max is not None:
+            print(
+                f"[Embedder] model.max_seq_length={effective_max}; "
+                f"benchmark configured budget={self.config.max_seq_length}"
+            )
+
+        if _is_qwen3_embedding(self.config.model_name):
+            prompts = getattr(self.model, "prompts", {}) or {}
+            if "query" not in prompts:
+                raise RuntimeError(
+                    "Qwen3-Embedding được benchmark với prompt_name='query', "
+                    "nhưng SentenceTransformer model hiện không expose prompt 'query'. "
+                    "Hãy cập nhật sentence-transformers/model snapshot thay vì "
+                    "âm thầm chạy Qwen không instruction."
+                )
+
         _log_gpu_memory(f"Loaded {self.config.model_name}")
 
     def unload(self) -> None:
@@ -87,25 +94,27 @@ class SentenceTransformerEmbedder(BaseEmbedder):
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
 
-    # ------------------------------------------------------------------
-    # Tiền xử lý: thêm prefix đặc thù từng model
-    # ------------------------------------------------------------------
-
     def _preprocess(self, texts: List[str], is_query: bool) -> List[str]:
         if _is_e5(self.config.model_name):
             prefix = _E5_QUERY_PREFIX if is_query else _E5_PASSAGE_PREFIX
             return [prefix + t for t in texts]
-        # bge-m3, Vietnamese_Embedding, Qwen3-Embedding, Nemotron: dùng thẳng
         return texts
 
-    # ------------------------------------------------------------------
-    # Encode (có auto-batch fallback khi OOM)
-    # ------------------------------------------------------------------
+    def _encode_kwargs(self, is_query: bool, batch_size: int) -> Dict:
+        kwargs = {
+            "batch_size": batch_size,
+            "convert_to_numpy": True,
+            "show_progress_bar": True,
+        }
+        if _is_qwen3_embedding(self.config.model_name) and is_query:
+            kwargs["prompt_name"] = "query"
+        return kwargs
 
-    def _encode_with_auto_batch(self, processed: List[str]) -> np.ndarray:
-        """Thử encode với batch_size ban đầu, tự động chia đôi batch_size
-        mỗi khi gặp CUDA OOM cho tới khi thành công hoặc chạm min_batch_size.
-        Dùng cho các model nặng (Qwen3-Embedding-4B, Nemotron-3-Embed-8B)."""
+    def _encode_with_auto_batch(
+        self,
+        processed: List[str],
+        is_query: bool,
+    ) -> np.ndarray:
         batch_size = self.config.batch_size
         min_batch_size = self.config.min_batch_size
 
@@ -113,9 +122,7 @@ class SentenceTransformerEmbedder(BaseEmbedder):
             try:
                 result = self.model.encode(
                     processed,
-                    batch_size=batch_size,
-                    convert_to_numpy=True,
-                    show_progress_bar=True,
+                    **self._encode_kwargs(is_query, batch_size),
                 )
                 _log_gpu_memory(f"After encode (batch_size={batch_size})")
                 return result
@@ -129,19 +136,11 @@ class SentenceTransformerEmbedder(BaseEmbedder):
                 batch_size = new_batch_size
 
         raise RuntimeError(
-            f"[Embedder] Không thể encode dù đã giảm batch_size xuống "
-            f"{min_batch_size} (model={self.config.model_name}). "
-            f"Cân nhắc giảm max_seq_length hoặc dùng model nhẹ hơn."
+            f"[Embedder] Không thể encode {self.config.model_name} "
+            f"dù đã giảm batch_size xuống {min_batch_size}."
         )
 
     def encode(self, texts: List[str], is_query: bool = False) -> np.ndarray:
-        """Embed danh sách văn bản.
-
-        Args:
-            texts:    Văn bản cần embed.
-            is_query: True → câu hỏi; False → chunk tài liệu.
-                      Ảnh hưởng đến prefix với E5 models.
-        """
         if self.model is None:
             self.load()
 
@@ -152,14 +151,10 @@ class SentenceTransformerEmbedder(BaseEmbedder):
             f"auto_batch={self.config.auto_batch})..."
         )
 
-        if self.config.auto_batch and self.config.device == "cuda":
-            return self._encode_with_auto_batch(processed)
+        if self.config.auto_batch and self.runtime_device == "cuda":
+            return self._encode_with_auto_batch(processed, is_query=is_query)
 
-        # Model nhẹ (AITeamVN, bge-m3, e5-large...): giữ nguyên đường cũ,
-        # không cần overhead try/except vì hiếm khi OOM.
         return self.model.encode(
             processed,
-            batch_size=self.config.batch_size,
-            convert_to_numpy=True,
-            show_progress_bar=True,
+            **self._encode_kwargs(is_query, self.config.batch_size),
         )

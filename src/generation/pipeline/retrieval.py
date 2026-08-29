@@ -187,7 +187,7 @@ def hybrid_search(
     embedder,
     top_k: int = 15,
     rrf_k: int = 60,
-) -> list[Chunk]:
+) -> tuple[list[Chunk], float]:
     """Kết hợp 4 danh sách retrieval bằng Reciprocal Rank Fusion (RRF).
 
     4 danh sách:
@@ -212,16 +212,31 @@ def hybrid_search(
         rrf_k:           Hằng số RRF (default 60 theo paper gốc).
 
     Returns:
-        List[Chunk] sort giảm dần theo rrf_score, len ≤ top_k.
-        Chunk.score = rrf_score tổng hợp.
+        Tuple (chunks, top1_dense_score):
+          - chunks: List[Chunk] sort giảm dần theo rrf_score, len ≤ top_k.
+            Chunk.score = rrf_score tổng hợp.
+          - top1_dense_score: cosine similarity dense thô của top-1 chunk từ
+            dense_search(original_query) — tức giá trị TRƯỚC khi qua RRF.
+            Dùng làm tín hiệu gate OOD (thay vì RRF score, vốn không
+            phản ánh độ tương đồng ngữ nghĩa tuyệt đối).
+            Trả về 0.0 nếu dense search không có kết quả.
     """
     # ── Bước 1: gọi 4 lần retrieval ──────────────────────────────────────────
+    dense_original  = dense_search(original_query,  qdrant_store, embedder, top_k=top_k)
+    dense_rewritten = dense_search(rewritten_query, qdrant_store, embedder, top_k=top_k)
+    sparse_original  = sparse_search(original_query,  bm25_data, top_k=top_k)
+    sparse_rewritten = sparse_search(rewritten_query, bm25_data, top_k=top_k)
+
     lists: list[list[Chunk]] = [
-        dense_search(original_query,  qdrant_store, embedder, top_k=top_k),
-        dense_search(rewritten_query, qdrant_store, embedder, top_k=top_k),
-        sparse_search(original_query,  bm25_data, top_k=top_k),
-        sparse_search(rewritten_query, bm25_data, top_k=top_k),
+        dense_original,
+        dense_rewritten,
+        sparse_original,
+        sparse_rewritten,
     ]
+
+    # Lưu lại top-1 dense score (cosine similarity thô, trước RRF)
+    # Dùng dense_original (không phải rewritten) để tránh bias từ bước rewrite
+    top1_dense_score: float = dense_original[0].score if dense_original else 0.0
 
     # ── Bước 2: tính RRF score và lưu chunk đại diện ─────────────────────────
     # rrf_scores[chunk_id] = tổng điểm RRF cộng dồn từ tất cả list
@@ -246,10 +261,10 @@ def hybrid_search(
         results.append(chunk.model_copy(update={"score": rrf_scores[cid]}))
 
     logger.debug(
-        "[hybrid_search] original=%r, rewritten=%r → %d chunks sau RRF",
-        original_query, rewritten_query, len(results),
+        "[hybrid_search] original=%r, rewritten=%r → %d chunks sau RRF | top1_dense=%.4f",
+        original_query, rewritten_query, len(results), top1_dense_score,
     )
-    return results
+    return results, top1_dense_score
 
 
 # ── Unit test RRF (chạy inline khi import với --test) ────────────────────────

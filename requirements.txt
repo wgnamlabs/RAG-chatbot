@@ -46,9 +46,11 @@ langchain-ollama>=0.3.0   # LangChain wrapper cho Ollama (dùng trong RAGAS)
 datasets>=3.6.0            # HuggingFace datasets (dùng trong RAGAS)
 
 # ============================================================
-# Streamlit UI
+# Web UI (FastAPI)
 # ============================================================
-streamlit>=1.45.0
+fastapi>=0.141.1          # Web framework cho giao diện chat (web_app.py)
+uvicorn>=0.52.1           # ASGI server chạy FastAPI
+streamlit>=1.45.0         # Giữ lại nếu cần UI prototype nhanh
 
 # ============================================================
 # Validation / Data

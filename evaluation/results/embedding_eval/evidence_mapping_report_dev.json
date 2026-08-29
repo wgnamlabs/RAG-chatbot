@@ -1,0 +1,24 @@
+{
+  "match_config": {
+    "min_coverage": 0.3,
+    "min_contiguous_tokens": 8
+  },
+  "chunkers": {
+    "semantic": {
+      "evidence_total": 56,
+      "unmapped_evidence_count": 0,
+      "avg_relevant_chunks_per_evidence": 1.375,
+      "min_relevant_chunks_per_evidence": 1,
+      "max_relevant_chunks_per_evidence": 3,
+      "unmapped": []
+    },
+    "hierarchical": {
+      "evidence_total": 56,
+      "unmapped_evidence_count": 0,
+      "avg_relevant_chunks_per_evidence": 1.1607142857142858,
+      "min_relevant_chunks_per_evidence": 1,
+      "max_relevant_chunks_per_evidence": 3,
+      "unmapped": []
+    }
+  }
+}

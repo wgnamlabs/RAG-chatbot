@@ -1,0 +1,92 @@
+{
+  "schema_version": "2.0",
+  "dataset_name": "maternal_reproductive_health_rag_eval_vi",
+  "language": "vi",
+  "description": "Master evaluation set grounded in the 7 finalized cleaned Markdown guidelines. Designed for chunking/embedding retrieval, hybrid retrieval, reranking, generation, citation, table retrieval, multi-evidence and OOD/abstention evaluation.",
+  "counts": {
+    "total": 220,
+    "standard_in_domain": 160,
+    "hard_multi_evidence": 30,
+    "out_of_domain": 30,
+    "answerable": 190,
+    "dev": 60,
+    "test": 160,
+    "table_lookup": 27,
+    "patient_style": 30,
+    "numeric": 20
+  },
+  "split_strategy": {
+    "dev": "60 records = 44 standard + 6 hard/multi-evidence + 10 OOD",
+    "test": "160 records = 116 standard + 24 hard/multi-evidence + 20 OOD",
+    "note": "Use dev for tuning chunking/top-k/embedding/retrieval/reranker. Keep test untouched for final reporting."
+  },
+  "in_domain_distribution_by_document": {
+    "qd_776": 30,
+    "qd_1139": 23,
+    "qd_1154": 18,
+    "qd_1359": 30,
+    "qd_1470": 19,
+    "qd_2323": 23,
+    "qd_4128": 47
+  },
+  "question_type_distribution": {
+    "numeric": 20,
+    "patient_style": 30,
+    "recommendation": 7,
+    "fact": 44,
+    "counseling": 10,
+    "symptom": 5,
+    "diagnosis": 3,
+    "risk_factor": 2,
+    "definition": 2,
+    "prevention": 3,
+    "procedure": 4,
+    "care": 2,
+    "treatment": 1,
+    "table_lookup": 27,
+    "multi_evidence": 15,
+    "comparison": 15,
+    "out_of_domain": 30
+  },
+  "difficulty_distribution": {
+    "medium": 146,
+    "easy": 44,
+    "hard": 30
+  },
+  "source_sha256": {
+    "qd_776_2017_dinh_duong_thai_ky_clean.md": "6b5ea3693636c2685256578c79fde5cc3fd5ce7ab731427c5e6c3e64bad8738c",
+    "qd_1139_2026_cham_soc_truoc_thai_truoc_sinh_clean.md": "6c82ba287e1db672cd1c328987cada8e967b2516708c8bf3186804d782ce6dde",
+    "qd_1154_2024_tang_huyet_ap_tien_san_giat_clean.md": "4de29dbbb4f2e5185d363099460bf8c0632a964a0cca2b94f6d827121d35c7b3",
+    "qd_1359_2026_khhgd_pha_thai_an_toan_clean.md": "b08b3aba648a761415acc069f1b83ae2a4670413264412b39d4af339bfe4d69d",
+    "qd_1470_2024_dai_thao_duong_thai_ky_clean.md": "7f8d51cbcf219f2e5bfd31b541ae4ca9d400fb3d6411420e59682f51c10f740d",
+    "qd_2323_2025_cham_soc_dieu_tri_so_sinh_clean.md": "cbdfe0eb51f7d5f25942d0fb906bdd4ad544d1d38794412a329f0defacb3a10f",
+    "qd_4128_2016_dich_vu_cssk_sinh_san_clean.md": "8e0e028b14bf4e533b3e91719de10c9868ff9a15a41faea410112391284f5ee6"
+  },
+  "schema_fields": {
+    "id": "Stable unique evaluation ID.",
+    "question": "Vietnamese query presented to the pipeline.",
+    "source_doc_tag": "Short canonical document tag; null for OOD.",
+    "source_file": "Canonical clean Markdown filename; null for OOD.",
+    "answerable": "Whether the 7-document corpus contains sufficient evidence.",
+    "expected_behavior": "answer_from_corpus or abstain_or_state_not_in_corpus.",
+    "question_type": "Primary evaluation category.",
+    "base_question_type": "Underlying category when question_style is patient-oriented.",
+    "question_style": "guideline, patient, analytical, or natural.",
+    "benchmark_group": "standard, hard_multi, or ood.",
+    "difficulty": "easy, medium, hard.",
+    "requires_table": "Whether gold evidence is a Markdown table.",
+    "requires_multiple_evidence": "Whether answering requires multiple evidence units.",
+    "gold_evidence": "Chunker-independent gold evidence with exact source text, section path and line range.",
+    "gold_evidence_count": "Number of gold evidence units.",
+    "ground_truth_sections": "Section paths for retrieval matching.",
+    "ground_truth_evidence_ids": "Stable evidence IDs.",
+    "reference_answer": "Source-faithful extractive/composite reference answer or abstention target.",
+    "reference_answer_type": "extractive, extractive_composite, or abstention.",
+    "key_facts": "Atomic facts expected in a correct answer.",
+    "evaluation_targets": "Pipeline stages/metrics this record can support.",
+    "tags": "Topic and analysis tags.",
+    "split": "dev or test.",
+    "language": "vi."
+  },
+  "compatibility_note": "The legacy run_embedding_eval.py that expects document-level ground_truth_sources should be updated to match retrieved chunks against gold_evidence/ground_truth_sections. Do not use document-only matching for final metrics."
+}

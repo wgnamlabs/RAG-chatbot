@@ -88,7 +88,15 @@ So sánh 3 cấu hình retrieval trên embedding + chunking đã chọn ở trê
 - **Dense only** nhanh hơn (~30ms) nhưng P@5 thấp hơn rõ rệt — mức chênh lệch latency này không đáng để đổi lấy precision thấp hơn.
 - **OOD rejection đạt 100%** trên cấu hình Hybrid RRF — xác nhận thêm rằng lựa chọn embedding (AITeamVN, top1-sim OOD thấp nhất) đang phát huy đúng vai trò an toàn khi triển khai thực tế.
 
-> **Lưu ý:** kết quả OOD (30/30) chưa khớp với số câu `out_of_domain` (24 câu) ghi trong `evaluation/eval_questions.json` ở mục "Tập dữ liệu đánh giá" bên dưới — cần rà lại xem bộ câu hỏi eval đã được mở rộng hay chưa và cập nhật lại con số ở mục đó cho khớp.
+> **Đã đối chiếu lại với `eval_questions.json` thật:** bộ câu hỏi hiện có **160 câu tổng — 130 in-domain, 30 OOD** (trong đó 30 OOD gồm 26 `direct` + 4 `ood_boundary`). Số này khớp chính xác với kết quả `eval_pipeline.py` (30/30 OOD refused đúng). Con số "151 câu (127 in-domain, 24 OOD)" ở các chỗ khác trong README trước đây là số liệu cũ — đã cập nhật thống nhất thành 160/130/30 trong toàn bộ tài liệu này.
+
+### Tích hợp Lớp An Toàn Cứng (Safety Guard) và Mở Rộng Thuật Ngữ (Colloquial Terms)
+
+Nhằm đảm bảo an toàn y tế tuyệt đối và tăng cường độ chính xác khi tìm kiếm:
+- **`safety_guard.py`**: Lớp bảo vệ cứng (hard-coded rules) độc lập. Phát hiện sớm các câu hỏi chứa dấu hiệu nguy hiểm khẩn cấp (kể cả dùng từ dân dã), chặn các trường hợp tự mâu thuẫn (LLM đưa ra thông tin không nhất quán), và chèn khuyến cáo y tế khẩn cấp nếu câu trả lời chưa đủ độ dứt khoát.
+- **`expand_colloquial_terms()` trong `rewrite.py`**: Bổ sung thuật ngữ y khoa chuẩn xác bên cạnh các từ vựng dân dã/địa phương của người dùng một cách deterministic trước khi đưa vào retrieval, giảm thiểu tình trạng miss tài liệu do lệch từ vựng.
+- Cập nhật lại `system_prompt.txt` với quy tắc khẩn cấp chặt chẽ hơn, giọng điệu ấm áp và bắt buộc trích nguồn rõ ràng. Toàn bộ được gọi đồng bộ trong `main.py`.
+
 
 ---
 
@@ -113,29 +121,29 @@ rag-phu-san-chatbot/
 │   └── generation/
 │       ├── schemas.py          # Chunk, PipelineOutput (Pydantic)
 │       └── pipeline/
-│           ├── rewrite.py      # Query rewriting (qwen3:4b)
+│           ├── rewrite.py      # Query rewriting + expand_colloquial_terms()
 │           ├── retrieval.py    # Dense + BM25 + Hybrid RRF
 │           ├── rerank.py       # CrossEncoder (DEPRECATED, use_rerank=False)
 │           ├── postprocess.py  # dedup_redundant + sandwich_order
 │           ├── prompt.py       # Build prompt
-│           ├── main.py         # run_pipeline() — entry point
-│           └── system_prompt.txt
+│           ├── system_prompt.txt # Prompt hệ thống, giọng điệu và nguyên tắc
+│           ├── safety_guard.py # Lớp an toàn cứng: danger guard + adversarial guard (kê đơn/chẩn đoán)
+│           └── main.py         # entry point ghép safety_guard + expand_colloquial
 │
 ├── evaluation/
-│   ├── eval_questions.json     # 151 câu benchmark (127 in-domain, 24 OOD)
+│   ├── eval_questions.json     # 160 câu benchmark (130 in-domain, 30 OOD)
 │   ├── metrics.py              # Recall@k, Precision@k, MRR helpers
 │   ├── build_vector_store.py   # Build Qdrant + BM25 từ cleaned/
 │   ├── run_embedding_eval.py   # Eval embedding retrieval
 │   ├── run_chunking_eval.py    # So sánh chunking strategies
 │   ├── run_bm25_eval.py        # Eval BM25
 │   ├── eval_pipeline.py        # So sánh 3 cấu hình (dense/hybrid/rerank)
-│   ├── faithfulness_eval.py    # LLM-as-judge (qwen3:8b)
-│   ├── escalation_eval.py      # Kiểm tra hành vi câu khẩn cấp
-│   ├── frr_eval.py             # False Rejection Rate
-│   ├── debug_rerank.py         # Phân tích rank shift của reranker
 │   └── results/
+│       ├── results_comparison.md
 │       └── chunks_cache/       # Kết quả chunking eval (hierarchical/semantic)
 │
+├── ask.py                      # CLI entrypoint thử chatbot
+├── README.md
 ├── requirements.txt
 ├── pyproject.toml
 └── .env.example

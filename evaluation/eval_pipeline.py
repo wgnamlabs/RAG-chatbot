@@ -269,11 +269,12 @@ def main(device: str = "cpu", skip_ood: bool = False) -> None:
 
     # (b) Hybrid RRF — top_k=10, không rerank
     def hybrid_only(q: str) -> list[Chunk]:
-        return hybrid_search(q, q, qdrant_store, bm25_data, embedder, top_k=10)
+        chunks, _ = hybrid_search(q, q, qdrant_store, bm25_data, embedder, top_k=10)
+        return chunks
 
     # (c) Hybrid + Rerank + Dedup — trả về top 10 cuối cùng
     def hybrid_rerank(q: str) -> list[Chunk]:
-        chunks_15 = hybrid_search(q, q, qdrant_store, bm25_data, embedder, top_k=15)
+        chunks_15, _ = hybrid_search(q, q, qdrant_store, bm25_data, embedder, top_k=15)
         if not chunks_15:
             return []
         from sentence_transformers import CrossEncoder

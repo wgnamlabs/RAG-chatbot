@@ -9,11 +9,10 @@ class BaseEmbedder(ABC):
         """Embed danh sách văn bản thành vector dày.
 
         Args:
-            texts:    Danh sách chuỗi cần embed.
-            is_query: True khi đây là câu hỏi (query), False khi là chunk tài
-                      liệu (document). Một số model (ví dụ Qwen3-Embedding)
-                      yêu cầu instruction prefix khác nhau cho 2 trường hợp.
+            texts: Danh sách chuỗi cần embed.
+            is_query: True khi đây là câu hỏi; False khi là chunk tài liệu.
+
         Returns:
             Numpy array shape (len(texts), embedding_dim).
         """
-        pass
+        raise NotImplementedError

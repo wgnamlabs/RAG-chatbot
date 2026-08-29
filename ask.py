@@ -55,8 +55,14 @@ def main():
             
             if result.sources_used:
                 print("\n[📚 Nguồn tham khảo]")
-                for i, source in enumerate(result.sources_used):
-                    print(f"  {i+1}. {source.source} (§ {source.section or 'N/A'})")
+                seen_sources = set()
+                cite_idx = 1
+                for source in result.sources_used:
+                    source_str = f"{source.source} (§ {source.section or 'N/A'})"
+                    if source_str not in seen_sources:
+                        print(f"  {cite_idx}. {source_str}")
+                        seen_sources.add(source_str)
+                        cite_idx += 1
 
         except KeyboardInterrupt:
             break

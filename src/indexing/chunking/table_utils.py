@@ -1,57 +1,74 @@
-"""
-Tiện ích bảo vệ bảng Markdown khỏi bị chunker cắt đứt ngang.
+"""Tiện ích bảo vệ và chia bảng Markdown an toàn cho RAG.
 
-Luồng sử dụng:
-  1. Trước khi chunk: text_no_tables, tables = extract_tables(text)
-  2. Đưa text_no_tables vào chunker.
-  3. Với mỗi chunk đầu ra: pieces = restore_tables_as_chunks(chunk_text, tables)
-     → mỗi bảng trở thành 1 phần tử riêng biệt (atomic), không lẫn ký tự khác.
-
-QUAN TRỌNG — lý do chọn placeholder ASCII thuần:
-  MarkdownHeaderTextSplitter và RecursiveCharacterTextSplitter xử lý nội bộ
-  qua các bước normalize whitespace / strip control chars, do đó bất kỳ ký tự
-  điều khiển nào (kể cả \\x00 NUL) đều bị xóa âm thầm → placeholder mất →
-  bảng không bao giờ được khôi phục → dữ liệu bảng biến mất hoàn toàn.
-  Chuỗi ASCII thuần như "TBLPLACEHOLDERSTART0000TBLPLACEHOLDEREND" không bao
-  giờ xuất hiện trong Markdown y khoa, không bị bất kỳ splitter nào touch.
+Mục tiêu:
+1. Không để MarkdownHeaderTextSplitter / RecursiveCharacterTextSplitter cắt ngang bảng.
+2. Giữ caption kiểu ``**Bảng 1. ...**`` đi cùng bảng.
+3. Nếu bảng vượt token budget, chia theo DATA ROW thay vì cắt ký tự ngẫu nhiên;
+   mỗi part đều lặp lại caption + header + separator.
+4. Dùng placeholder ASCII thuần để tránh bị splitter xóa mất.
 """
 
 import re
-from typing import List, Tuple
+from typing import Callable, List, Optional, Tuple
 
-# Placeholder thuần ASCII, không có ký tự điều khiển
+
 _PLACEHOLDER_TMPL = "TBLPLACEHOLDERSTART{idx:04d}TBLPLACEHOLDEREND"
-_PLACEHOLDER_RE   = re.compile(r"TBLPLACEHOLDERSTART(\d{4})TBLPLACEHOLDEREND")
+_PLACEHOLDER_RE = re.compile(r"TBLPLACEHOLDERSTART(\d{4})TBLPLACEHOLDEREND")
 
-# Khớp 1 bảng Markdown: 1 hoặc nhiều dòng liên tiếp bắt đầu bằng '|'
-# Bắt cả dòng header + dòng separator (|---|) + các dòng data
-_TABLE_BLOCK_RE = re.compile(
-    r"(?:^\|[^\n]*\n)+",
-    re.MULTILINE,
+# Caption table thường gặp sau clean.
+_CAPTION_RE = re.compile(
+    r"^(?:\*\*[^\n]+\*\*|(?:Bảng|BẢNG)\s+[^\n]+)$",
+    re.IGNORECASE,
 )
 
-# Regex kiểm tra bảng rỗng: bảng chỉ có | và - không có chữ/số thật
-_EMPTY_TABLE_RE = re.compile(r"^[|\-\s]+$")
+_SEPARATOR_CELL_RE = re.compile(r"^:?-{3,}:?$")
+
+
+def _split_md_row(row: str) -> List[str]:
+    """Tách row Markdown đơn giản; corpus clean không dùng pipe escape phức tạp."""
+    row = row.strip()
+    if not row.startswith("|"):
+        return []
+    return [c.strip() for c in re.split(r"(?<!\\)\|", row.strip("|"))]
+
+
+def _is_separator_row(row: str) -> bool:
+    cells = _split_md_row(row)
+    return bool(cells) and all(_SEPARATOR_CELL_RE.fullmatch(c) for c in cells)
+
+
+def _table_lines(text: str) -> Tuple[List[str], List[str]]:
+    """Return (caption_lines, table_rows)."""
+    lines = [line.rstrip() for line in text.strip().splitlines()]
+    first_table = next((i for i, line in enumerate(lines) if line.lstrip().startswith("|")), None)
+    if first_table is None:
+        return [], []
+    caption = [x for x in lines[:first_table] if x.strip()]
+    rows = [x for x in lines[first_table:] if x.lstrip().startswith("|")]
+    return caption, rows
 
 
 def _is_empty_table(table_text: str) -> bool:
-    """True nếu bảng không có nội dung chữ/số thật (chỉ khung | và -)."""
-    stripped = re.sub(r"[|\-\s]", "", table_text)
-    return len(stripped) == 0
+    _, rows = _table_lines(table_text)
+    if not rows:
+        return True
+    content = re.sub(r"[|:\-\s]", "", "\n".join(rows))
+    return len(content) == 0
+
+
+def is_table_chunk(text: str) -> bool:
+    """True nếu text chứa một Markdown table hợp lệ (có header + separator)."""
+    _, rows = _table_lines(text)
+    return len(rows) >= 2 and _is_separator_row(rows[1])
+
+
+def table_caption(text: str) -> str:
+    caption, _ = _table_lines(text)
+    return " ".join(line.strip() for line in caption).strip()
 
 
 def is_heading_only(text: str) -> bool:
-    """True nếu chunk chỉ chứa breadcrumb và/hoặc dòng heading — không có
-    nội dung thật.
-
-    Dùng chung cho cả HierarchicalChunker và SemanticChunker để tránh
-    copy-paste. Các chunk heading-only không có giá trị retrieval độc lập:
-    thông tin đã nằm trong breadcrumb của chunk kế tiếp.
-
-    Dòng "structural" bị bỏ qua:
-      - Dòng heading Markdown: bắt đầu bằng '#'
-      - Dòng breadcrumb:       bắt đầu bằng '[' và kết thúc bằng ']'
-    """
+    """True nếu chunk chỉ chứa breadcrumb và/hoặc Markdown heading."""
     for line in text.strip().splitlines():
         stripped = line.strip()
         if not stripped:
@@ -60,60 +77,151 @@ def is_heading_only(text: str) -> bool:
             continue
         if stripped.startswith("[") and stripped.endswith("]"):
             continue
-        # Có ít nhất 1 dòng nội dung thật → không phải heading-only
         return False
     return True
 
 
 def extract_tables(text: str) -> Tuple[str, List[str]]:
-    """Thay mỗi bảng Markdown bằng 1 placeholder ASCII duy nhất.
+    """Thay mỗi bảng Markdown bằng một placeholder ASCII.
 
-    Returns:
-        text_no_tables: văn bản với bảng đã được thay bằng placeholder.
-        tables: list các chuỗi bảng gốc (nguyên vẹn, giữ nguyên newline).
+    Nếu ngay trước bảng là caption dạng ``**...**`` hoặc ``Bảng ...``, caption
+    được lấy ra khỏi body và gắn trực tiếp vào table chunk để retrieval không mất
+    tên/ý nghĩa của bảng.
     """
+    lines = text.splitlines()
+    output: List[str] = []
     tables: List[str] = []
+    i = 0
 
-    def _replace(m: re.Match) -> str:
+    while i < len(lines):
+        if not lines[i].lstrip().startswith("|"):
+            output.append(lines[i])
+            i += 1
+            continue
+
+        # Chỉ coi là bảng khi có ít nhất header + separator hợp lệ.
+        if i + 1 >= len(lines) or not _is_separator_row(lines[i + 1]):
+            output.append(lines[i])
+            i += 1
+            continue
+
+        j = i
+        table_rows: List[str] = []
+        while j < len(lines) and lines[j].lstrip().startswith("|"):
+            table_rows.append(lines[j].rstrip())
+            j += 1
+
+        caption: Optional[str] = None
+        # Cho phép blank line giữa caption và table, nhưng không làm mất paragraph
+        # spacing nếu dòng trước KHÔNG phải caption.
+        blank_count = 0
+        while output and output[-1] == "":
+            output.pop()
+            blank_count += 1
+
+        if output and _CAPTION_RE.fullmatch(output[-1].strip()):
+            caption = output.pop().strip()
+        else:
+            output.extend([""] * blank_count)
+
+        table_text = "\n".join(table_rows)
+        if caption:
+            table_text = f"{caption}\n\n{table_text}"
+            # Giữ boundary rõ ràng giữa paragraph trước và placeholder.
+            if output and output[-1] != "":
+                output.append("")
+
         idx = len(tables)
-        tables.append(m.group(0).rstrip("\n"))
-        return _PLACEHOLDER_TMPL.format(idx=idx) + "\n"
+        tables.append(table_text)
+        output.append(_PLACEHOLDER_TMPL.format(idx=idx))
+        i = j
 
-    new_text = _TABLE_BLOCK_RE.sub(_replace, text)
-    return new_text, tables
+    return "\n".join(output), tables
 
 
 def restore_tables_as_chunks(chunk_text: str, tables: List[str]) -> List[str]:
-    """Tách placeholder trong chunk_text ra thành phần tử riêng (bảng atomic).
-
-    Mỗi phần tử trả về là:
-      - Đoạn văn bản thường (nếu có text trước/sau placeholder), hoặc
-      - Chuỗi bảng nguyên vẹn — chỉ khi bảng có nội dung thật (không rỗng).
-        Bảng chỉ có '|' và '-' (artifact PDF→Markdown) bị bỏ qua.
-
-    Caller kiểm tra piece.strip().startswith("|") để đánh dấu is_table=True.
-
-    Returns:
-        List các chuỗi, luôn có ít nhất 1 phần tử.
-    """
+    """Khôi phục placeholder; mỗi bảng trở thành một piece riêng biệt."""
     parts: List[str] = []
     last_end = 0
 
     for m in _PLACEHOLDER_RE.finditer(chunk_text):
-        pre = chunk_text[last_end : m.start()].strip()
+        pre = chunk_text[last_end:m.start()].strip("\n")
         if pre:
             parts.append(pre)
+
         idx = int(m.group(1))
+        if idx >= len(tables):
+            raise IndexError(f"Table placeholder index {idx} vượt quá {len(tables)} tables")
+
         table_text = tables[idx]
-        # Bỏ qua bảng rỗng (artifact từ PDF→Markdown)
         if not _is_empty_table(table_text):
             parts.append(table_text)
         last_end = m.end()
 
-    tail = chunk_text[last_end:].strip()
+    tail = chunk_text[last_end:].strip("\n")
     if tail:
         parts.append(tail)
 
     if last_end == 0:
         return [chunk_text]
     return parts
+
+
+def split_table_by_rows(
+    table_text: str,
+    max_tokens: int,
+    token_len: Callable[[str], int],
+    overlap_rows: int = 0,
+) -> List[str]:
+    """Chia table quá dài theo data rows, luôn lặp header + separator.
+
+    Không cắt ngang một row. Nếu riêng một row + header đã vượt budget thì row đó
+    vẫn được giữ nguyên trong một part; caller sẽ thấy ``too_long=True`` để audit.
+    """
+    if not is_table_chunk(table_text):
+        return [table_text]
+    if token_len(table_text) <= max_tokens:
+        return [table_text]
+
+    caption_lines, rows = _table_lines(table_text)
+    header = rows[0]
+    separator = rows[1]
+    data_rows = rows[2:]
+
+    prefix_lines = caption_lines + ([""] if caption_lines else []) + [header, separator]
+
+    def build(part_rows: List[str]) -> str:
+        return "\n".join(prefix_lines + part_rows).strip()
+
+    if not data_rows:
+        return [table_text]
+
+    parts: List[str] = []
+    current: List[str] = []
+    idx = 0
+
+    while idx < len(data_rows):
+        row = data_rows[idx]
+        candidate = current + [row]
+
+        if current and token_len(build(candidate)) > max_tokens:
+            parts.append(build(current))
+            # Luôn bỏ ít nhất 1 row cũ để không thể lặp vô hạn khi overlap lớn.
+            carry_n = min(overlap_rows, max(0, len(current) - 1))
+            carry = current[-carry_n:] if carry_n > 0 else []
+            current = list(carry)
+            # Không tăng idx: thử lại row hiện tại với part mới.
+            continue
+
+        current = candidate
+        idx += 1
+
+        # Một row riêng đã quá dài: flush ngay để tránh vòng lặp.
+        if len(current) == 1 and token_len(build(current)) > max_tokens:
+            parts.append(build(current))
+            current = []
+
+    if current:
+        parts.append(build(current))
+
+    return parts or [table_text]
