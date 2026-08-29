@@ -1,39 +1,68 @@
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
 class QdrantStoreConfig:
-    """Cấu hình cho QdrantVectorStore kết nối tới Qdrant server (Docker).
+    """Cấu hình Qdrant cho pipeline đã chốt.
 
-    Chạy Qdrant bằng Docker:
-        docker run -p 6333:6333 -p 6334:6334 \\
-            -v D:/rag-phu-san-chatbot/data/vector_db/qdrant:/qdrant/storage \\
-            qdrant/qdrant
+    Cấu hình benchmark chính thức:
+        Chunker  : hierarchical
+        Embedder : Qwen/Qwen3-Embedding-4B
+        Distance : cosine
+        Dim      : 2560 (output mặc định của Qwen3-Embedding-4B)
 
-    Xem dashboard tại: http://localhost:6334/dashboard
+    Qdrant server/Docker:
+        REST API : http://localhost:6333
+        Dashboard: http://localhost:6333/dashboard
+        gRPC     : localhost:6334
 
-    Attributes:
-        collection_name: Tên collection trong Qdrant.
-        host:            Host của Qdrant server (mặc định localhost).
-        port:            Port REST API (mặc định 6333).
-        vector_size:     Số chiều embedding.
-                         AITeamVN/Vietnamese_Embedding (based on bge-m3) → 1024.
-        distance:        Hàm đo khoảng cách: "cosine" | "dot" | "euclidean".
+    Có thể dùng Qdrant local-file thay cho Docker bằng `path=...`.
+    `memory=True` chỉ phù hợp test nhanh vì dữ liệu mất khi process kết thúc.
     """
 
     collection_name: str = "phu_san_chunks"
     host: str = "localhost"
     port: int = 6333
-    vector_size: int = 1024       # AITeamVN/Vietnamese_Embedding dim
-    distance: str = "cosine"
-    
-    # Kaggle/Colab support:
-    path: str = None              # Ví dụ: "data/vector_db/qdrant_local"
-    memory: bool = False          # True nếu muốn chạy in-memory hoàn toàn
 
-    def __post_init__(self):
-        import os
-        # Tự động nhận diện môi trường Kaggle
-        if "KAGGLE_KERNEL_RUN_TYPE" in os.environ:
-            if not self.path:
-                self.path = "data/vector_db/qdrant_local"
+    # Qwen3-Embedding-4B default output dimension.
+    # build_vector_store.py vẫn lấy dimension thật từ embeddings.shape[1]
+    # và dùng giá trị đó để tạo collection, nên không phụ thuộc mù quáng vào số này.
+    vector_size: int = 2560
+    distance: str = "cosine"
+
+    # Nếu path != None -> Qdrant embedded/local-file.
+    path: Optional[str] = None
+
+    # Nếu True -> Qdrant in-memory.
+    memory: bool = False
+
+    def __post_init__(self) -> None:
+        if self.memory and self.path:
+            raise ValueError("Chỉ chọn một trong hai: memory=True hoặc path=...")
+
+        if self.vector_size <= 0:
+            raise ValueError("vector_size phải > 0")
+
+        self.distance = self.distance.lower().strip()
+        if self.distance not in {"cosine", "dot", "euclidean"}:
+            raise ValueError(
+                "distance phải là một trong: cosine | dot | euclidean"
+            )
+
+        if self.port <= 0:
+            raise ValueError("port phải > 0")
+
+    @property
+    def mode(self) -> str:
+        if self.memory:
+            return "memory"
+        if self.path:
+            return "local"
+        return "server"
+
+    @property
+    def dashboard_url(self) -> Optional[str]:
+        if self.mode != "server":
+            return None
+        return f"http://{self.host}:{self.port}/dashboard"

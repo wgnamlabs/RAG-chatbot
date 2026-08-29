@@ -7,45 +7,33 @@ from ..chunking.base import Chunk
 
 
 class BaseVectorStore(ABC):
-    """Interface trừu tượng cho vector store.
-
-    Mọi implementation (Qdrant, FAISS, ChromaDB, v.v.) phải kế thừa class này
-    và implement đủ 4 phương thức dưới đây.
-    """
+    """Interface chung cho vector store của RAG pipeline."""
 
     @abstractmethod
-    def add(self, chunks: List[Chunk], embeddings: np.ndarray) -> None:
-        """Thêm danh sách chunk kèm embedding vào store.
-
-        Args:
-            chunks:     Danh sách Chunk objects (mỗi Chunk có .text và .metadata).
-            embeddings: Numpy array shape (len(chunks), embedding_dim).
-        """
-        pass
+    def add(
+        self,
+        chunks: List[Chunk],
+        embeddings: np.ndarray,
+        **kwargs,
+    ) -> None:
+        """Thêm chunks và embeddings vào vector store."""
+        raise NotImplementedError
 
     @abstractmethod
-    def search(self, query_vector: np.ndarray, top_k: int) -> List[dict]:
-        """Tìm kiếm top-k chunk gần nhất với query vector.
-
-        Args:
-            query_vector: 1-D numpy array, embedding của câu hỏi.
-            top_k:        Số kết quả muốn lấy.
-
-        Returns:
-            Danh sách dict, mỗi dict gồm:
-              - chunk_id (str): ID duy nhất của chunk trong store.
-              - text     (str): Nội dung chunk.
-              - score  (float): Điểm similarity (cao hơn = liên quan hơn).
-              - metadata (dict): Toàn bộ metadata gốc của chunk.
-        """
-        pass
+    def search(
+        self,
+        query_vector: np.ndarray,
+        top_k: int = 15,
+    ) -> List[dict]:
+        """Tìm top-k chunks gần query vector nhất."""
+        raise NotImplementedError
 
     @abstractmethod
     def persist(self) -> None:
-        """Lưu store xuống đĩa (no-op nếu store tự động persist)."""
-        pass
+        """Persist store nếu backend yêu cầu."""
+        raise NotImplementedError
 
     @abstractmethod
     def load(self) -> None:
-        """Tải/kết nối lại store từ đĩa."""
-        pass
+        """Khởi tạo hoặc kết nối vector store."""
+        raise NotImplementedError
