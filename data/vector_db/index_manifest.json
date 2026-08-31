@@ -1,0 +1,42 @@
+{
+  "created_at_utc": "2026-08-29T15:03:36.599090+00:00",
+  "selected_on_dev": true,
+  "chunker": "hierarchical",
+  "embedding_model": "Qwen/Qwen3-Embedding-4B",
+  "embedding_config": {
+    "model_name": "Qwen/Qwen3-Embedding-4B",
+    "batch_size": 16,
+    "max_seq_length": 2048,
+    "device": "cuda",
+    "trust_remote_code": false,
+    "note": "Embedding 4B multilingual; query dùng prompt_name='query'.",
+    "auto_batch": true,
+    "min_batch_size": 2
+  },
+  "embedding_dimension": 2560,
+  "distance": "cosine",
+  "recommended_dense_top_k": 15,
+  "chunk_count": 1058,
+  "chunk_cache": "evaluation/results/chunks_cache/hierarchical.json",
+  "chunk_cache_sha256": "da66232f382397e24418c3ac33aa7c6488ed9f43f2ff8adb78a26934ee4d475b",
+  "qdrant": {
+    "collection_name": "phu_san_chunks",
+    "points_count": 1058,
+    "vector_size": 2560,
+    "distance": "cosine",
+    "mode": "local",
+    "dashboard": null
+  },
+  "bm25": {
+    "path": "data/vector_db/bm25_index.pkl",
+    "tokenizer": "underthesea"
+  },
+  "benchmark_test": {
+    "evidence_recall_at_10": 0.9785714285714285,
+    "evidence_complete_at_10": 0.9785714285714285,
+    "ndcg_at_10": 0.8570159062555588,
+    "mrr": 0.8433704390847248,
+    "ood_auroc": 1.0,
+    "evidence_recall_at_15": 1.0
+  }
+}

@@ -1,350 +1,295 @@
 # RAG Chatbot Tư Vấn Phụ Sản
 
-Hệ thống chatbot **Retrieval-Augmented Generation (RAG)** hỗ trợ tra cứu và tư vấn thông tin sức khỏe sản phụ khoa bằng tiếng Việt.
+Hệ thống **Retrieval-Augmented Generation (RAG)** hỗ trợ tra cứu và tư vấn thông tin sức khỏe sản phụ khoa bằng tiếng Việt.
 
-Pipeline được thiết kế theo hướng chạy local:
+Dự án được phát triển theo hướng **local-first**, ưu tiên khả năng kiểm soát pipeline, đánh giá độc lập từng thành phần và đảm bảo các quyết định kỹ thuật được lựa chọn trên tập phát triển trước khi xác nhận trên tập kiểm thử.
 
-- Query rewriting qua **Ollama**
-- Dense retrieval + BM25
-- Hybrid fusion bằng **Reciprocal Rank Fusion (RRF)**
-- Sinh câu trả lời qua **Ollama**
-- Trả về câu trả lời kèm nguồn tham chiếu và thông tin latency
-
-> Các tài liệu nguồn, dữ liệu trung gian, vector database và các artifact sinh ra trong quá trình indexing không được lưu trên GitHub.
+> **Trạng thái hiện tại:** Offline indexing pipeline đã hoàn thiện. Chiến lược chunking và embedding đã được lựa chọn, VectorDB đã được xây dựng thành công trên Qdrant và sparse index BM25 đã sẵn sàng. Phần retrieval và generation online chưa nằm trong milestone hiện tại.
 
 ---
 
-## Kiến trúc hệ thống
+## Mục tiêu dự án
 
-### 1. Indexing Pipeline — Offline
+Dự án hướng tới xây dựng một chatbot RAG tiếng Việt cho lĩnh vực sản phụ khoa với các mục tiêu chính:
+
+- truy xuất chính xác các đoạn thông tin liên quan từ kho tri thức chuyên ngành;
+- bảo toàn cấu trúc tài liệu trong quá trình chia chunk;
+- hỗ trợ tốt các câu hỏi cần nhiều bằng chứng, số liệu và nội dung dạng bảng;
+- đánh giá riêng từng thành phần trước khi tích hợp thành pipeline RAG hoàn chỉnh;
+- triển khai được trên môi trường local với kiến trúc dễ kiểm soát và tái lập;
+- hạn chế phụ thuộc vào dịch vụ bên ngoài đối với các thành phần cốt lõi.
+
+---
+
+## Trạng thái phát triển
+
+Pipeline hiện tại đã hoàn thành:
 
 ```text
-Tài liệu đã được tiền xử lý
-        │
-        ▼
+Document Processing
+        ↓
+Text Cleaning
+        ↓
+Chunking Evaluation
+        ↓
 Hierarchical Chunking
-        │
-        ├───────────────┐
-        │               │
-        ▼               ▼
-Qwen3-Embedding-4B     BM25
-        │               │
-        ▼               ▼
-Qdrant Vector Store   BM25 Index
+        ↓
+Embedding Evaluation
+        ↓
+Qwen3-Embedding-4B
+        ↓
+Vector Store Construction
+        ↓
+Qdrant + BM25 Index
 ```
 
-Cấu hình dense retrieval chính thức được chọn sau benchmark:
+Các thành phần sau **chưa nằm trong phạm vi hiện tại**:
 
 ```text
-Chunking  : Hierarchical
-Embedding : Qwen/Qwen3-Embedding-4B
-Similarity: Cosine similarity
-```
-
-Với Qwen3-Embedding-4B:
-
-- Query được encode với `prompt_name="query"`.
-- Document/chunk được encode không dùng query prompt.
-
----
-
-### 2. Online RAG Pipeline
-
-```text
-Câu hỏi người dùng
-        │
-        ▼
 Query Rewriting
-qwen3:4b — Ollama
-        │
-        ▼
 Hybrid Retrieval
-Dense + BM25
-        │
-        ▼
-Reciprocal Rank Fusion
-RRF
-        │
-        ▼
-Top candidate chunks
-        │
-        ▼
-Post-processing
-dedup_redundant + sandwich_order
-        │
-        ▼
+RRF Fusion
+Reranking
 Prompt Construction
-context + citation metadata
-        │
-        ▼
-Generation
-qwen3:8b — Ollama
-temperature = 0
-        │
-        ▼
-PipelineOutput
-answer + sources_used + latency_breakdown
+Answer Generation
+Citation / Faithfulness Validation
+Safety Layer
+Web UI
 ```
-
-Cấu hình retrieval hiện tại:
-
-```text
-candidate top_k = 15
-rrf_k           = 60
-```
-
-`top_k=15` cũng phù hợp với kết quả dense retrieval benchmark: cấu hình được chọn đạt đầy đủ gold evidence trên TEST tại `k=15`.
 
 ---
 
-## Các thành phần chính
+# Kiến trúc hiện tại
+
+## Offline Indexing Pipeline
 
 ```text
-src/
-└── indexing/
-    ├── chunking/
-    │   ├── base.py
-    │   ├── config.py
-    │   ├── markdown_utils.py
-    │   ├── table_utils.py
-    │   ├── hierarchical_chunker.py
-    │   └── semantic_chunker.py
-    │
-    └── embedding/
-        ├── base.py
-        ├── config.py
-        └── embedder.py
-
-evaluation/
-├── eval_questions.json
-├── eval_questions_manifest.json
-├── EVAL_SCHEMA.md
-├── metrics.py
-├── run_chunking_eval.py
-├── run_embedding_eval.py
-└── results/
-    ├── chunks_cache/
-    ├── comparison_matrix_dev.csv
-    ├── comparison_matrix_test.csv
-    └── embedding_eval/
-        ├── per_question_results_dev.csv
-        ├── per_question_results_test.csv
-        ├── per_group_results_dev.csv
-        ├── per_group_results_test.csv
-        ├── embedding_summary_dev.json
-        ├── embedding_summary_test.json
-        ├── evidence_mapping_report_dev.json
-        └── evidence_mapping_report_test.json
+Source Documents
+       │
+       ▼
+Document Loader
+       │
+       ▼
+Text Cleaning
+       │
+       ▼
+Hierarchical Chunking
+       │
+       ├─────────────────────┐
+       │                     │
+       ▼                     ▼
+Dense Embedding          Sparse Index
+Qwen3-Embedding-4B          BM25
+       │                     │
+       ▼                     ▼
+Qdrant Vector Store      BM25 Index
 ```
 
-Các file kết quả evaluation có thể được giữ local và không bắt buộc commit lên repository.
+Pipeline indexing được thiết kế theo hướng module hóa để từng bước có thể được benchmark, kiểm thử và thay thế độc lập.
 
 ---
 
-# Chunking & Embedding Benchmark
+## Chunking
 
-## Mục tiêu
+Dự án triển khai nhiều chiến lược chunking để benchmark trước khi lựa chọn cấu hình chính thức.
 
-Benchmark được dùng để lựa chọn:
+Hai hướng chính đã được đánh giá:
 
-- chiến lược chunking;
-- embedding model;
-- kích thước candidate pool hợp lý cho retrieval.
+- **Semantic Chunking**
+- **Hierarchical Chunking**
 
-Hai chiến lược chunking được so sánh:
+Cấu hình được lựa chọn:
 
-- `Semantic Chunking`
-- `Hierarchical Chunking`
+```text
+Chunking Strategy: Hierarchical Chunking
+```
 
-Ba embedding model được đánh giá:
+Hierarchical Chunking được ưu tiên vì:
+
+- bảo toàn tốt cấu trúc heading của tài liệu;
+- duy trì breadcrumb/section context trong từng chunk;
+- hoạt động ổn định với nội dung nhiều cấp heading;
+- hỗ trợ tốt nội dung dạng bảng và multi-evidence;
+- cho chất lượng ranking tốt khi kết hợp với embedding model được chọn.
+
+Implementation:
+
+```text
+src/indexing/chunking/
+├── base.py
+├── config.py
+├── hierarchical_chunker.py
+├── markdown_utils.py
+├── semantic_chunker.py
+└── table_utils.py
+```
+
+---
+
+## Embedding
+
+Embedding layer được thiết kế theo interface riêng để có thể benchmark và thay đổi model mà không ảnh hưởng tới các tầng khác.
+
+Các model đã được đánh giá:
 
 - `AITeamVN/Vietnamese_Embedding_v2`
 - `Qwen/Qwen3-Embedding-4B`
 - `BAAI/bge-m3`
 
-Benchmark này đánh giá **dense retrieval độc lập**.
-
-Kết quả ở phần này **không phải kết quả cuối của toàn bộ Hybrid RAG pipeline**, vì BM25, RRF, query rewriting và generation chưa được tính vào các metric dưới đây.
-
----
-
-## Evaluation Protocol
-
-Benchmark sử dụng hai split:
+Model được lựa chọn chính thức:
 
 ```text
-DEV  : 60 queries
-TEST : 160 queries
+Qwen/Qwen3-Embedding-4B
 ```
 
-TEST gồm:
+Cấu hình:
 
 ```text
-140 in-domain queries
-20  out-of-domain queries
+Vector dimension : 2560
+Similarity       : Cosine
 ```
 
-Ground truth được định nghĩa ở mức **gold evidence**, không chỉ kiểm tra retrieved chunk có thuộc đúng tài liệu hay không.
+Khi encode:
 
-Gold evidence được map độc lập sang output của từng chunker trước khi tính metric.
+- document/chunk được encode theo chế độ document embedding;
+- query embedding sử dụng query instruction tương ứng với model.
 
-Ở TEST:
+Implementation:
 
 ```text
-Gold evidence units: 164
-
-Semantic:
-  mapped   = 164
-  unmapped = 0
-
-Hierarchical:
-  mapped   = 164
-  unmapped = 0
+src/indexing/embedding/
+├── base.py
+├── config.py
+└── embedder.py
 ```
 
 ---
 
-## Metrics
+## Vector Store
+
+Vector store sử dụng **Qdrant** làm dense vector database.
+
+Cấu hình hiện tại:
+
+```text
+Collection       : phu_san_chunks
+Vector dimension : 2560
+Distance         : Cosine
+```
+
+Sparse index được xây dựng song song bằng **BM25**.
+
+Artifact chính sau indexing:
+
+```text
+data/vector_db/
+├── qdrant/
+├── bm25_index.pkl
+└── index_manifest.json
+```
+
+`index_manifest.json` lưu metadata của quá trình build index, giúp kiểm tra tính nhất quán giữa chunking, embedding và vector store.
+
+Implementation:
+
+```text
+src/indexing/vector_store/
+├── base.py
+├── config.py
+└── qdrant_store.py
+```
+
+---
+
+# Evaluation Strategy
+
+Dự án áp dụng quy trình đánh giá theo hai split:
+
+```text
+DEV  → lựa chọn cấu hình
+TEST → xác nhận khả năng tổng quát hóa
+```
+
+Nguyên tắc:
+
+1. các lựa chọn về chunking và embedding được thực hiện trên DEV;
+2. TEST chỉ được sử dụng sau khi cấu hình đã được freeze;
+3. không thay đổi model dựa trên kết quả TEST;
+4. ground truth được đánh giá ở mức **gold evidence**;
+5. evidence được map độc lập vào output của từng chunker trước khi tính metric.
 
 Các metric chính:
 
 | Metric | Ý nghĩa |
 |---|---|
-| **Evidence Recall@K** | Tỷ lệ gold evidence units được tìm thấy trong Top-K |
-| **Hit@K** | Tỷ lệ query có ít nhất một relevant chunk trong Top-K |
-| **Evidence Complete@K** | Tỷ lệ query lấy đủ toàn bộ evidence cần thiết |
-| **MRR** | Đánh giá vị trí của relevant result đầu tiên |
-| **nDCG@K** | Đánh giá chất lượng thứ hạng của các relevant chunks |
-| **OOD AUROC** | Khả năng phân biệt query in-domain và out-of-domain |
+| **Evidence Recall@K** | Tỷ lệ gold evidence được retrieve trong Top-K |
+| **Evidence Complete@K** | Tỷ lệ câu hỏi retrieve đủ toàn bộ evidence cần thiết |
+| **MRR** | Vị trí của relevant result đầu tiên |
+| **nDCG@K** | Chất lượng thứ hạng của relevant chunks |
+| **OOD AUROC** | Khả năng phân biệt câu hỏi in-domain và out-of-domain |
 
-Trong quá trình chọn cấu hình, ưu tiên:
+Ưu tiên khi lựa chọn cấu hình:
 
 ```text
 Evidence Recall / Evidence Completeness
                 ↓
-        Ranking Quality
-          MRR / nDCG
+          Ranking Quality
+            MRR / nDCG
 ```
-
-`Precision@K` vẫn được ghi nhận nhưng không dùng làm tiêu chí chính khi so sánh hai chunker vì kích thước và số lượng relevant chunks có thể khác nhau theo cách chia chunk.
 
 ---
 
-# Model Selection
+# Benchmark Results
 
-## DEV Result
+## Selected Configuration on DEV
 
-Cấu hình được chọn **trước khi mở TEST**:
+Cấu hình được freeze trước khi mở TEST:
 
 ```text
 Chunking  : Hierarchical
 Embedding : Qwen/Qwen3-Embedding-4B
 ```
 
-Kết quả DEV của cấu hình này:
-
 | Metric | DEV |
 |---|---:|
 | Evidence Recall@10 | **1.0000** |
-| Hit@10 | **1.0000** |
 | Evidence Complete@10 | **1.0000** |
 | nDCG@10 | **0.8961** |
 | MRR | **0.8773** |
 | OOD AUROC | **1.0000** |
 
-Sau khi chốt cấu hình trên DEV, TEST chỉ được sử dụng để đánh giá khả năng tổng quát hóa và **không dùng để chọn lại model**.
-
 ---
 
-# Final TEST Results
+## Final Dense Retrieval TEST
 
-## So sánh 2 chunker × 3 embedding models
+| Metric | TEST |
+|---|---:|
+| Evidence Recall@10 | **0.9786** |
+| Evidence Complete@10 | **0.9786** |
+| nDCG@10 | **0.8570** |
+| MRR | **0.8434** |
+| OOD AUROC | **1.0000** |
 
-Dense retrieval tại `k=10`:
-
-| Chunker | Embedding | Recall@10 | Complete@10 | nDCG@10 | MRR | OOD AUROC |
-|---|---|---:|---:|---:|---:|---:|
-| Semantic | AITeamVN/Vietnamese_Embedding_v2 | 0.9679 | 0.9429 | 0.7297 | 0.7091 | 0.9657 |
-| Hierarchical | AITeamVN/Vietnamese_Embedding_v2 | 0.9679 | 0.9429 | 0.7430 | 0.7062 | 0.9757 |
-| Semantic | Qwen/Qwen3-Embedding-4B | 0.9786 | 0.9714 | 0.8386 | 0.8320 | 1.0000 |
-| **Hierarchical** | **Qwen/Qwen3-Embedding-4B** | **0.9786** | **0.9786** | **0.8570** | **0.8434** | **1.0000** |
-| Semantic | BAAI/bge-m3 | 0.9857 | 0.9786 | 0.7761 | 0.7557 | 0.9996 |
-| Hierarchical | BAAI/bge-m3 | **0.9929** | **0.9857** | 0.7962 | 0.7650 | 0.9996 |
-
-### Kết luận
-
-`BAAI/bge-m3 + Hierarchical` đạt Recall@10 cao nhất trên TEST.
-
-Tuy nhiên, cấu hình chính thức vẫn là:
-
-```text
-Hierarchical Chunking
-+
-Qwen/Qwen3-Embedding-4B
-```
-
-vì cấu hình này đã được lựa chọn trên DEV trước khi mở TEST, đồng thời cho chất lượng ranking tốt hơn đáng kể trên TEST:
-
-```text
-Qwen3 + Hierarchical
-nDCG@10 = 0.8570
-MRR     = 0.8434
-
-BGE-M3 + Hierarchical
-nDCG@10 = 0.7962
-MRR     = 0.7650
-```
-
-Việc không thay đổi model sau khi xem TEST giúp tránh sử dụng TEST như một tập tuning.
+Hiệu năng giảm nhẹ từ DEV sang TEST nhưng vẫn duy trì evidence coverage và ranking quality cao, cho thấy cấu hình đã chọn tổng quát hóa tốt trên tập giữ lại.
 
 ---
-
-## DEV → TEST Generalization
-
-Kết quả của cấu hình đã chọn:
-
-| Metric | DEV | TEST |
-|---|---:|---:|
-| Evidence Recall@10 | 1.0000 | 0.9786 |
-| Evidence Complete@10 | 1.0000 | 0.9786 |
-| nDCG@10 | 0.8961 | 0.8570 |
-| MRR | 0.8773 | 0.8434 |
-| OOD AUROC | 1.0000 | 1.0000 |
-
-Hiệu năng giảm nhẹ từ DEV sang TEST nhưng vẫn duy trì mức retrieval cao, cho thấy cấu hình được chọn tổng quát hóa tốt trên tập đánh giá giữ lại.
-
----
-
-# Retrieval Analysis
 
 ## Recall theo K
 
-Với `Hierarchical + Qwen3-Embedding-4B` trên TEST:
+Với `Hierarchical + Qwen3-Embedding-4B`:
 
-```text
-Recall@3  = 0.9000
-Recall@5  = 0.9464
-Recall@10 = 0.9786
-Recall@15 = 1.0000
-```
+| K | Evidence Recall |
+|---:|---:|
+| 3 | 0.9000 |
+| 5 | 0.9464 |
+| 10 | 0.9786 |
+| 15 | **1.0000** |
 
-Tại `k=15`, toàn bộ gold evidence trong TEST được phủ:
-
-```text
-Evidence Recall@15   = 1.0000
-Evidence Complete@15 = 1.0000
-Hit@15               = 1.0000
-```
-
-Đây là một lý do để sử dụng candidate pool `top_k=15` trước các bước hybrid fusion / post-processing ở pipeline online.
+Top-15 được xem là candidate pool hợp lý cho giai đoạn retrieval online trong tương lai.
 
 ---
 
 ## Hard / Multi-evidence Queries
-
-TEST có 24 câu hard/multi-evidence.
-
-Với `Hierarchical + Qwen3-Embedding-4B`:
 
 | K | Evidence Recall | Evidence Complete |
 |---:|---:|---:|
@@ -353,191 +298,310 @@ Với `Hierarchical + Qwen3-Embedding-4B`:
 | 10 | 0.9583 | 0.9583 |
 | 15 | **1.0000** | **1.0000** |
 
-Các query cần nhiều evidence khó lấy đủ ở Top-3/Top-5, nhưng toàn bộ evidence được retrieve khi mở rộng candidate pool lên Top-15.
+Các câu hỏi cần nhiều evidence khó hơn rõ rệt ở K nhỏ. Kết quả này là cơ sở để giữ candidate pool đủ rộng trước các bước retrieval/context selection ở giai đoạn sau.
 
 ---
 
 ## Table Queries
 
-TEST có 20 query yêu cầu retrieve nội dung bảng.
-
-Với cấu hình đã chọn:
-
-| K | Recall |
+| K | Evidence Recall |
 |---:|---:|
 | 3 | 0.9500 |
 | 5 | **1.0000** |
 | 10 | **1.0000** |
 
-Hierarchical chunking vẫn giữ được hiệu quả tốt với các nội dung dạng bảng.
+Hierarchical Chunking duy trì hiệu quả tốt với nội dung có cấu trúc bảng.
 
 ---
 
-## Patient-style Queries
+# Project Structure
 
-Với 80 patient-style queries trong TEST:
-
-| K | Recall |
-|---:|---:|
-| 3 | 0.9250 |
-| 5 | 0.9500 |
-| 10 | 0.9750 |
-| 15 | **1.0000** |
-
-Các câu hỏi tự nhiên theo cách người dùng hỏi vẫn duy trì retrieval performance cao.
+```text
+rag-phu-san-chatbot/
+│
+├── data/
+│   ├── raw/
+│   ├── interim/
+│   ├── cleaned/
+│   └── vector_db/
+│       ├── qdrant/
+│       ├── bm25_index.pkl
+│       └── index_manifest.json
+│
+├── evaluation/
+│   ├── results/
+│   │   ├── chunks_cache/
+│   │   └── embedding_eval/
+│   ├── build_vector_store.py
+│   ├── eval_questions.json
+│   ├── eval_questions_manifest.json
+│   ├── EVAL_SCHEMA.md
+│   ├── metrics.py
+│   ├── run_chunking_eval.py
+│   └── run_embedding_eval.py
+│
+├── src/
+│   ├── __init__.py
+│   └── indexing/
+│       ├── __init__.py
+│       ├── loader.py
+│       ├── cleaner.py
+│       ├── chunking/
+│       │   ├── __init__.py
+│       │   ├── base.py
+│       │   ├── config.py
+│       │   ├── hierarchical_chunker.py
+│       │   ├── markdown_utils.py
+│       │   ├── semantic_chunker.py
+│       │   └── table_utils.py
+│       ├── embedding/
+│       │   ├── __init__.py
+│       │   ├── base.py
+│       │   ├── config.py
+│       │   └── embedder.py
+│       └── vector_store/
+│           ├── __init__.py
+│           ├── base.py
+│           ├── config.py
+│           └── qdrant_store.py
+│
+├── .env.example
+├── .gitignore
+├── pyproject.toml
+├── requirements.txt
+└── README.md
+```
 
 ---
 
-## Numeric Queries
+# Core Modules
 
-Với 13 numeric queries:
+### `src/indexing/loader.py`
 
-| K | Recall |
-|---:|---:|
-| 3 | 0.9231 |
-| 5 | 0.9231 |
-| 10 | 0.9231 |
-| 15 | **1.0000** |
+Đọc tài liệu đầu vào và chuyển nội dung sang representation phù hợp cho preprocessing.
 
-Các evidence chứa số liệu khó hơn một chút ở Top-10, nhưng được phủ đầy đủ ở Top-15.
+### `src/indexing/cleaner.py`
+
+Chuẩn hóa nội dung trước chunking trong khi vẫn bảo toàn cấu trúc semantic cần thiết.
+
+### `src/indexing/chunking/`
+
+Chứa abstraction và implementation cho các chiến lược chunking.
+
+### `src/indexing/embedding/`
+
+Đóng gói embedding model và interface encode document/query.
+
+### `src/indexing/vector_store/`
+
+Quản lý Qdrant collection, vector insertion và các primitive cần thiết cho retrieval ở giai đoạn sau.
+
+### `evaluation/`
+
+Chứa benchmark protocol, metrics và các script phục vụ lựa chọn chunking/embedding.
 
 ---
 
-# Chạy Evaluation
+# Installation
 
-## DEV
+## 1. Clone repository
 
-Dùng DEV để thử nghiệm và lựa chọn cấu hình:
+```bash
+git clone <repository-url>
+cd rag-phu-san-chatbot
+```
+
+## 2. Create virtual environment
+
+### Windows
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+### Linux / macOS
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+## 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Hoặc:
+
+```bash
+pip install -e .
+```
+
+---
+
+# Environment Configuration
+
+Tạo `.env` từ template.
+
+### Windows PowerShell
+
+```powershell
+Copy-Item .env.example .env
+```
+
+### Linux / macOS
+
+```bash
+cp .env.example .env
+```
+
+Không commit `.env` lên repository.
+
+---
+
+# Running the Pipeline
+
+## Chunking Evaluation
+
+DEV:
+
+```bash
+python evaluation/run_chunking_eval.py --split dev
+```
+
+TEST:
+
+```bash
+python evaluation/run_chunking_eval.py --split test
+```
+
+TEST chỉ được chạy sau khi cấu hình đã được freeze trên DEV.
+
+---
+
+## Embedding Evaluation
+
+DEV:
 
 ```bash
 python evaluation/run_embedding_eval.py --split dev
 ```
 
-## TEST
-
-Chỉ chạy TEST sau khi đã chốt cấu hình trên DEV:
+TEST:
 
 ```bash
 python evaluation/run_embedding_eval.py --split test
 ```
 
-Các output chính:
+---
 
-```text
-comparison_matrix_<split>.csv
-embedding_eval/
-├── per_question_results_<split>.csv
-├── per_group_results_<split>.csv
-├── embedding_summary_<split>.json
-└── evidence_mapping_report_<split>.json
+## Build Vector Store
+
+Sau khi chunking và embedding đã được lựa chọn:
+
+```bash
+python evaluation/build_vector_store.py
 ```
 
----
-
-# Quyết định kỹ thuật hiện tại
-
-## Chunking
-
-**Selected: Hierarchical Chunking**
-
-Lý do:
-
-- Giữ được cấu trúc heading/breadcrumb của tài liệu.
-- Cho ranking quality tốt hơn Semantic khi kết hợp với Qwen3-Embedding-4B.
-- Hoạt động tốt với table queries.
-- Đạt full evidence coverage ở `k=15` trên TEST.
+Script chịu trách nhiệm tạo các artifact indexing cần thiết cho Qdrant và BM25.
 
 ---
 
-## Embedding
+# Current Technical Decisions
 
-**Selected: `Qwen/Qwen3-Embedding-4B`**
+| Component | Selected Configuration |
+|---|---|
+| Chunking | Hierarchical Chunking |
+| Embedding | `Qwen/Qwen3-Embedding-4B` |
+| Vector dimension | 2560 |
+| Similarity | Cosine |
+| Vector Database | Qdrant |
+| Collection | `phu_san_chunks` |
+| Sparse Index | BM25 |
+| Candidate pool cho retrieval phase tiếp theo | Top-15 |
 
-Lý do:
-
-- Được chọn từ DEV thay vì chọn theo TEST.
-- Ranking quality cao nhất trong cấu hình Hierarchical:
-  - `nDCG@10 = 0.8570`
-  - `MRR = 0.8434`
-- `Evidence Recall@10 = 0.9786`.
-- `Evidence Recall@15 = 1.0000`.
-- `OOD AUROC = 1.0000` trên TEST benchmark.
-- Query embedding sử dụng instruction thông qua `prompt_name="query"`.
-
----
-
-## Dense Candidate Pool
-
-**Selected: `top_k = 15`**
-
-Ở TEST:
-
-```text
-Recall@10 = 0.9786
-Recall@15 = 1.0000
-```
-
-Ba query chưa được phủ đầy đủ ở Top-10 đều được retrieve trong Top-15.
-
-Điều này cho phép giữ candidate pool đủ rộng trước các bước hybrid retrieval và post-processing.
-
----
-
-# Lưu ý về kết quả benchmark
-
-Các metric ở README này thuộc **chunking + dense embedding retrieval benchmark**.
-
-Chúng không nên được diễn giải là accuracy của chatbot hoàn chỉnh.
-
-Để đánh giá end-to-end RAG cần tiếp tục đo riêng các thành phần như:
-
-```text
-Raw Query
-   ↓
-Query Rewriting
-   ↓
-Dense + BM25
-   ↓
-RRF
-   ↓
-Post-processing
-   ↓
-Generation
-   ↓
-Citation / Faithfulness / Answer Correctness
-```
-
-Các experiment tiếp theo nên giữ nguyên cấu hình chunking và embedding đã chốt ở benchmark này để tránh tuning lại dựa trên TEST.
+Các quyết định trên được xem là **frozen** tại milestone hiện tại.
 
 ---
 
 # Tech Stack
 
-- Python
-- Sentence Transformers
-- Qwen3 Embedding
-- Qdrant
-- BM25
-- underthesea
-- Ollama
-- Qwen3
-- Docling
+- **Python**
+- **Docling**
+- **Sentence Transformers**
+- **Qwen3 Embedding**
+- **Qdrant / qdrant-client**
+- **BM25 / rank-bm25**
+- **pandas / NumPy**
 
 ---
 
-# Repository Notes
+# Repository Policy
 
-Repository không lưu các artifact dữ liệu và indexing cục bộ.
+Repository chỉ version-control source code, configuration và evaluation logic cần thiết để tái tạo pipeline.
 
-Nên giữ ngoài Git các thành phần như:
+Các artifact local nên được loại khỏi Git qua `.gitignore`, bao gồm:
 
 ```text
-raw/intermediate documents
-cleaned documents
-vector database
-BM25 serialized index
-large model files
-temporary evaluation artifacts
+virtual environments
+raw/intermediate artifacts
+local vector database
+serialized BM25 index
+model cache
+temporary evaluation outputs
+Python cache files
 ```
 
-Chỉ source code, configuration, evaluation code và các file cần thiết để tái tạo pipeline nên được version control.
+Không commit:
+
+```text
+.env
+.venv/
+__pycache__/
+```
+
+---
+
+# Development Roadmap
+
+```text
+[✓] Document processing
+[✓] Text cleaning
+[✓] Chunking benchmark
+[✓] Embedding benchmark
+[✓] Hierarchical chunking selected
+[✓] Qwen3-Embedding-4B selected
+[✓] Qdrant vector store built
+[✓] BM25 index built
+
+[ ] Dense retrieval module
+[ ] Sparse retrieval module
+[ ] Hybrid retrieval
+[ ] Query rewriting
+[ ] Retrieval evaluation
+[ ] Prompt construction
+[ ] Answer generation
+[ ] Citation / faithfulness evaluation
+[ ] Safety layer
+[ ] Application interface
+```
+
+---
+
+# Notes
+
+Các benchmark trong README hiện tại chỉ phản ánh chất lượng của **offline indexing và dense retrieval evaluation**.
+
+Chúng **không phải accuracy của chatbot hoàn chỉnh**.
+
+Milestone hiện tại đã hoàn thiện và freeze:
+
+```text
+Chunking
+Embedding
+Vector Store
+```
+
+Giai đoạn tiếp theo sẽ tập trung vào retrieval online dựa trên VectorDB đã được xây dựng.

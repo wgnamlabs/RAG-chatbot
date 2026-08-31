@@ -1,0 +1,459 @@
+# Project Context
+
+Đây là project chatbot RAG tiếng Việt cho lĩnh vực sản phụ khoa.
+
+Mục tiêu chính:
+- Trả lời câu hỏi của người dùng dựa trên tài liệu y khoa đã được chuẩn hóa.
+- Ưu tiên thông tin lấy từ knowledge base / tài liệu nguồn.
+- Hạn chế hallucination.
+- Hỗ trợ citation / traceability cho câu trả lời.
+- Pipeline cần dễ đánh giá, dễ thay thế model và có thể chạy trên nhiều cấu hình máy.
+
+---
+
+## 1. Ngôn ngữ giao tiếp
+
+- Luôn trao đổi, giải thích, báo cáo và lập kế hoạch với tôi bằng tiếng Việt.
+- Code, tên class, function, variable, API, config key và thuật ngữ kỹ thuật có thể giữ bằng tiếng Anh.
+- Comment trong code nên tuân theo style hiện tại của project.
+- Không tự ý dịch tên file, tên module hoặc tên API.
+
+---
+
+## 2. Hiểu project trước khi thay đổi
+
+Trước khi implement hoặc sửa bất kỳ chức năng nào:
+
+1. Đọc các file liên quan trước.
+2. Kiểm tra README và cấu trúc project nếu cần.
+3. Tìm implementation hiện tại trước khi tạo code mới.
+4. Kiểm tra xem project đã có utility/function tương tự hay chưa.
+5. Hiểu luồng dữ liệu và dependencies liên quan.
+6. Không đoán kiến trúc nếu có thể xác minh từ source code.
+
+Nếu task có phạm vi lớn:
+- Phân tích trước.
+- Đề xuất kế hoạch.
+- Chỉ bắt đầu sửa khi yêu cầu của tôi cho phép.
+
+---
+
+## 3. Không sửa ngoài phạm vi
+
+- Chỉ sửa những file cần thiết cho task hiện tại.
+- Không refactor module không liên quan.
+- Không đổi tên file/folder nếu không thực sự cần thiết.
+- Không thay đổi public API hiện tại nếu chưa được yêu cầu.
+- Không thay đổi cấu trúc project chỉ để code trông đẹp hơn.
+- Không xóa code, data hoặc config nếu chưa xác minh chúng không còn được sử dụng.
+
+Nếu phát hiện vấn đề ngoài phạm vi task:
+- Báo cho tôi.
+- Không tự sửa trừ khi việc đó bắt buộc để hoàn thành task.
+
+---
+
+## 4. Git safety
+
+Không được tự động:
+
+- git commit
+- git push
+- git pull
+- git reset
+- git rebase
+- git merge
+- xóa branch
+- force push
+
+trừ khi tôi yêu cầu rõ ràng.
+
+Trước khi thực hiện thao tác Git có khả năng làm mất thay đổi:
+- Phải báo cho tôi trước.
+
+Không được tự sửa hoặc xóa các thay đổi chưa commit của tôi.
+
+---
+
+## 5. Data safety
+
+Các thư mục dữ liệu có thể chứa tài liệu nguồn và dữ liệu evaluation quan trọng.
+
+Không được tự ý:
+
+- xóa file trong data/
+- ghi đè PDF nguồn
+- sửa dữ liệu raw
+- sửa ground-truth evaluation
+- sửa expected output chỉ để test pass
+- tạo lại dataset nếu tôi không yêu cầu
+
+Đặc biệt:
+
+data/raw/
+- Xem như dữ liệu gốc, không được chỉnh sửa.
+
+data/interim/
+- Là dữ liệu trung gian.
+
+data/cleaned/
+- Là dữ liệu đã làm sạch để indexing/chunking.
+- Không tự thay đổi nội dung hàng loạt nếu task không liên quan.
+
+evaluation/
+- Không thay đổi ground truth để cải thiện metric giả tạo.
+
+---
+
+## 6. RAG pipeline
+
+Khi phân tích project, hãy xác minh implementation thực tế trong source code.
+
+Pipeline dự kiến có dạng:
+
+User Query
+→ Query Processing / Query Rewriting
+→ Retrieval
+→ Dense Retrieval + BM25
+→ Reciprocal Rank Fusion (RRF)
+→ Candidate Documents
+→ Reranker
+→ Top-K Context
+→ LLM Generation
+→ Answer + Citation
+
+Không được giả định pipeline này hoàn toàn đúng nếu source code hiện tại khác.
+
+Khi thay đổi một stage:
+- Kiểm tra ảnh hưởng đến các stage sau.
+- Không làm thay đổi format dữ liệu giữa các stage nếu không cần thiết.
+- Nếu phải thay đổi interface, báo rõ những module bị ảnh hưởng.
+
+---
+
+## 7. Retrieval
+
+Khi làm việc với retrieval:
+
+- Phân biệt rõ Dense Retrieval và BM25.
+- Không thay thế hybrid retrieval bằng dense-only hoặc BM25-only nếu tôi không yêu cầu.
+- Kiểm tra cách normalize score trước khi kết luận ranking có lỗi.
+- Kiểm tra RRF implementation và rank indexing.
+- Kiểm tra duplicate documents/chunks.
+- Kiểm tra top_k ở từng stage.
+- Không hard-code parameter nếu project đã có config.
+
+Ưu tiên configuration-driven design.
+
+Ví dụ các parameter nên nằm ở config nếu project hiện tại hỗ trợ:
+
+- dense_top_k
+- bm25_top_k
+- rrf_k
+- retrieval_top_k
+- reranker_top_k
+- final_top_k
+
+---
+
+## 8. Reranking
+
+Khi sửa reranker:
+
+- Giữ input/output interface tương thích với retrieval pipeline.
+- Không load model lại cho mỗi query nếu có thể tránh.
+- Chú ý CPU/GPU device.
+- Chú ý memory usage.
+- Chú ý batch size.
+- Không tự đổi reranker model nếu tôi chưa yêu cầu.
+
+---
+
+## 9. LLM / Query Rewriting / Generation
+
+Không hard-code model name nếu project đã sử dụng config hoặc environment variables.
+
+Khi làm việc với model:
+
+- Xem config hiện tại trước.
+- Giữ khả năng thay model nếu kiến trúc hiện tại cho phép.
+- Không tự download model lớn nếu chưa hỏi tôi.
+- Không thay đổi provider hoặc API nếu tôi chưa yêu cầu.
+- Không đưa API key vào source code.
+
+Secrets phải lấy từ:
+- environment variables
+- .env
+- secret manager phù hợp
+
+Không bao giờ commit API key.
+
+---
+
+## 10. Chunking và preprocessing
+
+Đây là tài liệu y khoa tiếng Việt nên phải cẩn thận khi cleaning/chunking.
+
+Ưu tiên giữ:
+
+- dấu tiếng Việt
+- heading
+- section hierarchy
+- bullet list
+- numbering
+- bảng nếu có ý nghĩa
+- thuật ngữ y khoa
+- đơn vị
+- liều lượng
+- tuần thai
+- mốc thời gian
+
+Không tự lowercase toàn bộ dữ liệu nếu chưa xác minh ảnh hưởng.
+
+Không xóa nội dung chỉ vì regex cho rằng nó là noise nếu chưa kiểm tra.
+
+Nếu sửa cleaner hoặc chunker:
+- Phải kiểm tra sample trước và sau.
+- Tránh mất thông tin y khoa.
+- Giữ metadata cần thiết cho citation và retrieval.
+
+---
+
+## 11. Medical domain safety
+
+Đây là hệ thống liên quan đến thông tin y tế.
+
+Không được làm thay đổi dữ liệu hoặc prompt theo cách:
+- làm mất cảnh báo y khoa quan trọng
+- làm sai liều lượng
+- làm sai tuần thai
+- làm sai chỉ định/chống chỉ định
+- làm mất citation
+- khiến model ưu tiên suy đoán hơn tài liệu nguồn
+
+Khi code xử lý dữ liệu y khoa:
+- Ưu tiên bảo toàn nội dung hơn tối ưu độ ngắn.
+
+---
+
+## 12. Evaluation
+
+Khi chạy evaluation:
+
+- Không chỉnh ground truth để metric tăng.
+- Không chọn lọc bỏ sample thất bại nếu chưa giải thích.
+- Không thay đổi metric definition giữa các lần chạy nếu đang so sánh model/config.
+- Ghi rõ config được sử dụng.
+
+Nếu so sánh nhiều model/config:
+- Chỉ thay một nhóm biến có chủ đích.
+- Cố gắng giữ dataset và metric giống nhau.
+
+Các metric có thể bao gồm tùy implementation:
+- Recall@K
+- Precision@K
+- MRR
+- NDCG
+- Hit Rate
+- latency
+- memory usage
+
+Không giả định project có tất cả metric trên; hãy kiểm tra code.
+
+---
+
+## 13. Dependencies
+
+Trước khi thêm package mới:
+
+1. Kiểm tra project đã có dependency tương đương chưa.
+2. Kiểm tra requirements.txt / pyproject.toml.
+3. Chỉ thêm dependency khi thật sự cần thiết.
+
+Không tự:
+- upgrade toàn bộ dependencies
+- đổi Python version
+- đổi CUDA version
+- đổi PyTorch version
+
+nếu task không yêu cầu.
+
+---
+
+## 14. Python coding rules
+
+- Tuân theo style hiện tại của project.
+- Ưu tiên code đơn giản, dễ đọc.
+- Dùng type hints nếu phù hợp với codebase.
+- Không tạo abstraction không cần thiết.
+- Không duplicate logic nếu đã có utility dùng được.
+- Xử lý exception có chủ đích.
+- Không dùng bare `except:` nếu không cần thiết.
+- Không swallow exception mà không log.
+- Không hard-code absolute path của máy tôi.
+
+Ưu tiên dùng:
+- pathlib.Path
+- config
+- environment variables
+
+cho filesystem path.
+
+Project phải có khả năng chạy ngoài máy hiện tại nếu thiết kế hiện tại hướng đến portability.
+
+---
+
+## 15. Windows compatibility
+
+Máy phát triển chính sử dụng Windows.
+
+Khi viết command:
+- Ưu tiên command tương thích PowerShell nếu đang hướng dẫn tôi chạy.
+- Tránh giả định shell là bash.
+- Không hard-code path kiểu Linux nếu project không yêu cầu.
+
+Trong Python:
+- Dùng pathlib thay vì tự nối path bằng "/" hoặc "\".
+
+---
+
+## 16. Testing
+
+Sau khi sửa code:
+
+1. Chạy test liên quan trước.
+2. Nếu phù hợp, chạy test suite rộng hơn.
+3. Nếu test fail, tìm root cause.
+4. Không sửa test chỉ để test pass nếu behavior của source code đang sai.
+
+Nếu không thể chạy test:
+- Nói rõ lý do.
+- Không báo rằng task đã được verify.
+
+---
+
+## 17. Commands
+
+Trước khi chạy command có thể:
+
+- xóa file
+- ghi đè dữ liệu
+- cài package lớn
+- download model lớn
+- thay đổi database
+- thay đổi Git history
+
+hãy hỏi tôi trước.
+
+Các command read-only hoặc an toàn như:
+- đọc file
+- tìm kiếm source code
+- git status
+- git diff
+- chạy test thông thường
+
+có thể thực hiện khi cần cho task.
+
+---
+
+## 18. Khi gặp lỗi
+
+Không sửa mò.
+
+Thực hiện theo thứ tự:
+
+1. Đọc error/traceback đầy đủ.
+2. Xác định file và line gây lỗi.
+3. Kiểm tra code liên quan.
+4. Xác định root cause.
+5. Đề xuất/sửa giải pháp nhỏ nhất.
+6. Chạy lại command/test.
+7. Báo kết quả.
+
+Không che lỗi bằng try/except nếu nguyên nhân thật sự chưa được xử lý.
+
+---
+
+## 19. Sau mỗi task code
+
+Sau khi hoàn thành thay đổi, hãy báo:
+
+### Files changed
+Liệt kê file đã sửa.
+
+### What changed
+Tóm tắt thay đổi.
+
+### Why
+Giải thích lý do.
+
+### Verification
+Cho biết test/command đã chạy và kết quả.
+
+### Remaining issues
+Nêu vấn đề còn lại nếu có.
+
+Không cần in toàn bộ source code nếu tôi không yêu cầu.
+
+---
+
+## 20. Khi tôi chỉ yêu cầu phân tích
+
+Nếu tôi nói:
+
+- analyze
+- review
+- inspect
+- kiểm tra
+- đọc project
+- đánh giá
+
+thì mặc định:
+
+KHÔNG ĐƯỢC SỬA FILE.
+
+Chỉ đọc và báo cáo.
+
+Chỉ sửa khi tôi dùng các yêu cầu rõ ràng như:
+- implement
+- fix
+- sửa
+- cập nhật
+- refactor
+- thay đổi
+
+hoặc tôi xác nhận cho phép sửa.
+
+---
+
+## 21. Ưu tiên sử dụng code hiện tại
+
+Trước khi tạo:
+- file mới
+- helper mới
+- service mới
+- abstraction mới
+
+hãy tìm xem project đã có implementation tương tự chưa.
+
+Ưu tiên mở rộng implementation hiện tại hơn là tạo hệ thống song song.
+
+---
+
+## 22. Không giả định
+
+Nếu thông tin có thể được xác minh từ repository:
+- hãy đọc repository.
+
+Không đoán:
+- command chạy project
+- model hiện tại
+- database hiện tại
+- embedding model
+- reranker model
+- port
+- environment variable
+- file path
+- test command
+
+Hãy đọc README/config/source code để xác nhận trước.
